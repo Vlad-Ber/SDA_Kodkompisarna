@@ -1,0 +1,16 @@
+body{
+	font-family: "Times New Roman", Times, serif;
+	color: #123123;
+	
+}
+
+
+#work_space{
+	margin-left: 37%;
+	margin-top: 1.2%;
+	width: 315px;
+	height: 560px;
+	background-color:#FFFFFF;
+	border-style:dotted;
+	position: absolute;
+}	
