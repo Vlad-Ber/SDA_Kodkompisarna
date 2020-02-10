@@ -14,3 +14,17 @@ body{
 	border-style:dotted;
 	position: absolute;
 }	
+
+
+
+@media screen and (max-width: 980px) {	
+	#work_space{
+		margin-left: 15%;
+		margin-top: 1.2%;
+		width: 315px;
+		height: 560px;
+		background-color:#FFFF12;
+		border-style:dotted;
+		position: absolute;
+	}	
+}
