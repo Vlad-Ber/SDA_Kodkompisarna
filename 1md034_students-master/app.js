@@ -26,6 +26,10 @@ app.get('/', function(req, res) {
 app.get('/map', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/map.html'));
 });
+app.get('/reg', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/reg.html'));
+});
+
 // Serve dispatcher.html as /dispatcher
 app.get('/dispatcher', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/dispatcher.html'));
@@ -66,6 +70,6 @@ io.on('connection', function(socket) {
 });
 
 /* eslint-disable-next-line no-unused-vars */
-const server = http.listen(app.get('port'), function() {
+const server = http.listen(80,'130.242.99.191', function() {
   console.log('Server listening on port ' + app.get('port'));
 });
