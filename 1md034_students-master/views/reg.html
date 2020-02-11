@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrera</title>
+    <link rel="stylesheet" href="css/deli-very.css">
+    <script src="/vue/vue.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="js/deli-very.js" defer></script>
+  </head>
+  <body>
+    <h1>REGISTRERA</h1>
+    <form>
+      <p>
+	<label for="email"></label><br>
+	<input v-model="email" type ="text" id = "email" name = "email" required= "required" placeholder = "email" />
+      </p>
+      <p>
+	<label for="password"></label><br>
+	<input v-model="password" type ="text" id = "password" name = "password" required= "required" placeholder = "lösen" />
+      </p>
+      <p>
+	<label for="namn"></label><br>
+	<input v-model="namn" type ="text" id = "namn" name = "namn" required= "required" placeholder = "namn" />
+      </p>
+      <button v-on:click="register()" id="loginKnapp" type = "button" class ="button" >Hitta Kärleken</button>
+      <form>
+  </body>
+</html>
