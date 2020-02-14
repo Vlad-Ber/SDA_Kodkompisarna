@@ -42,6 +42,14 @@ app.get('/dispatcher', function(req, res) {
 app.get('/loggedIn', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/loggedIn.html'));
 });
+app.get('/profile', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/profile.html'));
+});
+app.get('/messages', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/messages.html'));
+});
+
+
 
 app.get('/yourMatches', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/yourMatches.html'));

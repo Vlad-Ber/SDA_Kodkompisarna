@@ -1,20 +1,26 @@
 <!DOCTYPE html> 
 <html lang="en">
-<head>
-
-</head>
-<body>
-
-<div id="work_space">
-	<img id="User_Pic" src="images\user.png" alt="User profile"/>	
-	<img id="Message_Pic" src="images\message.png" alt="Messages"/>
-</div>
-
-
-
-
-
-</body>
+  <head>
+    <title>loggedIn</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/loggedIn.css">
+    <script>
+      function userPage() {
+      window.open("/profile");
+      }
+      function messagePage() {
+      window.open("/messages");
+      }
+      function match() {
+      window.open("/yourMatches");
+      }
+    </script>
+  </head>
+  <body id = "work_space">
+    <button id="user_button" class="closing" onclick="userPage()"><img id ="User_Pic" src="img\user.png"/></button>  <button id="message_button" class="closing" onclick="messagePage()"><img id ="Message_Pic" src="img\message.png"/></button>
+    <button id="match" class="closing" onclick="match()">HITTA TRÄFF!</button>
+  </body>
 </html>
 <main>
 </main>

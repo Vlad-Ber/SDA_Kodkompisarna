@@ -15,15 +15,14 @@ body{
 }	
 
 #User_Pic{
-	width:15%;
-	margin: 5%;
+	width: 60%;
+	margin-top: 10%;
 }
 
+
 #Message_Pic{
-	width:15%;
-	margin-left:55%;
-	margin-top:5%;
-	position: absolute;
+    width:60%;
+    margin-top: 10%;
 }
 
 

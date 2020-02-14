@@ -4,6 +4,11 @@
     <title>SPEEDDATING</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+     <script>
+      function openLogin() {
+      window.open("/loggedIn");
+      }
+    </script>
   </head>
   <body>
     <div id ="work_space">
@@ -17,7 +22,7 @@
 	<label for="password"></label><br>
 	<input v-model="password" type ="text" id = "password" name = "password" required= "required" placeholder = "lösen" />
       </p>
-      <button v-on:click="register()" id="loginKnapp" type = "button" class ="button" >LOGGA IN</button>
+      <button onclick="openLogin()" id="loginKnapp" type = "button" class ="button" >LOGGA IN</button>
       <form>
 	<p>
           <a href="reg">Registrera</a>
