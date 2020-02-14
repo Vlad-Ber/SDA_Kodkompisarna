@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>DELI-VERY</title>
-    </head>
-    <body>
-      <h1>Login</h1>
+  <head>
+    <link rel="stylesheet" type="text/css" href= "css/test.css">
+    <title>DELI-VERY</title>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form>
+      <p>
+	<label for="email"></label><br>
+	<input v-model="email" type ="text" id = "email" name = "email" required= "required" placeholder = "email" />
+      </p>
+      <p>
+	<label for="password"></label><br>
+	<input v-model="password" type ="text" id = "password" name = "password" required= "required" placeholder = "lösen" />
+      </p>
+      <button v-on:click="register()" id="loginKnapp" type = "button" class ="button" >LOGGA IN</button>
       <form>
 	<p>
-	  <label for="email"></label><br>
-	  <input v-model="email" type ="text" id = "email" name = "email" required= "required" placeholder = "email" />
+          <a href="reg">Registrera</a>
 	</p>
-	<p>
-	  <label for="password"></label><br>
-	  <input v-model="password" type ="text" id = "password" name = "password" required= "required" placeholder = "lösen" />
-	</p>
-	<button v-on:click="register()" id="loginKnapp" type = "button" class ="button" >LOGGA IN</button>
-	<form>
-	  <p>
-            <a href="reg" target="_blank">Registrera</a>
-	  </p>
-    </body>
+  </body>
 </html>

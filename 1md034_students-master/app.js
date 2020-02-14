@@ -70,6 +70,6 @@ io.on('connection', function(socket) {
 });
 
 /* eslint-disable-next-line no-unused-vars */
-const server = http.listen(80,'130.242.99.191', function() {
+const server = http.listen(3000, function() {
   console.log('Server listening on port ' + app.get('port'));
 });

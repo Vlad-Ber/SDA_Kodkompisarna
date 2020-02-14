@@ -1,7 +1,6 @@
 body{
-	font-family: "Times New Roman", Times, serif;
-	color: #123123;
-	
+    font-family: arial;
+    color: #123123;
 }
 
 
@@ -69,10 +68,7 @@ body{
     
     
 }
-
-}	
-
-
+}
 
 @media screen and (max-width: 980px) {	
 	#work_space{
