@@ -121,8 +121,8 @@ let users = [
 		"pic": "https://image.shutterstock.com/image-photo/smilling-attractive-middle-aged-woman-600w-411325876.jpg"
 	},
 	{
-		"name": "",
-		"age": ,
+		"name": "Ylva",
+		"age": 23,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
 		"pic": "https://image.shutterstock.com/image-photo/smilling-attractive-middle-aged-woman-600w-411325876.jpg"
