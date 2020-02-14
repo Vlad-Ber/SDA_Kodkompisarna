@@ -3,7 +3,6 @@ body{
     color: #123123;
 }
 
-
 #work_space{
 	margin-left: 37%;
 	margin-top: 1.2%;
@@ -12,6 +11,7 @@ body{
 	background-color:#FFFFFF;
 	border-style:dotted;
 	position: absolute;
+	padding: 10px;
 }	
 
 #User_Pic{
@@ -104,8 +104,3 @@ body{
 	
 	}
 }
-
-
-	
-
-
