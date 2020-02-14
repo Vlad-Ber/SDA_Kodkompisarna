@@ -30,11 +30,22 @@ app.get('/reg', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/reg.html'));
 });
 
+app.get('/dejt', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/dejt.html'));
+});
+
 // Serve dispatcher.html as /dispatcher
 app.get('/dispatcher', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/dispatcher.html'));
 });
 
+app.get('/loggedIn', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/loggedIn.html'));
+});
+
+app.get('/yourMatches', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/yourMatches.html'));
+});
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
