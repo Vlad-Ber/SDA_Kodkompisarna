@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="admin.css">
+</head>
+<body>
+	<header class="adminHeader">
+		<div id=adminHeaderLeft>Admin</div>
+		<div id="adminHeaderRight">Logga ut</div>
+	</header>
+	<main>
+		<div class="gridContainer">
+			<div class="status"> Status: {{ statusInformation }} </div>
+			<div class="code"> {{ codeInformation }} </div>
+			<div class="participants"> {{ participantsInformation }} //När alla joinat: {{ firstProfileInformation }}</div>
+			<div class="matches"> {{ matchesInformation }} </div>
+			<div class="secondProfile"> {{ profileInformation }} </div>
+			<div class="secondProfile"> {{ secondProfileInformation }} </div>
+		</div>
+	</main>
+	<footer class="adminFooter">
+		Kodkompisarna&copy;
+	</footer>
+</body>
+</html>

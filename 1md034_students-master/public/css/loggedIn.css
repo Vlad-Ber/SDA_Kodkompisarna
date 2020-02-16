@@ -1,0 +1,17 @@
+#user_button{
+    background-color: Transparent;
+    width: 30%;
+    height: 10%;
+    border: none;
+    cursor: pointer;
+}
+
+#message_button{
+    background-color: Transparent;
+    width: 30%;
+    height: 10%;
+    margin-left: 38%;
+    border: none;
+    cursor: pointer;
+}
+
