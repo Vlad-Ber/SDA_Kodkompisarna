@@ -64,7 +64,7 @@ body{
   grid-row: 5 / 7;
   border: 2px solid yellowgreen;
 }
-.secondProfile {
+.thirdProfile {
   grid-column: 3 / 5;
   grid-row: 5 / 7;
   border: 2px solid slateblue;
