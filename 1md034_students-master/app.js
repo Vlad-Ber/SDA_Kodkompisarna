@@ -51,9 +51,21 @@ app.get('/messages', function(req, res) {
 
 
 
+
+app.get('/rateyourdate', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/rateyourdate.html'));
+});
+
+app.get('/meetAgain', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/meetAgain.html'));
+});
+
 app.get('/yourMatches', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/yourMatches.html'));
 });
+
+
+
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
