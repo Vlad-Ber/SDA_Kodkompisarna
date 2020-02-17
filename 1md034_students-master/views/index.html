@@ -6,7 +6,12 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
      <script>
       function openLogin() {
-      window.open("/loggedIn");
+        if (email.value == "admin") {
+          window.open("/admin");
+        }
+        else {
+          window.open("/loggedIn");
+        }
       }
     </script>
   </head>
@@ -16,7 +21,7 @@
     <form>
       <p>
 	<label for="email"></label><br>
-	<input v-model="email" type ="text" id = "email" name = "email" required= "required" placeholder = "email" />
+	<input v-model="email" type ="text" id = "email" name = "email" required= "required" placeholder = "email"/>
       </p>
       <p>
 	<label for="password"></label><br>

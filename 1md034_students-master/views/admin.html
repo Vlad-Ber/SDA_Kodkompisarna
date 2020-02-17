@@ -2,25 +2,24 @@
 <html lang="en">
 
 <head>
-	<link rel="stylesheet" type="text/css" href="admin.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="utf-8" />
+	<title>ADMIN</title>
 </head>
 <body>
 	<header class="adminHeader">
 		<div id=adminHeaderLeft>Admin</div>
-		<div id="adminHeaderRight">Logga ut</div>
+		<div id="adminHeaderRight"><a href="/">Logga ut</a></div>
 	</header>
 	<main>
-		<div class="gridContainer">
-			<div class="status"> Status: {{ statusInformation }} </div>
-			<div class="code"> {{ codeInformation }} </div>
-			<div class="participants"> {{ participantsInformation }} //När alla joinat: {{ firstProfileInformation }}</div>
-			<div class="matches"> {{ matchesInformation }} </div>
-			<div class="secondProfile"> {{ secondProfileInformation }} </div>
-			<div class="thirdProfile"> {{ thirdProfileInformation }} </div>
+		<div class="adminGridContainer">
+			<div class="adminStatus"> Status: {{ statusInformation }} </div>
+			<div class="adminCode"> {{ codeInformation }} </div>
+			<div class="adminParticipants"> {{ participantsInformation }} //När alla joinat: {{ firstProfileInformation }}</div>
+			<div class="adminMatches"> {{ matchesInformation }} </div> <!--TODO: Ladda in profiler från dummy_users.js-->
+			<div class="adminSecondProfile"> {{ secondProfileInformation }} </div>
+			<div class="adminThirdProfile"> {{ thirdProfileInformation }} </div>
 		</div>
 	</main>
-	<footer class="adminFooter">
-		Kodkompisarna&copy;
-	</footer>
 </body>
 </html>
