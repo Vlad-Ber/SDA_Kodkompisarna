@@ -34,6 +34,10 @@ app.get('/dejt', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/dejt.html'));
 });
 
+app.get('/admin', function (req, res) {
+  res.sendFile(path.join(__dirname, 'views/admin.html'));
+});
+
 // Serve dispatcher.html as /dispatcher
 app.get('/dispatcher', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/dispatcher.html'));
