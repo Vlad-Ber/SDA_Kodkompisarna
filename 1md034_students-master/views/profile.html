@@ -1,14 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Profile</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div id ="work_space">
-  <h1> Your Profile </h1>
-  </div>
-</body>
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <title>Profile</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="profile.css"> 
+	<script src="profile.js" defer></script>
+	<script src="https://vuejs.org/js/vue.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
+  </head>
+  <body id = "work_space">
+	<h1>Din Profil</h1>
+	<div id = "Profile">
+		<img :src = "img_url" id = "profile_pic" width = "200"/>
+		<p id = "name_age">
+			{{name}} {{age}} {{gender}}
+		<p>
+			{{description}}
+		</p>
+	</div>
+	<div id = "editing">
+		<button id = "save" class="closing">Spara</button>
+	</div> 
+		<button id = "edit" class="closing">Redigera profil</button>
+	<script defer>
+		$("#editing").hide();
+		$("#edit" ).click(function(){
+			$("#editing" ).slideToggle("fast");
+		});
+		$("#save" ).click(function(){
+			$("#editing" ).slideToggle("fast");
+		});
+	</script>
+	
+  </body>
 </html>
+<main>
+</main>

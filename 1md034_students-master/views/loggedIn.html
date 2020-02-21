@@ -1,25 +1,35 @@
 <!DOCTYPE html> 
 <html lang="en">
   <head>
-    <title>loggedIn</title>
+    <title>Logged In</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/loggedIn.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="loggedIn.css">  
     <script>
       function userPage() {
-      window.open("/profile");
+      window.open("profile.html");
       }
       function messagePage() {
-      window.open("/messages");
+      window.open("messages.html");
       }
       function match() {
-      window.open("/yourMatches");
+      window.open("match");
       }
+	  function date() {
+		window.open("dates.html");
+	  }
     </script>
   </head>
   <body id = "work_space">
-    <button id="user_button" class="closing" onclick="userPage()"><img id ="User_Pic" src="img\user.png"/></button>  <button id="message_button" class="closing" onclick="messagePage()"><img id ="Message_Pic" src="img\message.png"/></button>
-    <button id="match" class="closing" onclick="match()">HITTA TRÄFF!</button>
+    <button id="user_button" class="closing" onclick="userPage()"><img id ="User_Pic" src="img\user.png"/></button>  
+	<button id="message_button" class="closing" onclick="messagePage()"><img id ="Message_Pic" src="img\message.png"/></button>
+	<br>
+	<br>
+	<br>
+	<h1> Börja Dejta! </h1>	
+	<input type="text" id="Traff_ID" name="ID" required="required" placeholder="Träff-ID"/>
+	<button id="heart_button" class="closing" onclick="match()"><img id = "Heart_Pic" src = "img\heart.png"/></button> 
+    <button id="match" class="closing" onclick="date()">HITTA TRÄFF!</button>
   </body>
 </html>
 <main>

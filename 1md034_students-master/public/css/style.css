@@ -8,21 +8,14 @@ body{
 	margin-top: 1.2%;
 	width: 315px;
 	height: 560px;
-	background-color:#FFFFFF;
+	background-color:#ffffff;
 	border-style:dotted;
 	position: absolute;
 	padding: 10px;
 }	
 
-#User_Pic{
-	width: 60%;
-	margin-top: 10%;
-}
-
-
-#Message_Pic{
-    width:60%;
-    margin-top: 10%;
+h1{
+	text-align: center;
 }
 
 
