@@ -30,8 +30,37 @@
 	<label for="namn"></label><br>
 	<input v-model="namn" type ="text" id = "namn" name = "namn" required= "required" placeholder = "namn" />
       </p>
+
+      <p>
+	<label for="personal number"></label><br>
+	<input v-model="personal number" type ="numbers" id = "personal number" name = "personal number" required= "required" placeholder = "personal number" />
+  -
+  <input v-model="last four" type ="numbers" id = "last four" name = "last four" required= "required" placeholder = "last four" />
+      </p>
+
+       <label  for="Gender">Gender</label><br />
+
+          <input v-model="gender" type="radio" id="male" name="gender" value="Male" required="required" placeholder="gender">
+          Male<br />
+          
+          
+          <input v-model="gender" type="radio" id="female" name="gender"  value="Female" required="required" placeholder="gender">
+          Female<br />
+          
+      <p>
+        <input   name="Terms of use" type="checkbox" required="required">Terms of use
+                                 
+      </p>
+           <p>
+        <input required name="Privacy Policy" type="checkbox" required="required">Privacy policy
+                                 
+           </p>
+                <p>
+        <input name="Nyhetsbrev" type="checkbox">Jag vill ha erbjudanden och nyhetsbrev!
+                                 
+        </p>
       <button onclick="openLogin()" id="loginKnapp" type = "button" class ="button"  >Hitta Kärleken</button>
-      <form>
+      </form>
     </div>
   </body>
 </html>

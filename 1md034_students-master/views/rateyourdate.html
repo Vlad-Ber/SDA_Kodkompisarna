@@ -2,9 +2,18 @@
 <html lang="en">
 
 <head>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    function rateYourDate(){
+        window.open("/meetAgain");
+    }
+    </script>
+
 	<title>Rate Your Date</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
 </head>
 
 <body id="work_space">
@@ -34,6 +43,8 @@
 		</div>
 	</section>
 
+  <button onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
+
 	<script>
 		var conversationSlider = document.getElementById("conversationRange");
 		var conversationOutput = document.getElementById("conversationRangeValue");
@@ -59,5 +70,6 @@
 			matchOutput.innerHTML = this.value;
 		}
 	</script>
+
 </body>
 </html>

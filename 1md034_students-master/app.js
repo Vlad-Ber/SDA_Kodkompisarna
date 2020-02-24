@@ -29,11 +29,6 @@ app.get('/map', function(req, res) {
 app.get('/reg', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/reg.html'));
 });
-
-app.get('/rateyourdate', function(req, res) {
-  res.sendFile(path.join(__dirname, 'views/rateyourdate.html'));
-});
-
 app.get('/dejt', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/dejt.html'));
 });
@@ -61,13 +56,15 @@ app.get('/date', function(req, res) {
 app.get('/match', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/rateyourdate.html'));
 });
-
-
-
-
+app.get('/meetAgain', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/meetAgain.html'));
+});
 app.get('/yourMatches', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/yourMatches.html'));
 });
+
+
+
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
