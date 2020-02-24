@@ -30,6 +30,10 @@ app.get('/reg', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/reg.html'));
 });
 
+app.get('/rateyourdate', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/rateyourdate.html'));
+});
+
 app.get('/dejt', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/dejt.html'));
 });

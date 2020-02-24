@@ -68,9 +68,8 @@ h1{
 .matchThreeDesc {
     grid-column: 2;
     grid-row: 3;
-    text-align: left;
-    
-    
+	text-align: left;
+	
 }
 
 @media screen and (max-height: 560px) {	
@@ -95,4 +94,21 @@ h1{
 		}	
 	
 	}
+}
+
+#match_pic {
+	text-align: center;
+}
+
+#profile_name {
+	text-align: center;
+}
+
+.slider {
+	width: 80%;
+}
+
+.sliderValue {
+	text-align: top;
+	padding-left: 30px;
 }
