@@ -30,6 +30,10 @@ app.get('/reg', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/reg.html'));
 });
 
+app.get('/rateyourdate', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/rateyourdate.html'));
+});
+
 app.get('/dejt', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/dejt.html'));
 });
@@ -42,7 +46,6 @@ app.get('/admin', function (req, res) {
 app.get('/dispatcher', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/dispatcher.html'));
 });
-
 app.get('/loggedIn', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/loggedIn.html'));
 });
@@ -52,6 +55,11 @@ app.get('/profile', function(req, res) {
 app.get('/messages', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/messages.html'));
 });
+app.get('/date', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/dates.html'));
+});
+
+
 
 
 
