@@ -2,31 +2,74 @@
 <html lang="en">
 
 <head>
+
 	<link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    function rateYourDate(){
+        window.open("/meetAgain");
+    }
+    </script>
+
+	<title>Rate Your Date</title>
+	<meta charset="utf-8" />
+
+
 </head>
 
-<body>
+<body id="work_space">
 	<section id="profile">
-		<div id="profile_pic"> <!--TODO: Hämta profilbild från profilen.-->
-			<img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="250px">
+		<div id="match_pic"> <!--TODO: Hämta profilbild från profilen.-->
+			<img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="200px">
 		</div>
-		<div id="profile_Name"> <!--TODO: Hämta namnet från profilen.-->
+		<div id="profile_name"> <!--TODO: Hämta namnet från profilen.-->
 			<p>Sven Svensson</p>
 		</div>
 	</section>
 	<section id="rating">
 		<div class="slider">
 			Konversation<br>
-			<input type="range" min="1" max="10" value="5" class="slider" id="slider1">
+			<input id="conversationRange" type="range" min="1" max="10" value="5" class="slider">
+			<span id="conversationRangeValue" class="sliderValue"></span>
 		</div>
 		<div class="slider">
 			Intressen<br>
-			<input type="range" min="1" max="10" value="5" class="slider" id="slider1">
+			<input id="interestRange" type="range" min="1" max="10" value="5" class="slider">
+			<span id="interestRangeValue" class="sliderValue"></span>
 		</div>
 		<div class="slider">
 			Hur bra var matchningen?<br>
-			<input type="range" min="1" max="10" value="5" class="slider" id="slider1">
+			<input id="matchRange" type="range" min="1" max="10" value="5" class="slider">
+			<span id="matchRangeValue" class="sliderValue"></span>
 		</div>
 	</section>
+
+  <button onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
+
+	<script>
+		var conversationSlider = document.getElementById("conversationRange");
+		var conversationOutput = document.getElementById("conversationRangeValue");
+		conversationOutput.innerHTML = conversationSlider.value;
+
+		conversationSlider.oninput = function () {
+			conversationOutput.innerHTML = this.value;
+		}
+
+		var interestSlider = document.getElementById("interestRange");
+		var interestOutput = document.getElementById("interestRangeValue");
+		interestOutput.innerHTML = interestSlider.value;
+
+		interestSlider.oninput = function () {
+			interestOutput.innerHTML = this.value;
+		}
+
+		var matchSlider = document.getElementById("matchRange");
+		var matchOutput = document.getElementById("matchRangeValue");
+		matchOutput.innerHTML = matchSlider.value;
+
+		matchSlider.oninput = function () {
+			matchOutput.innerHTML = this.value;
+		}
+	</script>
+
 </body>
 </html>

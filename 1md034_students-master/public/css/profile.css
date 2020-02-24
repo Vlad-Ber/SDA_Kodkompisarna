@@ -1,0 +1,55 @@
+#profile_pic{
+	border-radius: 50%;
+	margin-left: 18%;
+}
+
+label{
+	font-weight: bold;
+	font-size: 3.5vh;
+}
+
+p{
+	text-align: center; 
+}
+
+#name_age{
+	font-weight: bold;
+}
+
+#edit{
+	width: 50%;
+	height: 8%;
+	margin-left: 25%;
+	margin-top: 10%;
+	font-size: 3vh;
+	font-weight: bold;
+	
+}
+
+#save{
+	width: 50%;
+	height: 8%;
+	margin-left: 25%;
+	margin-top: 10%;
+	font-size: 3vh;
+	font-weight: bold;
+}
+
+
+#editing{
+	position: absolute;
+	margin-left:-0.7%;
+	width: 94%;
+	height:80%;
+	background-color:#ffcccc;
+	border-radius: 10%;
+	border-style: solid;
+	border-color:#ff6666;
+	
+
+}
+
+#picture_change{
+	margin: 10%;
+	height: 50%;
+}

@@ -1,23 +1,20 @@
 body{
-    font-family: arial;
-    color: #123123;
+	font-family: "Times New Roman", Times, serif;
+	color: #123123;
+	
 }
+
 
 #work_space{
 	margin-left: 37%;
 	margin-top: 1.2%;
 	width: 315px;
 	height: 560px;
-	background-color:#ffffff;
+	background-color:#FFFFFF;
 	border-style:dotted;
 	position: absolute;
-	padding: 10px;
-}	
 
-h1{
-	text-align: center;
 }
-
 
 .wrapper{
     display: grid;
@@ -68,47 +65,24 @@ h1{
 .matchThreeDesc {
     grid-column: 2;
     grid-row: 3;
-	text-align: left;
-	
+    text-align: left;
+    
+    
 }
 
-@media screen and (max-height: 560px) {	
+}	
+
+
+
+@media screen and (max-width: 980px) {	
 	#work_space{
-		margin-left: 30%;
+		margin-left: 15%;
 		margin-top: 1.2%;
-		width: 283.5px;
-		height: 504px;	
+		width: 315px;
+		height: 560px;
+		background-color:#FFFF12;
 		border-style:dotted;
 		position: absolute;
 	}	
-	
-	@media screen and (max-width: 325px) {
-		#work_space{
-			margin-left: 0%;
-			margin-top: 0%;
-			width: 100%;
-			height: 100%;
-			background-color:#FFFF12;
-			border-style:dotted;
-			position: absolute;
-		}	
-	
-	}
 }
 
-#match_pic {
-	text-align: center;
-}
-
-#profile_name {
-	text-align: center;
-}
-
-.slider {
-	width: 80%;
-}
-
-.sliderValue {
-	text-align: top;
-	padding-left: 30px;
-}
