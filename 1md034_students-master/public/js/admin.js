@@ -1,4 +1,4 @@
-for(var i = 0; i<10; i++){
+for(var i = 0; i<20; i++){
    let id = document.getElementById("sec"+i);
     // NAME
     let name = document.createElement('h4');
@@ -25,8 +25,8 @@ for(var i = 0; i<10; i++){
     idPic.className = "column";
     let img = document.createElement('IMG');
     img.src = users[i].pic;
-    img.width = 200;
-    img.height = 190;
+    img.width = 100;
+    img.height = 68;
     idPic.appendChild(img);
 };
 
