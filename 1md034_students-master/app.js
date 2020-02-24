@@ -58,7 +58,9 @@ app.get('/messages', function(req, res) {
 app.get('/date', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/dates.html'));
 });
-
+app.get('/match', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/rateyourdate.html'));
+});
 
 
 
