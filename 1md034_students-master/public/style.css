@@ -1,0 +1,88 @@
+body{
+	font-family: "Times New Roman", Times, serif;
+	color: #123123;
+	
+}
+
+
+#work_space{
+	margin-left: 37%;
+	margin-top: 1.2%;
+	width: 315px;
+	height: 560px;
+	background-color:#FFFFFF;
+	border-style:dotted;
+	position: absolute;
+
+}
+
+.wrapper{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 150px 150px;
+    background-color: black;
+    color: #fff;
+}
+.matches{
+
+    text-align: center;
+    color: red;
+}
+
+.matchOneImg{
+    grid-column: 1;
+    grid-row: 1;
+    
+}
+
+.matchOneDesc {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+    
+}
+
+.matchTwoImg{
+    grid-column: 1;
+    grid-row: 2;
+    
+}
+
+.matchTwoDesc {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+    
+    
+}
+
+.matchThreeImg{
+    grid-column: 1;
+    grid-row: 3;
+    
+}
+
+.matchThreeDesc {
+    grid-column: 2;
+    grid-row: 3;
+    text-align: left;
+    
+    
+}
+
+}	
+
+
+
+@media screen and (max-width: 980px) {	
+	#work_space{
+		margin-left: 15%;
+		margin-top: 1.2%;
+		width: 315px;
+		height: 560px;
+		background-color:#FFFF12;
+		border-style:dotted;
+		position: absolute;
+	}	
+}
+
