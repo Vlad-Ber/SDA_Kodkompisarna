@@ -1,14 +1,18 @@
-const vm = new Vue({
-	el: '#Profile',
-	data: {
+new Vue({
+el:'#page',
+data:{
+		seen: false,
 		name: "Pelle Andersson",
 		age: "45",
-		description: "Här är en beskrivning av personen. Editing-delen ska inte påverkas av hur lång denna är.",
+		description: "jag är en man",
 		img_url: 'img/basicUser.jpg',
 		gender: "Man",
-	},
-
-
+}
 });
 
 
+
+
+
+
+	

@@ -3,14 +3,24 @@
   <head>
     <title>Profile</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="profile.css"> 
-	<script src="profile.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/profile.css"> 
+	<script src="js/profile.js" defer></script>
 	<script src="https://vuejs.org/js/vue.js"></script>
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
   </head>
   <body id = "work_space">
 	<h1>Din Profil</h1>
+	<div id = "page"> 
+	<div id = "editing" v-if="seen">
+		<p>	
+			<label for="fullname">Profilbild (URL)</label><br>
+			<input v-model="img_url" type="text" id="picture_change" name="description" required="required"/> <br>
+			
+			<label for="fullname">Beskrivning</label><br>
+			<textarea v-model="description" rows="4" cols="30" id="desc_change" name="description" required="required"></textarea>
+		</p>
+		<button id = "save"  v-on:click="seen = !seen" class="closing">Spara</button>
+	</div>
 	<div id = "Profile">
 		<img :src = "img_url" id = "profile_pic" width = "200"/>
 		<p id = "name_age">
@@ -18,21 +28,9 @@
 		<p>
 			{{description}}
 		</p>
-	</div>
-	<div id = "editing">
-		<button id = "save" class="closing">Spara</button>
 	</div> 
-		<button id = "edit" class="closing">Redigera profil</button>
-	<script defer>
-		$("#editing").hide();
-		$("#edit" ).click(function(){
-			$("#editing" ).slideToggle("fast");
-		});
-		$("#save" ).click(function(){
-			$("#editing" ).slideToggle("fast");
-		});
-	</script>
-	
+		<button id = "edit" v-on:click="seen = !seen" class="closing">Redigera profil</button>
+	</div>
   </body>
 </html>
 <main>
