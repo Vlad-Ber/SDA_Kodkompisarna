@@ -1,22 +1,40 @@
-#user1Sec {
-    border: 5px outset black;
-    height: 40%;
-    width: 49%;
+.userSec {
     background-color: powderblue;
-}
-p {
-    margin: 0em;
+    height: 9.5%;
+    width: 49%;
+    border: 5px outset black;
 }
 
-.userProfile:after {
+.userSec:after {
     display: table;
     clear: both;
 }
 
+.userDoneSec{
+    background-color: gray;
+}
+
+#div1 {
+  width: 49%;
+  height: 9.5%;
+  padding: 10px;
+  border: 2px solid #aaaaaa;
+}
+
+h4{
+    margin:0em;
+}
+
+
+p {
+    margin: 0em;
+}
+
+
 .column{
     float: left;
-    width: 70%;
-    padding: 5px;
+    width: 50%;
+    padding: 2px;
 }
 
 .adminHeader{
@@ -46,7 +64,7 @@ p {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 4px;
-  grid-auto-rows: 50px;
+  grid-auto-rows: 300px;
 }
 .adminStatus {
 	

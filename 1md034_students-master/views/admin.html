@@ -4,14 +4,14 @@
   <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/admin.css">
-    <script type="text/javascript" src="js/dummy_users.js"></script>.
-    <script type="text/javascript" src="js/admin.js" defer></script>.
+    <script type="text/javascript" src="js/dummy_users.js"></script>
+    <script type="text/javascript" src="js/admin.js" defer></script>
     <meta charset="utf-8" />
     <title>ADMIN</title>
   </head>
   <body>
     <header class="adminHeader">
-      <div id=adminHeaderLeft>Admin</div>
+      <div id="adminHeaderLeft">Admin</div>
       <div id="adminHeaderRight"><a href="/">Logga ut</a></div>
     </header>
     <main>
@@ -19,17 +19,63 @@
 	<div class="adminStatus"> Status: {{ statusInformation }} </div>
 	<div class="adminCode"> {{ codeInformation }} </div>
 	<div class="adminParticipants">
-	  <section id="user1Sec">
-	    <div class="userProfile">
-	      <div id="user1" class="column"</div>
-		   <div id="user1pic" class="column"</div>
+	  <section id ="sec0" draggable="true" ondragstart="drag(event)" class="userSec">
+		   <div id="user0pic" class="column"</div>
 			</div>
       </section>
+      <section id="sec1" draggable="true" ondragstart="drag(event)" class="userSec">
+	       <div id="user1pic" class="column"</div>
+		    </div>
+</section>
+<section id="sec2" draggable="true" ondragstart="drag(event)"class="userSec">
+	 <div id="user2pic" class="column"</div>
+			</div>
+</section>
+  <section id="sec3" draggable="true" ondragstart="drag(event)"class="userSec">
+		   <div id="user3pic" class="column"</div>
+			</div>
+</section>
+  <section id="sec4" draggable="true" ondragstart="drag(event)"class="userSec">
+		   <div id="user4pic" class="column"</div>
+			</div>
+</section>
+  <section id="sec5" draggable="true" ondragstart="drag(event)" class="userSec">
+		   <div id="user5pic" class="column"</div>
+			</div>
+</section>
+  <section id="sec6" draggable="true" ondragstart="drag(event)" class="userSec">
+		   <div id="user6pic" class="column"</div>
+			</div>
+</section>
+  <section id="sec7" draggable="true" ondragstart="drag(event)" class="userSec">
+		   <div id="user7pic" class="column"</div>
+			</div>
+</section>
+  <section id="sec8" draggable="true" ondragstart="drag(event)" class="userSec">
+		   <div id="user8pic" class="column"</div>
+			</div>
+</section>
+  <section id="sec9" draggable="true" ondragstart="drag(event)"class="userSec">
+		   <div id="user9pic" class="column"</div>
+			</div>
+</section>
 </div>
-	<div class="adminMatches"> {{ matchesInformation }} </div> <!--TODO: Ladda in profiler från dummy_users.js-->
-	<div class="adminSecondProfile"> {{ secondProfileInformation }} </div>
-	<div class="adminThirdProfile"> {{ thirdProfileInformation }} </div>
-      </div>
-    </main>
-  </body>
+<div class="adminMatches" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+  
+</div> <!--TODO: Ladda in profiler från dummy_users.js-->
+<div class="adminSecondProfile">
+</section> 
+</div>
+<div class="adminThirdProfile">
+  <section id ="user3Sec">
+    <div class ="userProfile">
+      <div id ="user3" class="column"</div>
+	   <div id ="user3pic" class="column"</div>
+		</div>
+</section> 
+</div>
+</div>
+</main>
+</body>
 </html>

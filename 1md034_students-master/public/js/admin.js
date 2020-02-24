@@ -1,31 +1,47 @@
-let id = document.getElementById("user1");
-// NAME
+for(var i = 0; i<10; i++){
+   let id = document.getElementById("sec"+i);
+    // NAME
+    let name = document.createElement('h4');
+    let htext = document.createTextNode(users[i].name);
+    name.appendChild(htext);
+    id.appendChild(name);
+    //AGE
+    let age = document.createElement('p');
+    let ageInfo = document.createTextNode(users[i].age);
+    age.appendChild(ageInfo);
+    id.appendChild(age);
+    // Gender
+    let gender = document.createElement('p');
+    let genderInfo = document.createTextNode(users[i].gender);
+    gender.appendChild(genderInfo);
+    id.appendChild(gender);
+    // Desc 
+    let desc = document.createElement('p');
+    let descInfo = document.createTextNode(users[i].desc);
+    desc.appendChild(descInfo);
+    id.appendChild(desc);
+    //Pic
+    let idPic = document.getElementById("user"+i+"pic");
+    idPic.className = "column";
+    let img = document.createElement('IMG');
+    img.src = users[i].pic;
+    img.width = 200;
+    img.height = 190;
+    idPic.appendChild(img);
+};
 
-let name = document.createElement('h4');
-let htext = document.createTextNode(users[0].name);
-name.appendChild(htext);
-id.appendChild(name);
-//AGE
+//Funktioner för att dra sections
 
-let age = document.createElement('p');
-let ageInfo = document.createTextNode(users[0].age);
-age.appendChild(ageInfo);
-id.appendChild(age);
-// Gender
+function allowDrop(ev) {
+    ev.preventDefault();
+}
 
-let gender = document.createElement('p');
-let genderInfo = document.createTextNode(users[0].gender);
-gender.appendChild(genderInfo);
-id.appendChild(gender);
-// Desc 
-let desc = document.createElement('p');
-let descInfo = document.createTextNode(users[0].desc);
-desc.appendChild(descInfo);
-id.appendChild(desc);
-//Pic
-let idPic = document.getElementById("user1pic");
-let img = document.createElement('IMG');
-img.src = users[0].pic;
-img.width = 200;
-img.height = 125;
-idPic.appendChild(img);
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    console.log("hejsan");
+}
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
