@@ -51,7 +51,7 @@ let users = [
 	{
 		"name": "Peter",
 		"age": 42,
-		"gender": "M",
+		"gender": "Man",
 		"desc": "Har fyra barn.",
 		"pic": "https://image.shutterstock.com/image-photo/business-building-teamwork-gesture-people-600w-222756625.jpg",
 		"history": {
