@@ -1,0 +1,39 @@
+h1{
+	text-align: center;
+	
+}
+
+#messages{
+	border-style: groove; 
+	width: 90%;
+	height: 80%;
+	margin-left: 5%;
+	overflow-y : scroll;
+}
+
+#message{
+	border-style: groove; 
+	width: 93%;
+	height: 20%;
+	padding: 2%;
+	
+	
+}
+#message:hover{
+	cursor: pointer;
+}
+
+p{
+	text-align: center;
+	font-weight: bold;	
+}
+
+#read_message{
+	position:absolute;
+	width:84.4%;
+	height:77%;
+	background-color: #FFFFFF;
+}
+#read_message:hover{
+	cursor: pointer;
+}
