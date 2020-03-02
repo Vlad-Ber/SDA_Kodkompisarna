@@ -56,12 +56,19 @@ app.get('/date', function(req, res) {
 app.get('/match', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/rateyourdate.html'));
 });
+app.get('/ryd2', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/rateyourdate2.html'));
+});
+app.get('/ryd3', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/rateyourdate3.html'));
+});
 app.get('/meetAgain', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/meetAgain.html'));
 });
 app.get('/yourMatches', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/yourMatches.html'));
 });
+
 
 
 
