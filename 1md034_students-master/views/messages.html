@@ -3,12 +3,28 @@
   <head>
     <title>Message</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="style.css">
-	<script src="profile.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/messages.css">
+	<script src="js/message.js" defer></script>
 	<script src="https://vuejs.org/js/vue.js"></script>
   </head>
   <body id = "work_space">
 	<h1>Dina Meddelanden</h1>
+	
+	<div id = "messages">
+		<div id = "read_message" v-if="seen" v-on:click="seen = !seen">
+			<p>
+				Hej och välkommen till LÖVE! <br>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</div>	
+		<div id = "message" v-on:click="seen = !seen">
+			<p>
+				Från: LÖVE TEAM <br>
+				Om: Välkommen till LÖVE!
+			</p>
+		</div>	
+	</div>
 	
   </body>
 </html>
