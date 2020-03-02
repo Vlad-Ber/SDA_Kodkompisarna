@@ -3,7 +3,7 @@
 
 
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script>
       function meetAgain() {
           window.open("/yourmatches");
@@ -13,27 +13,44 @@
 
 
 
-<body>
-<div id="work_space" class="matches">
-<h1>Would like to meet any of your dates again?</h1>
+<body id = "work_space">
+<div class="matches">
+<h2>Would like to meet any of your dates again?</h2>
 
-<div class="wrapper">
+ <div class="wrapper">
 
-<section class="matchOneImg">
-    <img src="https://i.pinimg.com/originals/00/92/3a/00923ab635eab15324ba162f796f0798.png" width="150" height="150">
-	<!--  <button v-on:click="yes()" id="matchKnapp" type = "button" class ="button" >Yes!</button>
+	<section class="matchOneImg">
+	  <img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="130" height="130" id = "p_pic">
+	</section>
 
-    	<button v-on:click="no()" id="matchKnapp" type = "button" class ="button" >No</button>
-      -->
-    <p>
-     
-        <input name="choice" type="radio" id="yes" name="meetAgain" required="required" value="yes"> Yes! <br />
-        <input name="choice" type="radio" id="no" name="meetAgain" required="required" value="no"> No <br />
-       
-    </p>
-</section>
+	<section class="matchOneDesc">
+	  <input name="choice" type="radio" id="yes" name="meetAgain" required="required" value="yes"> Yes! <br />
+          <input name="choice" type="radio" id="no" name="meetAgain" required="required" value="no"> No <br />
+	</section>
 
-</div>
+
+
+
+	<section class="matchTwoImg">
+	  <img src="https://thumbs.dreamstime.com/z/successful-deal-happy-person-powerful-manager-713736.jpg" width="130" height="130" id = "p_pic" >
+	  
+	</section>
+	<section class="matchTwoDesc">
+        <input name="choice2" type="radio" id="yes2" name="meetAgain" required="required" value="yes"> Yes! <br />
+        <input name="choice2" type="radio" id="no2" name="meetAgain" required="required" value="no"> No <br />
+	</section>
+
+
+	<section class="matchThreeImg">
+	  <img src="https://previews.123rf.com/images/ljupco/ljupco1304/ljupco130400190/19122131-full-length-portrait-of-a-mature-gentleman-dancing-with-a-hula-hoop-isolated-on-white-background.jpg" width="130" height="130" id = "p_pic">
+	</section>
+	<section class="matchThreeDesc">
+        <input name="choice3" type="radio" id="yes3" name="meetAgain" required="required" value="yes"> Yes! <br />
+        <input name="choice3" type="radio" id="no3" name="meetAgain" required="required" value="no"> No <br />
+	</section>
+      </div>
+
+
   <p>
 <button onclick="meetAgain()" id="meetAgainButton" type="button" class="button">Se dina matchningar</button>
 </p>
