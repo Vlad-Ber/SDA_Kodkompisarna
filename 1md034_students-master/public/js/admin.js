@@ -79,7 +79,7 @@ function dropmale(ev) {
     var data = ev.dataTransfer.getData("text");
     var elem = document.getElementById(data);
     var gender = elem.children[3].textContent;
-    if(gender == "M"){
+    if(gender == "M" && ev.target.className =="splitter"){
 	ev.target.appendChild(elem);
     }
 }
@@ -88,8 +88,15 @@ function dropfemale(ev) {
     var data = ev.dataTransfer.getData("text");
     var elem = document.getElementById(data);
     var gender = elem.children[3].textContent;
-    console.log(ev.target.className);
     if(gender == "F" && ev.target.className == "splitter"){
 	ev.target.appendChild(elem);
     }
+}
+function movef(secid){
+    var secToMove = document.getElementById("femaleRight");
+    secToMove.appendChild(secid);
+}
+function movem(secid){
+    var secToMove = document.getElementById("maleRight");
+    secToMove.appendChild(secid);
 }
