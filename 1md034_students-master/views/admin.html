@@ -16,11 +16,11 @@
     </header>
     <main>
       <div class="adminGridContainer">
-	<div class="adminStatus"> Status: statusInformation</div>
-	<div class="adminCode"> codeInformation </div>
+	<div class="adminStatus"> Status: Date Ongoing</div>
+	<div class="adminCode"> Please drag your matches! </div>
 	<div class="adminParticipants">
 	  <div class="funkaa">
-	    <div class="splitter" ondrop="drop(event)" ondragover="allowDrop(event)">
+	    <div class="splitter" ondrop="dropmale(event)" ondragover="allowDrop(event)">
 	      <section id="sec0" draggable="true" ondragstart="drag(event)" class="userSec">
 		<div id="user0pic" class="column"</div>
 		     </section>
@@ -52,7 +52,7 @@
   <div id="user9pic" class="column"</div>
        </section>
 </div>
-<div class="splitter" ondrop="drop(event)" ondragover="allowDrop(event)">
+<div class="splitter" ondrop="dropfemale(event)" ondragover="allowDrop(event)">
   	      <section id="sec10" draggable="true" ondragstart="drag(event)" class="userSec">
 		<div id="user10pic" class="column"</div>
 		     </section>
@@ -80,16 +80,18 @@
 <section id="sec18" draggable="true" ondragstart="drag(event)" class="userSec">
   <div id="user18pic" class="column"</div>			
        </section>
-<section id="sec19" draggable="true" ondragstart="drag(event)"class="userSec">
-  <div id="user9pic" class="column"</div>
+<section id="sec19" draggable="true" ondragstart="drag(event)" class="userSec">
+  <div id="user19pic" class="column"</div>
        </section>
   </div>
 </div>
 </div>
 <div class="adminMatches">
   <div class="funkaa">
-    <div class="splitter" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-color:DarkRed;"> </div>
-    <div class="splitter" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-color: crimson;"><div>
+    <div class="splitter" ondrop="dropmale(event)" ondragover="allowDrop(event)" style="background-color:#989898;">
+    </div>
+    <div class="splitter" ondrop="dropfemale(event)" ondragover="allowDrop(event)">
+      <div>
       </div>
     </div>
   </div>

@@ -1,32 +1,66 @@
-for(var i = 0; i<20; i++){
-   let id = document.getElementById("sec"+i);
+for(var i = 0; i<10; i++){
+    let id = document.getElementById("sec"+i);
     // NAME
     let name = document.createElement('h4');
-    let htext = document.createTextNode(users[i].name);
+    let htext = document.createTextNode(men[i].name);
     name.appendChild(htext);
     id.appendChild(name);
     //AGE
     let age = document.createElement('p');
-    let ageInfo = document.createTextNode(users[i].age);
+    let ageInfo = document.createTextNode(men[i].age);
     age.appendChild(ageInfo);
     id.appendChild(age);
     // Gender
     let gender = document.createElement('p');
-    let genderInfo = document.createTextNode(users[i].gender);
+    let genderInfo = document.createTextNode(men[i].gender);
     gender.appendChild(genderInfo);
     id.appendChild(gender);
     // Desc 
     let desc = document.createElement('p');
-    let descInfo = document.createTextNode(users[i].desc);
+    let descInfo = document.createTextNode(men[i].desc);
     desc.appendChild(descInfo);
     id.appendChild(desc);
     //Pic
     let idPic = document.getElementById("user"+i+"pic");
     idPic.className = "column";
     let img = document.createElement('IMG');
-    img.src = users[i].pic;
+    img.src = men[i].pic;
     img.width = 100;
     img.height = 68;
+    idPic.appendChild(img);
+};
+
+for(var i = 0; i<10; i++){
+    var womenId = i+10;
+    let id = document.getElementById("sec"+womenId);
+    // NAME
+    let name = document.createElement('h4');
+    let htext = document.createTextNode(women[i].name);
+    name.appendChild(htext);
+    id.appendChild(name);
+    //AGE
+    let age = document.createElement('p');
+    let ageInfo = document.createTextNode(women[i].age);
+    age.appendChild(ageInfo);
+    id.appendChild(age);
+    // Gender
+    let gender = document.createElement('p');
+    let genderInfo = document.createTextNode(women[i].gender);
+    gender.appendChild(genderInfo);
+    id.appendChild(gender);
+    // Desc 
+    let desc = document.createElement('p');
+    let descInfo = document.createTextNode(women[i].desc);
+    desc.appendChild(descInfo);
+    id.appendChild(desc);
+    //Pic
+    let idPic = document.getElementById("user"+womenId+"pic");
+    idPic.className = "column";
+    let img = document.createElement('IMG');
+    img.src = women[i].pic;
+    img.width = 100;
+    img.height = 68;
+    img.draggable = false;
     idPic.appendChild(img);
 };
 
@@ -38,10 +72,24 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
-    console.log("hejsan");
 }
-function drop(ev) {
+
+function dropmale(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+    var elem = document.getElementById(data);
+    var gender = elem.children[3].textContent;
+    if(gender == "M"){
+	ev.target.appendChild(elem);
+    }
+}
+function dropfemale(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var elem = document.getElementById(data);
+    var gender = elem.children[3].textContent;
+    console.log(ev.target.className);
+    if(gender == "F" && ev.target.className == "splitter"){
+	ev.target.appendChild(elem);
+    }
 }
