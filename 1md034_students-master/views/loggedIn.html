@@ -16,6 +16,15 @@
       window.open("/match");
       }
 
+	  function date() {
+		window.open("/date");
+	  }
+      
+      function logOut() {
+           
+           window.open("/")
+       }
+
     </script>
   </head>
   <body id = "work_space">
@@ -33,7 +42,12 @@
 	<br>
 	<input type="text" id="Traff_ID" name="ID" required="required" placeholder="Träff-ID (ges av arrangör)"/>
 	<button id="heart_button" class="closing" onclick="match()"><img id = "Heart_Pic" src = "img\heart.png"/></button> 
+
    </body>
+  <footer>
+     <button id="signOut" class="button" onclick="logOut()">Logga ut</button>
+  </footer>
+
 </html>
 <main>
 </main>
