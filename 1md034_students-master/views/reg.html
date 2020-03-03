@@ -5,38 +5,40 @@
     <title>Registrera</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="/vue/register.js" defer></script>
+    <script src="js/register.js" defer></script>
     <script src="/socket.io/socket.io.js" defer></script>
-    <script src="js/deli-very." defer></script>
+    <script type="text/javascript" src="js/dummy_users.js"></script>
     <script>
       function openLogin() {
-      window.open("/");
+      location.href = "/";
       }
     </script>
   </head>
   <body>
     <div id ="work_space">
     <h1>REGISTRERA</h1>
-    <form>
+    <form name="registrationForm" >
       <p>
-	<label for="email"></label><br>
+	<label for="email"></label>
 	<input v-model="email" type ="text" id = "email" name = "email" required= "required" placeholder = "email" />
       </p>
       <p>
-	<label for="password"></label><br>
+	<label for="password"></label>
 	<input v-model="password" type ="text" id = "password" name = "password" required= "required" placeholder = "lösen" />
       </p>
       <p>
-	<label for="namn"></label><br>
+	<label for="namn"></label>
 	<input v-model="namn" type ="text" id = "namn" name = "namn" required= "required" placeholder = "namn" />
       </p>
-
       <p>
-	<label for="personal number"></label><br>
-	<input v-model="personal number" type ="numbers" id = "personal number" name = "personal number" required= "required" placeholder = "personal number" />
-  -
-  <input v-model="last four" type ="numbers" id = "last four" name = "last four" required= "required" placeholder = "last four" />
+        <label for="age"></label>
+        <input v-model="age" type="number" id="age" name="age" required="required" placeholder="ålder" />
       </p>
+      <p>
+        <label for="description"></label>
+        <textarea v-model="description" type="text" rows="4" cols="30" maxlength="140" id="description" name="description" required="required" placeholder="beskrivning (140 tecken)"></textarea>
+      </p>
+
 
        <label  for="Gender">Könsidentiet</label><br />
 
