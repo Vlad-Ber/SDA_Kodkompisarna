@@ -92,3 +92,7 @@ h1{
 	text-align: top;
 	padding-left: 30px;
 }
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
