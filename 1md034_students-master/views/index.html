@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SPEEDDATING</title>
+    <title>SPEED DEJTING</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/loggedIn.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
      <script>
       function openLogin() {
         if (email.value == "admin") {
@@ -18,17 +19,17 @@
   </head>
   <body id ="work_space">
     <div>
-    <h1>Login</h1>
+    <h1>Logga in</h1>
     <form>
       <p>
 	<label for="email"></label><br>
-	<input v-model="email" type ="text" id = "email" name = "email" required= "required" placeholder = "email"/>
+	<input v-model="email" type ="text" class = "input" id = "email" name = "email" required= "required" placeholder = "email"/>
       </p>
       <p>
 	<label for="password"></label><br>
-	<input v-model="password" type ="text" id = "password" name = "password" required= "required" placeholder = "lösen" />
+	<input v-model="password" type ="text" id = "password" class= "input" name = "password" required= "required" placeholder = "lösen" />
       </p>
-      <button onclick="openLogin()" id="loginKnapp" type = "button" class ="button" >LOGGA IN</button>
+      <button onclick="openLogin()" id="loginKnapp" type = "button" class ="input">LOGGA IN</button>
       <form>
 	<p>
           <a href="reg">Registrera</a>

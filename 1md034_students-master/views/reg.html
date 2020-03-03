@@ -39,21 +39,22 @@
         <textarea v-model="description" type="text" rows="4" cols="30" maxlength="140" id="description" name="description" required="required" placeholder="beskrivning (140 tecken)"></textarea>
       </p>
 
-       <label  for="Gender">Kön:</label>
+
+       <label  for="Gender">Könsidentiet</label><br />
 
           <input v-model="gender" type="radio" id="male" name="gender" value="Male" required="required" placeholder="gender">
-          Man
+          Man<br />
           
           
           <input v-model="gender" type="radio" id="female" name="gender"  value="Female" required="required" placeholder="gender">
-          Kvinna
+          Kvinna<br />
           
       <p>
-        <input   name="Terms of use" type="checkbox" required="required">Terms of use
+        <input   name="Terms of use" type="checkbox" required="required">Användarvillkor
                                  
       </p>
            <p>
-        <input required name="Privacy Policy" type="checkbox" required="required">Privacy policy
+        <input required name="Privacy Policy" type="checkbox" required="required">Personuppgiftspolicy
                                  
            </p>
                 <p>
