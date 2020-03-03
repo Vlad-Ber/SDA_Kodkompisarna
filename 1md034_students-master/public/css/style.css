@@ -6,6 +6,7 @@ body{
 	width: 100%;
 	height: 100%;
 	background-color:#ffffff;
+	
 }	
 
 h1{
@@ -15,16 +16,17 @@ h1{
 
 #p_pic{
     border-radius:50%;
+	
     
 }
 
 .wrapper{
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 150px 150px;
-    
+    grid-gap: 50px;
+    grid-template-columns: 400px 400px;
     color: #000;
     height:10%;
+	margin-left:8%;
 }
 .matches{
     text-align: center;    
