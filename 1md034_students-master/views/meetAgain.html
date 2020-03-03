@@ -8,7 +8,7 @@
 
     <script>
       function meetAgain() {
-          window.open("/yourmatches");
+          location.href = "/yourmatches";
       }
     </script>
   </head>
@@ -20,7 +20,7 @@
 <h2>Skulle du vilja träffa någon av dina dejter igen?</h2>
 
  <div class="wrapper">
-
+<form>
 	<section class="matchOneImg">
 	  <img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="400" height="400" id = "p_pic">
 	</section>
@@ -50,7 +50,7 @@
 	<section class="matchThreeImg">
 	  <img src="https://previews.123rf.com/images/ljupco/ljupco1304/ljupco130400190/19122131-full-length-portrait-of-a-mature-gentleman-dancing-with-a-hula-hoop-isolated-on-white-background.jpg" width="400" height="400" id = "p_pic">
 	</section>
-	<section class="matchThreeDesc">
+	<section class="matchThreeDesc" required="required">
 		<br>
 		<br>    
 		<input name="choice3" type="radio" id="yes3" name="meetAgain" required="required" class="yesno" value="yes"> Yes! <br />
@@ -58,7 +58,7 @@
 	</section>
       </div>
 
-
+</form>
   <p>
 <button onclick="meetAgain()" id="meetAgainButton" type="button" class="button">Se dina matchningar</button>
 </p>

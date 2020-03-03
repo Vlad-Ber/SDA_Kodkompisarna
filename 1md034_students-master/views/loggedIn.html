@@ -7,24 +7,22 @@
 	<link rel="stylesheet" type="text/css" href="css/loggedIn.css">  
     <script>
       function userPage() {
-      window.open("/profile");
+      location.href = "/profile";
       }
       function messagePage() {
-      window.open("/messages");
+      location.href = "/messages";
       }
       function match() {
-      window.open("/match");
+      location.href = "/match";
       }
-
 	  function date() {
-		window.open("/date");
+		location.href = "/date";
 	  }
       
       function logOut() {
            
-           window.open("/")
+          location.href = "/";
        }
-
     </script>
   </head>
   <body id = "work_space">
@@ -33,21 +31,14 @@
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-		<h1> Börja Dejta! </h1>	
-	<br>
-	<br>
-	<br>
-	<br>
-	<input type="text" id="Traff_ID" name="ID" required="required" placeholder="Träff-ID (ges av arrangör)"/>
+	<h1> Börja Dejta! </h1>	
+	<input type="text" id="Traff_ID" name="ID" required="required" placeholder="Träff-ID"/>
 	<button id="heart_button" class="closing" onclick="match()"><img id = "Heart_Pic" src = "img\heart.png"/></button> 
-
-   </body>
+    <button id="match" class="closing" onclick="date()">HITTA TRÄFF!</button>
+  </body>
   <footer>
      <button id="signOut" class="button" onclick="logOut()">Logga ut</button>
   </footer>
-
 </html>
 <main>
 </main>
