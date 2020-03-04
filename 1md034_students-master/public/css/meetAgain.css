@@ -1,0 +1,21 @@
+#work_space{
+	font-size: 3vh;
+}
+
+h2{
+	font-size: 4vh;
+}
+
+.yesno{
+    width: 10%;
+    height: 3em;
+}
+
+#meetAgainButton{
+	font-size:3vh;
+}
+
+.button{
+	font-size:2.5vh;
+	margin:2%;
+}

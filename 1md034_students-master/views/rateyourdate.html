@@ -4,22 +4,25 @@
 <head>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/ryd.css">
+
   <script>
     function rateYourDate(){
-        window.open("/ryd2");
+        location.href = "/dejt2"; 
     }
     </script>
 
-	<title>Rate Your Date</title>
+	<title>Betygsätt Din Dejt</title>
 	<meta charset="utf-8" />
 
 
 </head>
 
 <body id="work_space">
+	<h1> Feedback Om Din Dejt </h1>
 	<section id="profile">
 		<div id="match_pic"> <!--TODO: Hämta profilbild från profilen.-->
-			<img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" height="200px">
+			<img id ="imgHere" src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" height="700px">
 		</div>
 		<div id="profile_name"> <!--TODO: Hämta namnet från profilen.-->
 			<p>Sven Svensson</p>
@@ -44,6 +47,8 @@
 	</section>
 
   <button onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
+
+ 
 
 	<script>
 		var conversationSlider = document.getElementById("conversationRange");
