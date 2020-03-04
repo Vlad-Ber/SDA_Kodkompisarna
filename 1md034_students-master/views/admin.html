@@ -16,11 +16,11 @@
     </header>
     <main>
       <div class="adminGridContainer">
-	<div class="adminStatus"> Status: Date Ongoing</div>
-	<div class="adminCode"> Please drag your matches! </div>
+	<div id="adminStat" class="adminStatus"> Status: Matching Dates</div>
+	<div id="statusMessage" class="adminCode"> Welcome! Match the men and women by clicking/dragging the profiles to the right </div>
 	<div class="adminParticipants">
 	  <div class="funkaa">
-	    <div class="splitter" ondrop="dropmale(event)" ondragover="allowDrop(event)">
+	    <div id="maleLeft" class="splitter" ondrop="dropmale(event)" ondragover="allowDrop(event)">
 	      <section id="sec0" onclick="movem(sec0)" draggable="true" ondragstart="drag(event)" class="userSec">
 		<div id="user0pic" class="column"</div>
 		     </section>
@@ -52,7 +52,7 @@
   <div id="user9pic" class="column"</div>
        </section>
 </div>
-<div class="splitter" ondrop="dropfemale(event)" ondragover="allowDrop(event)">
+<div id="femaleLeft" class="splitter" ondrop="dropfemale(event)" ondragover="allowDrop(event)">
   	      <section id="sec10" onclick="movef(sec10)" draggable="true" ondragstart="drag(event)" class="userSec">
 		<div id="user10pic" class="column"</div>
 		     </section>
@@ -85,15 +85,27 @@
        </section>
   </div>
 </div>
+<button id="nextR" type="button" onclick="startRound()">Start Next Round!</button>
 </div>
 <div class="adminMatches">
   <div class="funkaa">
     <div id ="maleRight" class="splitter" ondrop="dropmale(event)" ondragover="allowDrop(event)" style="background-color:#989898;">
     </div>
     <div id="femaleRight" class="splitter" ondrop="dropfemale(event)" ondragover="allowDrop(event)">
-      <div>
-      </div>
     </div>
+    <div id="tableSec">
+      <div class = "table" id="table0">1</div>
+      <div class = "table" id="table1">2</div>
+      <div class = "table" id="table2">3</div>
+      <div class = "table" id="table3">4</div>
+      <div class = "table" id="table4">5</div>
+      <div class = "table" id="table5">6</div>
+      <div class = "table" id="table6">7</div>
+      <div class = "table" id="table7">8</div>
+      <div class = "table" id="table8">9</div>
+      <div class = "table" id="table9">10</div>
+    </div>
+    
   </div>
 </main>
 </body>
