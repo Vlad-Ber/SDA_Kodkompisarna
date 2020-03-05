@@ -1,3 +1,5 @@
+
+//INIT MEN LEFT
 for(var i = 0; i<10; i++){
     let id = document.getElementById("sec"+i);
     // NAME
@@ -30,6 +32,28 @@ for(var i = 0; i<10; i++){
     idPic.appendChild(img);
 };
 
+function updateTableColor(){
+    var maleRight = document.getElementById("maleRight");
+    var femaleRight = document.getElementById("femaleRight");
+    for (var i = 0; i < 10; i++){
+	var tableToChange = document.getElementById("table" + i);
+	if( maleRight.children[i].className != undefined && femaleRight.children[i].className != undefined){
+	    tableToChange.style.backgroundColor = "green";
+	}
+	else{
+	    tableToChange.style.backgroundColor = "red";
+	}
+    }	
+}
+
+function tableRed(){
+    for (var i = 0; i < 10; i++){
+	var tableToChange = document.getElementById("table" + i);
+	    tableToChange.style.backgroundColor = "red";
+	}
+    }	
+
+//INIT WOMEN LEFT
 for(var i = 0; i<10; i++){
     var womenId = i+10;
     let id = document.getElementById("sec"+womenId);
@@ -82,6 +106,7 @@ function dropmale(ev) {
     if(gender == "M" && ev.target.className =="splitter"){
 	ev.target.appendChild(elem);
     }
+    updateTableColor();
 }
 function dropfemale(ev) {
     ev.preventDefault();
@@ -91,12 +116,78 @@ function dropfemale(ev) {
     if(gender == "F" && ev.target.className == "splitter"){
 	ev.target.appendChild(elem);
     }
+    updateTableColor();
+	
 }
 function movef(secid){
     var secToMove = document.getElementById("femaleRight");
     secToMove.appendChild(secid);
+    updateTableColor();
 }
 function movem(secid){
     var secToMove = document.getElementById("maleRight");
     secToMove.appendChild(secid);
+    updateTableColor();
 }
+
+let roundNumber = 0;
+
+
+
+function startRound(){
+    //Check om alla matchningar är giltiga
+    
+    var maleRight = document.getElementById("maleRight");
+    var femaleRight = document.getElementById("femaleRight");
+    var maleCheck = maleRight.children[9];
+    var femaleCheck = femaleRight.children[9];
+    if(maleCheck == undefined || femaleCheck == undefined){
+	var statusM = document.getElementById("statusMessage");
+	statusM.textContent = "Please match all dates!";
+    }
+    else{
+	//Lägg tillbaka alla sections
+	var maleLeft = document.getElementById("maleLeft");
+	var femaleLeft = document.getElementById("femaleLeft");
+	var maleRight = document.getElementById("maleRight");
+	var femaleRight = document.getElementById("femaleRight");
+	var i = maleRight.children[0];
+	
+	//Flytta tillbaka män
+	for(;i != undefined;){
+	    var maleToMove = maleRight.children[0];
+	    maleLeft.appendChild(maleToMove);
+	    i = maleRight.children[0];
+	}
+	var a = femaleRight.children[0];
+	//Flytta tillbaka kvinnor
+	for(;a != undefined;){
+	    var femaleToMove = femaleRight.children[0];
+	    femaleLeft.appendChild(femaleToMove);
+	    a = femaleRight.children[0];
+	}
+	tableRed();
+	
+	//Börja Nästa Runda
+	if(roundNumber != 3){
+	    //Lägg till info om personer som redan har träffats
+
+	    //RoundNumber info
+	    roundNumber++;
+	    var adminStat = document.getElementById("adminStat");
+	    adminStat.textContent = "Status: Round " + roundNumber + " is ongoing!";
+	    var statusM = document.getElementById("statusMessage");
+	    statusM.textContent = "Round " + roundNumber + " has now started!";
+	    console.log(roundNumber);
+	}
+	else{
+	    var adminStat = document.getElementById("adminStat");
+	    adminStat.textContent = "Status: Speeddating event is finished";
+	    var statusM = document.getElementById("statusMessage");
+	    statusM.textContent = "";
+	    console.log(roundNumber);
+	}
+    }
+}
+
+
