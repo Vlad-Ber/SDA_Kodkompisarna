@@ -5,22 +5,32 @@
   <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/meetAgain.css">
+	<script src="js/meetAgain.js" defer></script>
+	<script src="https://vuejs.org/js/vue.js"></script>
+
 
     <script>
       function meetAgain() {
           location.href = "/yourmatches";
       }
+	  function exit() {
+          location.href = "/loggedIn";
+      }
+
+      function logOut() {
+
+          location.href = "/";
+      }	  
     </script>
   </head>
 
 
 
 <body id = "work_space">
+<div id="vuePlace">
 <div class="matches">
 <h2>Skulle du vilja träffa någon av dina dejter igen?</h2>
-
- <div class="wrapper">
-<form>
+<div class="wrapper">
 	<section class="matchOneImg">
 	  <img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="400" height="400" id = "p_pic">
 	</section>
@@ -28,8 +38,8 @@
 	<section class="matchOneDesc">
 	<br>
 	<br>
-	  <input name="choice" type="radio" id="yes" name="meetAgain" required="required" class="yesno" value="yes"> Yes! <br />
-      <input name="choice" type="radio" id="no" name="meetAgain" required="required" class="yesno" value="no"> No <br />
+	  <input name="choice" type="radio" id="yes" name="meetAgain" required="required" class="yesno" v-model="person1" v-bind:value="true"> Yes! <br />
+      <input name="choice" type="radio" id="no" name="meetAgain" required="required" class="yesno" v-model="person1" v-bind:value="false"> No <br />
 	</section>
 
 
@@ -42,8 +52,8 @@
 	<section class="matchTwoDesc">
 		<br>
 		<br>
-        <input name="choice2" type="radio" id="yes2" name="meetAgain" required="required" class="yesno" value="yes"> Yes! <br />
-        <input name="choice2" type="radio" id="no2" name="meetAgain" required="required" class="yesno" value="no"> No <br />
+        <input name="choice2" type="radio" id="yes2" name="meetAgain" required="required" class="yesno" v-model="person2" v-bind:value="true"> Yes! <br />
+        <input name="choice2" type="radio" id="no2" name="meetAgain" required="required" class="yesno" v-model="person2" v-bind:value="false"> No <br />
 	</section>
 
 
@@ -53,15 +63,62 @@
 	<section class="matchThreeDesc" required="required">
 		<br>
 		<br>    
-		<input name="choice3" type="radio" id="yes3" name="meetAgain" required="required" class="yesno" value="yes"> Yes! <br />
-        <input name="choice3" type="radio" id="no3" name="meetAgain" required="required" class="yesno" value="no"> No <br />
+		<input name="choice3" type="radio" id="yes3" name="meetAgain" required="required" class="yesno" v-model="person3" v-bind:value="true"> Yes! <br />
+        <input name="choice3" type="radio" id="no3" name="meetAgain" required="required" class="yesno" v-model="person3" v-bind:value="false"> No <br />
+	</section>
+ 
+	<p>
+		<button id="meetAgainButton"  v-on:click="seen = !seen" type="button" class="button">Se dina matchningar</button>
+	</p>
+</div>
+<div id="yourMatches" class="matches" v-if="seen">
+      <h1>Här Är Dina Matchningar!</h1>
+
+      <div class="wrapper">
+
+	<section class="matchOneImg" v-if="person1">
+	  <img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="400" height="400" id = "p_pic">
+	</section>
+
+	<section class="matchOneDesc" v-if="person1">
+	  Temp<br>
+	  Temp gammal<br>
+	  Bor i Temp<br>
+	  Tel. Temp
+	</section>
+
+
+
+
+	<section class="matchTwoImg" v-if="person2">
+	  <img src="https://thumbs.dreamstime.com/z/successful-deal-happy-person-powerful-manager-713736.jpg" width="400" height="400" id = "p_pic" >
+	  
+	</section>
+	<section class="matchTwoDesc" v-if="person2">
+	  Temp<br>
+	  Temp gammal<br>
+	  Bor i Temp<br>
+	  Tel. Temp
+	</section>
+
+
+	<section class="matchThreeImg" v-if="person3">
+	  <img src="https://previews.123rf.com/images/ljupco/ljupco1304/ljupco130400190/19122131-full-length-portrait-of-a-mature-gentleman-dancing-with-a-hula-hoop-isolated-on-white-background.jpg" width="400" height="400" id = "p_pic">
+	</section>
+	<section class="matchThreeDesc" v-if="person3">
+	  Temp<br>
+	  Temp gammal<br>
+	  Bor i Temp<br>
+	  Tel. Temp
 	</section>
       </div>
-
-</form>
-  <p>
-<button onclick="meetAgain()" id="meetAgainButton" type="button" class="button">Se dina matchningar</button>
-</p>
+    <main>
+      <button id="homeButton" class="button" onclick="exit()">Tillbaka till startsidan</button>
+      <br>
+      <button id="signOut" class="button" onclick="logOut()">Logga ut</button>
+    </main>	  
+    </div>
+	</div>
 </body>
 </html>
 <main>

@@ -28,6 +28,7 @@ h1{
     height:10%;
 	margin-left:8%;
 }
+
 .matches{
     text-align: center;    
     color: red;
@@ -41,8 +42,8 @@ h1{
 }
 
 .matchOneDesc {
-    grid-column: 2;
     grid-row: 1;
+	grid-column: 2;
     text-align: left;    
     
     

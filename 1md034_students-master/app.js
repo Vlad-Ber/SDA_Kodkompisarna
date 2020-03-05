@@ -64,6 +64,12 @@ app.get('/yourMatches', function(req, res) {
 app.get('/date1', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/currentDate.html'));
 });
+app.get('/date2', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/currentDate2.html'));
+});
+app.get('/date3', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/currentDate3.html'));
+});
 
 
 
