@@ -178,14 +178,12 @@ function startRound(){
 	    adminStat.textContent = "Status: Round " + roundNumber + " is ongoing!";
 	    var statusM = document.getElementById("statusMessage");
 	    statusM.textContent = "Round " + roundNumber + " has now started!";
-	    console.log(roundNumber);
 	}
 	else{
 	    var adminStat = document.getElementById("adminStat");
 	    adminStat.textContent = "Status: Speeddating event is finished";
 	    var statusM = document.getElementById("statusMessage");
 	    statusM.textContent = "";
-	    console.log(roundNumber);
 	}
     }
 }

@@ -4,9 +4,11 @@
     <title>SPEED DEJTING</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-
-     <script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="js/indexVue.js" defer ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script>
       function openLogin() {
         if (email.value == "admin") {
           location.href = "/admin";
@@ -18,16 +20,17 @@
     </script>
   </head>
   <body id ="work_space">
+    <div id = "msgTest">
     <div>
     <h1>Logga in</h1>
     <form>
       <p>
 	<label for="email"></label><br>
-	<input v-model="email" type ="text" class = "input" id = "email" name = "email" required= "required" placeholder = "email"/>
+	<input type ="text" class = "input" id = "email" name = "email" required= "required" placeholder = "email"/>
       </p>
       <p>
 	<label for="password"></label><br>
-	<input v-model="password" type ="text" id = "password" class= "input" name = "password" required= "required" placeholder = "lösen" />
+	<input type ="text" id = "password" class= "input" name = "password" required= "required" placeholder = "lösen" />
       </p>
       <button onclick="openLogin()" id="loginKnapp" type = "button" class ="input">LOGGA IN</button>
       <form>
@@ -35,6 +38,6 @@
           <a href="reg">Registrera</a>
 	</p>
       </form>
-     
+     </div> 
   </body>
 </html>

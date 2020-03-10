@@ -77,7 +77,8 @@ app.get('/date3', function(req, res) {
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
-  this.orders = {};
+    this.orders = {};
+    this.femma = 5;
 }
 
 /*
@@ -88,24 +89,32 @@ Data.prototype.addOrder = function(order) {
   this.orders[order.orderId] = order;
 };
 
+Data.prototype.sendConsole = function() {
+    return this.femma;
+}
+
 Data.prototype.getAllOrders = function() {
   return this.orders;
 };
+
+
 
 const data = new Data();
 
 io.on('connection', function(socket) {
   // Send list of orders when a client connects
-  socket.emit('initialize', { orders: data.getAllOrders() });
+    socket.emit('initialize', { data1: data.sendConsole()});
 
-  // When a connected client emits an "addOrder" message
-  socket.on('addOrder', function(order) {
-    data.addOrder(order);
-    // send updated info to all connected clients,
-    // note the use of io instead of socket
-    io.emit('currentQueue', { orders: data.getAllOrders() });
-  });
-
+    // When a connected client emits an "addOrder" message
+    socket.on('addOrder', function(order) {
+	data.addOrder(order);
+	// send updated info to all connected clients,
+	// note the use of io instead of socket
+	io.emit('currentQueue', { orders: data.getAllOrders() });
+    });
+    socket.on('sendConsole', function(hej) {
+	io.emit('skickaEtta', { ettan: data.sendConsole() });
+    });
 });
 
 /* eslint-disable-next-line no-unused-vars */
