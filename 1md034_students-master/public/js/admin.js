@@ -130,7 +130,15 @@ function movem(secid){
     updateTableColor();
 }
 
-let roundNumber = 0;
+function roundNumberMake(number){
+    this.roundNumber = number;
+    this.getRoundNumber = function(){
+	return this.roundNumber;
+    };
+};
+
+let round = new roundNumberMake(0);
+let roundNumber = round.getRoundNumber();
 
 
 

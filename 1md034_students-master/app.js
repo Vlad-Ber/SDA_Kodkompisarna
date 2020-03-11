@@ -29,6 +29,9 @@ app.get('/map', function(req, res) {
 app.get('/reg', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/reg.html'));
 });
+app.get('/wait', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/waitForAdmin.html'));
+});
 app.get('/admin', function (req, res) {
   res.sendFile(path.join(__dirname, 'views/admin.html'));
 });
