@@ -69,7 +69,17 @@ app.get('/yourMatches', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/yourMatches.html'));
 });
 
+app.get('/dejt1', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/userTimer.html'));
+});
 
+app.get('/dejt2', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/userTimer2.html'));
+});
+
+app.get('/dejt3', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/userTimer3.html'));
+});
 
 
 // Store data in an object to keep the global namespace clean and

@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
+
+   <script src="/socket.io/socket.io.js" defer></script>
+      <script type="text/javascript" src="js/dummy_users.js" defer></script>
+      
+      <script src="js/retriveDate.js" defer></script>
+      <script src="https://vuejs.org/js/vue.js"></script>  
 	<title>Date timer</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -14,14 +20,40 @@
 </head>
 
 <body>
+
+
+
+
   <section id="dateProfile">
-    <div id="match_pic"> <!--TODO: Hämta profilbild från profilen.-->
-			<img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="200px">
+    <div id="matchProfile">
+      <span v-for="n in 2">{{ n }} 
+      <div v-for="dejt in men" >
+        <h3>{{dejt.name}}, {{dejt.age}} år</h3>
+        <ul>
+          {{dejt.desc}} <br />
+
+          <img :src="dejt.pic" width="250" height="175">
+          
+          
+        </ul>
+</span>
+        
+        
+      </div>
+    </div>
+
+</section>
+
+
+
+   <!-- <div id="match_pic"> <!--TODO: Hämta profilbild från profilen.-->
+<!--			<img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="200px">
 		</div>
     <div id="profile_name"> <!--TODO: Hämta namnet från profilen.-->
-			<p>Sven Svensson</p>
+		<!--	<p>Sven Svensson</p>
 		</div>
   </section>
+  --> 
   <button id="questionTips">FRÅGETIPS</button> <!--TODO: FIXA FUNKTIONALITET-->
    <section id="timer">
     10:00<br> <!--TODO: FIXA TIMER.-->

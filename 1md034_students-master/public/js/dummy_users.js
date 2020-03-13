@@ -1,5 +1,6 @@
 let men = [
-	{
+	  {
+        "id": 2,
 		"name": "Peter",
 		"age": 42,
 		"gender": "M",
