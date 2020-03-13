@@ -29,10 +29,9 @@ app.get('/map', function(req, res) {
 app.get('/reg', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/reg.html'));
 });
-app.get('/dejt', function(req, res) {
-  res.sendFile(path.join(__dirname, 'views/dejt.html'));
+app.get('/wait', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/waitForAdmin.html'));
 });
-
 app.get('/admin', function (req, res) {
   res.sendFile(path.join(__dirname, 'views/admin.html'));
 });
@@ -50,9 +49,6 @@ app.get('/profile', function(req, res) {
 app.get('/messages', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/messages.html'));
 });
-app.get('/date', function(req, res) {
-  res.sendFile(path.join(__dirname, 'views/dates.html'));
-});
 app.get('/match', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/rateyourdate.html'));
 });
@@ -67,6 +63,15 @@ app.get('/meetAgain', function(req, res) {
 });
 app.get('/yourMatches', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/yourMatches.html'));
+});
+app.get('/date1', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/currentDate.html'));
+});
+app.get('/date2', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/currentDate2.html'));
+});
+app.get('/date3', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/currentDate3.html'));
 });
 
 app.get('/dejt1', function(req, res) {
@@ -85,7 +90,8 @@ app.get('/dejt3', function(req, res) {
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
-  this.orders = {};
+    this.orders = {};
+    this.femma = 5;
 }
 
 /*
@@ -96,24 +102,32 @@ Data.prototype.addOrder = function(order) {
   this.orders[order.orderId] = order;
 };
 
+Data.prototype.sendConsole = function() {
+    return this.femma;
+}
+
 Data.prototype.getAllOrders = function() {
   return this.orders;
 };
+
+
 
 const data = new Data();
 
 io.on('connection', function(socket) {
   // Send list of orders when a client connects
-  socket.emit('initialize', { orders: data.getAllOrders() });
+    socket.emit('initialize', { data1: data.sendConsole()});
 
-  // When a connected client emits an "addOrder" message
-  socket.on('addOrder', function(order) {
-    data.addOrder(order);
-    // send updated info to all connected clients,
-    // note the use of io instead of socket
-    io.emit('currentQueue', { orders: data.getAllOrders() });
-  });
-
+    // When a connected client emits an "addOrder" message
+    socket.on('addOrder', function(order) {
+	data.addOrder(order);
+	// send updated info to all connected clients,
+	// note the use of io instead of socket
+	io.emit('currentQueue', { orders: data.getAllOrders() });
+    });
+    socket.on('sendConsole', function(hej) {
+	io.emit('skickaEtta', { ettan: data.sendConsole() });
+    });
 });
 
 /* eslint-disable-next-line no-unused-vars */

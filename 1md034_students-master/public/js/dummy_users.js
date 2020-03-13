@@ -926,11 +926,11 @@ let women = [
 		}
 	},
     	{
-		"name": "Olga",
+		"name": "Sanna",
 		"age": 34,
 		"gender": "F",
 		"desc": "Gillar att baka bullar.",
-		"pic": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/PSBX4OCUT4I6VAGOG6UNIJTMBE.jpg&w=767",
+		"pic": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/PSBX4OCUT4I6VAGOG6UNIJTMBE.jpg",
 		"history": {
 			"firstDate": {
 				"name": "", /* Namnet på personen de dejtade */

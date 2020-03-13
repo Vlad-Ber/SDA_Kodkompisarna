@@ -38,8 +38,15 @@ p {
 
 .column{
     float: left;
-    width: 35%;
+    width: 32%;
     padding: 2px;
+}
+
+#maleRight{
+    margin-top: -4px;
+}
+#femaleRight{
+    margin-top: -4px;
 }
 
 .adminHeader{
@@ -72,13 +79,13 @@ p {
   grid-auto-rows: 160px;
 }
 .adminStatus {
-    height: 30px;
+    height: 40px;
     grid-column: 1;
     grid-row: 1;
     border: 2px solid black;
 }
 .adminCode {
-    height: 30px;
+    height: 40px;
     grid-column: 2/3;
     grid-row: 1;
     border: 2px solid black;
@@ -88,17 +95,42 @@ p {
     grid-column: 1 / 3;
     grid-row: 2 / 6;
     border: 2px solid black;
-    margin-top: -128px;
+    margin-top: -110px;
+}
+.table{
+    height: 6.4%;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 6.5px;
+    text-align: center;
+    font-size: 30px;
+    background-color: red;
+    font-family: arial;
+    font-style: oblique;
 }
 .adminMatches {
-    height: 835px;
-  grid-column: 3 / 5;
-  grid-row: 1 / 6;
-  border: 2px solid black;
+    height: 854px;
+    grid-column: 3 / 5;
+    grid-row: 1 / 6;
+    border: 2px solid black;
+    width: 80%;
+}
+#tableSec{
+    height: 854px;
+    width: 15%;
+    margin-left: 105%;
+    margin-top: -3px;
 }
 
 .funkaa:after{
     content: "";
     display: table;
     clear: both;
+}
+
+#nextR {
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px;
 }
