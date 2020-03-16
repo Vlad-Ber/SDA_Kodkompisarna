@@ -10,9 +10,11 @@ const vm = new Vue({
 	msgUser: function() {
 	    socket.emit("sendConsole", {
 		testArray: this.testArray,
+		round: roundNumber,
+		allowed: allowed,
 	    }),
-	    console.log("vueTest");
 	    console.log("Roundnumber is : " + roundNumber);
+	    allowed = false;
 	}
     }
 });

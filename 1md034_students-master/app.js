@@ -92,7 +92,7 @@ app.get('/dejt3', function(req, res) {
 function Data() {
     this.orders = {};
     this.femma = 5;
-}
+}  
 
 /*
   Adds an order to to the queue
@@ -127,6 +127,10 @@ io.on('connection', function(socket) {
     });
     socket.on('sendConsole', function(hej) {
 	io.emit('skickaEtta', { ettan: data.sendConsole() });
+	io.emit('nyRunda', {
+	    round: hej.round,
+	    allowed: hej.allowed,
+	});
     });
 });
 
