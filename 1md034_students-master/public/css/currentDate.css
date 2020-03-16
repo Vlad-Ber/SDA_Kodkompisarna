@@ -3,15 +3,46 @@
 	margin-left: 26%;
 }
 
-#work_space{
-	font-size: 3vh;
+#profile{
+	font-size: 50px;
+	font-weight: bold; 
 }
 
 #profile_desc{
 	text-align: center; 
+	margin-top: 3%;
+	font-size: 2vh;
 }
 
 #timer{
 	text-align: center;
 	margin: 5%;
+}
+
+
+
+p{
+	text-align: center; 
+}
+
+.table{
+	width: 7%;
+	float: left;
+	text-align: center;
+	margin: 1%;
+	border-style: solid;
+	border-color: #000000;
+}
+
+#table1{
+	background-color: green;
+}
+
+#tableSec{
+	margin-left:4.5%;
+	margin-top: -5%;
+}
+
+#table{
+	margin-top: -4%;
 }
