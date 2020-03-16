@@ -12,11 +12,21 @@
 	text-align: center; 
 	margin-top: 3%;
 	font-size: 2vh;
+  color: white;
+  font-style: oblique;
+
+}
+
+#profile_name{
+
+    color: white;
+    font-size: 5vh;
 }
 
 #timer{
 	text-align: center;
 	margin: 5%;
+  color: pink;
 }
 
 
@@ -31,7 +41,9 @@ p{
 	text-align: center;
 	margin: 1%;
 	border-style: solid;
-	border-color: #000000;
+	border-color: pink;
+  color: pink;
+  
 }
 
 #table1{
@@ -45,4 +57,38 @@ p{
 
 #table{
 	margin-top: -4%;
+}
+
+#date1{
+    
+    color: pink;
+
+    background-color: black;
+    font-style: oblique;
+}
+
+#work_space{
+    background-color: black;
+}
+
+#finishEarly{
+    text-align: left;
+    font-size:10px;
+    float: right;
+
+}
+#dateHelp{
+    position: absolute;
+    font-size: 20px;
+}
+#img_here{
+
+    
+}
+
+button:hover {
+
+    background-color: green;
+    cursor:pointer;
+
 }
