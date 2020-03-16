@@ -10,6 +10,10 @@
     function rateYourDate(){
       location.href = "/match";
 
+        
+    }
+    function help(){
+        console.log("Vem är snyggast i rummet?");
     }
     </script>
 
@@ -20,15 +24,22 @@
 </head>
 
 <body id="work_space">
-	<h1> Första Dejten</h1>
+	<h1 id="date1"> Första Dejten</h1>
 	<section id="profile">
 		<div id="match_pic"> <!--TODO: Hämta profilbild från profilen.-->
-			<img id ="imgHere" src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" height="700px">
+			<img id ="imgHere" src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" height="350px">
 		</div>
 		<div id="profile_name"> <!--TODO: Hämta namnet från profilen.-->
-			<p>Sven, ÅLDER HÄR</p>
+			<p>{{name}}, {{ålder}} År</p>
 		</div>
-		<div id="table"> 
+		<div id="profile_desc">
+      <p>
+			  {{INSERT DESC HERE}} <br />
+        Jag gillar kakor och kaffe. Det är mycket gott. Detta projekt är superkul!
+		  </p>
+
+    </div>
+    <div id="table"> 
 			<p>Ni ska sitta vid bord 2</p>
 			    <div id="tableSec">
 				  <div class = "table" id="table0">1</div>
@@ -44,17 +55,17 @@
 				</div>
 		</div>
 		<br>
-		<div id="profile_desc">
-			<p>
-				kkkkkkkkkkkk
-			</p>
-		</div>
+
+
+
 		<div id = "timer">
-			TIMER HERE
-		</div>
+		
+      10:00
+	  </div>
 	</section>
 	
-	<button onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Avsluta dejten tidigt</button>
+	<button onclick="rateYourDate()" id="finishEarly" type="button" class="button">Avsluta dejten tidigt</button>
+  <button onclick="help()" id="dateHelp" type="button" class="button1">Frågehjälp :)</button>
 
 
 </body>
