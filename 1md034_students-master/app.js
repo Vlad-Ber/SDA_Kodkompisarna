@@ -137,8 +137,12 @@ io.on('connection', function(socket) {
 	io.emit('currentQueue', { orders: data.getAllOrders() });
     });
     socket.on('sendConsole', function(hej) {
-		io.emit('skickaEtta', { ettan: data.sendConsole() });
-    });
+	io.emit('skickaEtta', { ettan: data.sendConsole() });
+	io.emit('nyRunda', {
+	    round: hej.round,
+	    allowed: hej.allowed,
+	});
+	});
 	socket.on('sendRating', function(ratings){
 		console.log("recieved" + ratings.conv + ratings.intr + ratings.match);
 		data.setRatings(ratings); 

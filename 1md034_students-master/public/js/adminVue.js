@@ -10,13 +10,6 @@ const vm = new Vue({
 		match: 0,
     },
     methods: {
-		msgUser: function() {
-			socket.emit("sendConsole", {
-			testArray: this.testArray,
-			}),
-			console.log("vueTest");
-			console.log("Roundnumber is : " + roundNumber);
-		},	
 		getRatings: function() {
 			socket.on('redirectRating', function(ratings){
 				this.conv = ratings[0];
@@ -25,8 +18,15 @@ const vm = new Vue({
 				console.log("Rating recieved");
 			})
 		},
-    }
-
-			
+		msgUser: function() {
+			socket.emit("sendConsole", {
+			testArray: this.testArray,
+			round: roundNumber,
+			allowed: allowed,
+			}),
+			console.log("Roundnumber is : " + roundNumber);
+			allowed = false;
+		}
+    }		
 });
 		  
