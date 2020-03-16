@@ -5,7 +5,8 @@
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/ryd.css">
-	<script src="js/ryd.js" defer></script>
+	<script type="text/javascript" src="js/ryd.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
 	<script src="https://vuejs.org/js/vue.js"></script>	
 
   <script>
@@ -30,7 +31,7 @@
 			<p>Sven Svensson</p>
 		</div>
 	</section>
-	<div id = "vuePlace"> 
+	<div id = "vuePlace">			
 	<section id="rating">
 		<div class="slider">
 			Konversation<br>
@@ -48,13 +49,13 @@
 			{{match}}
 			<span id="matchRangeValue" class="sliderValue"></span>
 		</div>
-	</div>
 	</section>
 
-  <button onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
-  <br>
-  <button type="submit" id="report">
-  <img src="img/report.png" width="50"/> Rapportera
-  </button>
+	<button onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
+	<br>
+	<button type="submit" id="report" v-on:click="sendRating">
+	<img src="img/report.png" width="50"/> Rapportera
+	</button>
+	</div>  
 </body>
 </html>

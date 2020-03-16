@@ -92,7 +92,8 @@ app.get('/dejt3', function(req, res) {
 function Data() {
     this.orders = {};
     this.femma = 5;
-}  
+	this.ratings =  {};
+}
 
 /*
   Adds an order to to the queue
@@ -109,6 +110,16 @@ Data.prototype.sendConsole = function() {
 Data.prototype.getAllOrders = function() {
   return this.orders;
 };
+
+Data.prototype.setRatings = function(newRatings) {
+	this.ratings[0] = newRatings.conv;
+	this.ratings[1] = newRatings.intr; 
+	this.ratings[2] = newRatings.match;
+}
+
+Data.prototype.sendRatings = function() {
+	return this.ratings;
+}; 
 
 
 
@@ -131,7 +142,12 @@ io.on('connection', function(socket) {
 	    round: hej.round,
 	    allowed: hej.allowed,
 	});
-    });
+	});
+	socket.on('sendRating', function(ratings){
+		console.log("recieved" + ratings.conv + ratings.intr + ratings.match);
+		data.setRatings(ratings); 
+		io.emit('redirectRating', { ratings: data.sendRatings() });
+	});
 });
 
 /* eslint-disable-next-line no-unused-vars */
