@@ -12,15 +12,9 @@ const ind = new Vue({
 	    this.testNumber = data.data1;
 	    console.log(4);
 	}.bind(this));
-
-	socket.on('skickaEtta',function(data) {
-	    this.testNumber = data.ettan;
-	    //location.href = "/date1";
-	}.bind(this));
+	
 	socket.on('nyRunda', function(data) {
 	    this.roundNumber = data.round;
-	    console.log("RoundNumber is: " +this.roundNumber);
-	    console.log("Allowed is: "+ data.allowed);
 	    if(data.allowed){
 		if (this.roundNumber == 1){
 		    location.href = "/date1";
