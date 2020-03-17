@@ -11,10 +11,10 @@ const vm = new Vue({
     },
     created: function () {		
 		    socket.on('redirectRating', function(data){
-			/*this.conv = data.ratings[0];
-			  this.intr = data[1]; */
-			//this.match = data.ratings;
-			console.log("Rating recieved");
+				this.conv = data.ratings[0];
+				this.intr = data.ratings[1]; 
+				this.match = data.ratings[2];
+				console.log("Rating recieved" + this.conv + this.intr + this.match);
 		    }.bind(this));
 		},	
     methods: {

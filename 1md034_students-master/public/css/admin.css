@@ -134,3 +134,11 @@ p {
     color: white;
     padding: 10px;
 }
+
+#rating{
+	font-size: 2vh;
+	position:absolute;
+	margin-left:16%;	
+	margin-top: 0.5%;
+	font-weight:bold;
+}

@@ -156,7 +156,7 @@ io.on('connection', function(socket) {
     socket.on('sendRating', function(rate){
 	console.log("recieved" + rate.conv + rate.intr + rate.match);
 	data.setRatings(rate); 
-	io.emit('redirectRating', { ratings: rate.match,});
+	io.emit('redirectRating', { ratings: data.sendRatings(),});
     });
 });
 
