@@ -86,6 +86,9 @@ app.get('/dejt3', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/userTimer3.html'));
 });
 
+app.get('/help', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/fragehjalp.html'));
+});
 
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
@@ -148,6 +151,7 @@ io.on('connection', function(socket) {
 	data.setRatings(rate); 
 	io.emit('redirectRating', { ratings: rate.match,});
     });
+
 });
 
 /* eslint-disable-next-line no-unused-vars */
