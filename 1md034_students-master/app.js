@@ -92,7 +92,8 @@ app.get('/dejt3', function(req, res) {
 function Data() {
     this.orders = {};
     this.femma = 5;
-	this.ratings =  {};
+    this.ratings =  {};
+    this.roundnumber = 0;
 }
 
 /*
@@ -137,9 +138,18 @@ io.on('connection', function(socket) {
 	io.emit('currentQueue', { orders: data.getAllOrders() });
     });
     socket.on('sendConsole', function(hej) {
+	if(data.roundnumber == 3){
+	    data.roundnumber == 0;
+	    console.log("Speedate event is now over!");
+	}
+	else{
+	    console.log("Round " + hej.round + " has started!");
+	    data.roundnumber = hej.round;
+	};
+	    
 	io.emit('skickaEtta', { ettan: data.sendConsole() });
 	io.emit('nyRunda', {
-	    round: hej.round,
+	    round: data.roundnumber,
 	    allowed: hej.allowed,
 	});
     });
