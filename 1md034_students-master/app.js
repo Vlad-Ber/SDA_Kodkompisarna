@@ -142,12 +142,12 @@ io.on('connection', function(socket) {
 	    round: hej.round,
 	    allowed: hej.allowed,
 	});
-	});
-	socket.on('sendRating', function(rate){
-		console.log("recieved" + rate.conv + rate.intr + rate.match);
-		data.setRatings(rate); 
-		io.emit('test', { ratings: rate.match,});
-	});
+    });
+    socket.on('sendRating', function(rate){
+	console.log("recieved" + rate.conv + rate.intr + rate.match);
+	data.setRatings(rate); 
+	io.emit('redirectRating', { ratings: rate.match,});
+    });
 });
 
 /* eslint-disable-next-line no-unused-vars */

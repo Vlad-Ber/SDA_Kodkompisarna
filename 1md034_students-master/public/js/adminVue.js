@@ -9,21 +9,21 @@ const vm = new Vue({
 		intr: 0,
 		match: 0,
     },
+    created: function () {		
+		    socket.on('redirectRating', function(data){
+			/*this.conv = data.ratings[0];
+			  this.intr = data[1]; */
+			//this.match = data.ratings;
+			console.log("Rating recieved");
+		    }.bind(this));
+		},	
     methods: {
-		created: function () {		
-			console.log("Rating recieved");		
-			socket.on('redirectRating', function(data){
-				/*this.conv = data.ratings[0];
-				this.intr = data[1]; */
-				this.match = data.ratings.match;
-				console.log("Rating recieved");
-			}.bind(this));
-		},		
+	
 		msgUser: function() {
 			socket.emit("sendConsole", {
-			testArray: this.testArray,
-			round: roundNumber,
-			allowed: allowed,
+			    testArray: this.testArray,
+			    round: roundNumber,
+			    allowed: allowed,
 			}),
 			console.log("Roundnumber is : " + roundNumber);
 			allowed = false;
