@@ -92,6 +92,7 @@ app.get('/dejt3', function(req, res) {
 function Data() {
     this.orders = {};
     this.femma = 5;
+	this.ratings =  {};
 }
 
 /*
@@ -110,6 +111,16 @@ Data.prototype.getAllOrders = function() {
   return this.orders;
 };
 
+Data.prototype.setRatings = function(newRatings) {
+	this.ratings[0] = newRatings.conv;
+	this.ratings[1] = newRatings.intr; 
+	this.ratings[2] = newRatings.match;
+}
+
+Data.prototype.sendRatings = function() {
+	return this.ratings;
+}; 
+
 
 
 const data = new Data();
@@ -127,6 +138,15 @@ io.on('connection', function(socket) {
     });
     socket.on('sendConsole', function(hej) {
 	io.emit('skickaEtta', { ettan: data.sendConsole() });
+	io.emit('nyRunda', {
+	    round: hej.round,
+	    allowed: hej.allowed,
+	});
+    });
+    socket.on('sendRating', function(rate){
+	console.log("recieved" + rate.conv + rate.intr + rate.match);
+	data.setRatings(rate); 
+	io.emit('redirectRating', { ratings: rate.match,});
     });
 });
 

@@ -139,6 +139,7 @@ function roundNumberMake(number){
 
 let round = new roundNumberMake(0);
 let roundNumber = round.getRoundNumber();
+let allowed = false;
 
 
 
@@ -154,6 +155,8 @@ function startRound(){
 	statusM.textContent = "Please match all dates!";
     }
     else{
+	allowed = true;
+	console.log(allowed);
 	//Lägg tillbaka alla sections
 	var maleLeft = document.getElementById("maleLeft");
 	var femaleLeft = document.getElementById("femaleLeft");
