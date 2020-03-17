@@ -12,8 +12,8 @@
 	text-align: center; 
 	margin-top: 3%;
 	font-size: 2vh;
-  color: white;
-  font-style: oblique;
+    color: white;
+     font-style: oblique;
 
 }
 
@@ -73,19 +73,24 @@ p{
 
 #finishEarly{
     text-align: left;
-    font-size:10px;
+    font-size:3vh;
     float: right;
+	margin-right: 25%;
+	margin-top:12%;
 
 }
 #dateHelp{
     position: absolute;
-    font-size: 20px;
+    font-size: 3vh;
+	margin-left: 35%;
 }
 #img_here{
 
     
 }
-
+button{
+	font-size: 
+}
 button:hover {
 
     background-color: green;

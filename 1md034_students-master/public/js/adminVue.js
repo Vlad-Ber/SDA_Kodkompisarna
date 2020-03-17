@@ -10,14 +10,15 @@ const vm = new Vue({
 		match: 0,
     },
     methods: {
-		getRatings: function() {
-			socket.on('redirectRating', function(ratings){
-				this.conv = ratings[0];
-				this.intr = ratings[1]; 
-				this.match = ratings[2];
+		created: function () {		
+			console.log("Rating recieved");		
+			socket.on('redirectRating', function(data){
+				/*this.conv = data.ratings[0];
+				this.intr = data[1]; */
+				this.match = data.ratings.match;
 				console.log("Rating recieved");
-			})
-		},
+			}.bind(this));
+		},		
 		msgUser: function() {
 			socket.emit("sendConsole", {
 			testArray: this.testArray,

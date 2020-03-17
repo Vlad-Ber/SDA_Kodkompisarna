@@ -143,10 +143,10 @@ io.on('connection', function(socket) {
 	    allowed: hej.allowed,
 	});
 	});
-	socket.on('sendRating', function(ratings){
-		console.log("recieved" + ratings.conv + ratings.intr + ratings.match);
-		data.setRatings(ratings); 
-		io.emit('redirectRating', { ratings: data.sendRatings() });
+	socket.on('sendRating', function(rate){
+		console.log("recieved" + rate.conv + rate.intr + rate.match);
+		data.setRatings(rate); 
+		io.emit('test', { ratings: rate.match,});
 	});
 });
 
