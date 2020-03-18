@@ -5,6 +5,7 @@ const vm = new Vue({
     el: '#page',
     data: {
 		testArray: 1,
+		name: "pelle",
 		conv: 0,
 		intr: 0,
 		match: 0,
