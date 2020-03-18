@@ -90,6 +90,9 @@ app.get('/help', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/fragehjalp.html'));
 });
 
+app.get('/report', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/report.html'));
+});
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {

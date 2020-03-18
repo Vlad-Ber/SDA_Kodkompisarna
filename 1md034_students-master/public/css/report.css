@@ -1,0 +1,51 @@
+#rubrik {
+   
+    marigin: auto;
+    text-align: center;
+    
+}
+
+
+#report{
+    font-size: 10vh;
+   marigin: auto;
+   text-align: center;
+
+   position: absolute;
+   bottom: 0;
+   right: 0;
+}
+
+#regret{
+
+    font-size: 10vh;
+    text-align: center;
+    marigin-top: 50%;
+   
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    marigin-top: 100%;
+
+}
+
+#report:hover {
+
+    background-color: red;
+}
+
+#regret:hover{
+    background-color: lightblue;
+}
+
+#anmal{
+
+    marigin: auto;
+    marigin-left: 50%;
+    text-aligin: center;
+    display: inline-block;
+
+    	font-size: 40px;
+
+}
+    
