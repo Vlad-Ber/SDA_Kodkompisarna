@@ -6,6 +6,7 @@ const vm = new Vue({
     data: {
 		testArray: 1,
 		name: "pelle",
+		showRatings: false,
 		conv: 0,
 		intr: 0,
 		match: 0,
@@ -16,6 +17,7 @@ const vm = new Vue({
 				this.intr = data.ratings[1]; 
 				this.match = data.ratings[2];
 				console.log("Rating recieved" + this.conv + this.intr + this.match);
+				this.showRatings = true; 
 		    }.bind(this));
 		},	
     methods: {
@@ -26,6 +28,7 @@ const vm = new Vue({
 			    round: roundNumber,
 			    allowed: allowed,
 			}),
+			this.showRatings = false; 
 			console.log("Roundnumber is : " + roundNumber);
 			allowed = false;
 		}
