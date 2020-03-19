@@ -96,11 +96,14 @@ app.get('/report', function(req, res) {
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
-    this.orders = {};
-    this.femma = 5;
-    this.ratings =  {};
-    this.roundnumber = 0;
-	this.matches = {};
+  this.orders = {};
+  this.femma = 5;
+  this.ratings = {};
+  this.match = [ // this.match används för currentDate. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem? (Om det finns tid)
+    this.profile = {},
+    this.table = 0,
+  ],
+    this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
 }
 
 /*
@@ -129,6 +132,19 @@ Data.prototype.sendRatings = function() {
 	return this.ratings;
 }; 
 
+// Funktioner för currentDate 
+// TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
+Data.prototype.setMatch = function (newMatch) {
+  this.match.profile = newMatch.profile;
+  this.match.table = newMatch.table;
+}
+
+Data.prototype.sendMatch = function () {
+  return this.match;
+}
+
+// Funktioner för meetAgain
+// TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
 Data.prototype.setMatches = function(matches) {
 	this.matches[0] = matches.p1; 
 	this.matches[1] = matches.p2;
@@ -168,7 +184,12 @@ io.on('connection', function(socket) {
 	io.emit('nyRunda', {
 	    round: data.roundnumber,
 	    allowed: hej.allowed,
-	});
+  });
+      //Receive a profile from admin and send it to the user.
+      socket.on('sendMatch', function (match) {
+        data.setMatch(match);
+        io.emit('getMatch', { match: data.sendMatch() });
+  })
     });
     socket.on('sendRating', function(rate){
 	console.log("recieved" + rate.conv + rate.intr + rate.match);
