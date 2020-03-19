@@ -86,7 +86,13 @@ app.get('/dejt3', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/userTimer3.html'));
 });
 
+app.get('/help', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/fragehjalp.html'));
+});
 
+app.get('/report', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/report.html'));
+});
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
@@ -156,8 +162,9 @@ io.on('connection', function(socket) {
     socket.on('sendRating', function(rate){
 	console.log("recieved" + rate.conv + rate.intr + rate.match);
 	data.setRatings(rate); 
-	io.emit('redirectRating', { ratings: rate.match,});
+	io.emit('redirectRating', { ratings: data.sendRatings(),});
     });
+
 });
 
 /* eslint-disable-next-line no-unused-vars */
