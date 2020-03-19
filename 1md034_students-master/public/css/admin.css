@@ -135,10 +135,21 @@ p {
     padding: 10px;
 }
 
-#rating{
+.rating{
 	font-size: 2vh;
 	position:absolute;
 	margin-left:12%;	
-	margin-top: 1.4%;
+	margin-top: 1.3%;
 	font-weight:bold;
+	background-color: powderblue;
+}
+
+.rate{
+	font-size: 1.8vh;
+	position: absolute;
+	margin-left:12%;
+	margin-top: -2.5%;
+	font-weight: bold;
+	background-color: powderblue;
+	width:7%;
 }

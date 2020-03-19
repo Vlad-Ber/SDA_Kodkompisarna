@@ -141,7 +141,20 @@ let round = new roundNumberMake(0);
 let roundNumber = round.getRoundNumber();
 let allowed = false;
 
-
+function rating(maleRight, femaleRight, i){
+	var matchM = maleRight.children[i];
+	var matchF = femaleRight.children[i]; 
+	var pm = document.createElement('p');
+	var pf = document.createElement('p');
+	let txtm = document.createTextNode("Rating: " + matchF.children[1].textContent);
+	pm.setAttribute("class", "rate"); 
+	let txtf = document.createTextNode("Rating: " + matchM.children[1].textContent); 
+	pf.setAttribute("class", "rate");
+	pm.appendChild(txtm);
+	pf.appendChild(txtf); 
+	matchM.appendChild(pm); 
+	matchF.appendChild(pf);	
+}
 
 function startRound(){
     //Check om alla matchningar är giltiga
@@ -157,6 +170,13 @@ function startRound(){
     else{
 	allowed = true;
 	console.log(allowed);
+	var matchedMale = [];
+	var matchedFemale = []; 
+	
+	for(var k = 0; k < 10; k++){
+		console.log("hej"); 
+		rating(maleRight, femaleRight, k);
+	}
 	//Lägg tillbaka alla sections
 	var maleLeft = document.getElementById("maleLeft");
 	var femaleLeft = document.getElementById("femaleLeft");
@@ -164,10 +184,12 @@ function startRound(){
 	var femaleRight = document.getElementById("femaleRight");
 	var i = maleRight.children[0];
 	
+	
 	//Flytta tillbaka män
 	for(;i != undefined;){
 	    var maleToMove = maleRight.children[0];
 	    maleLeft.appendChild(maleToMove);
+		
 	    i = maleRight.children[0];
 	}
 	var a = femaleRight.children[0];
