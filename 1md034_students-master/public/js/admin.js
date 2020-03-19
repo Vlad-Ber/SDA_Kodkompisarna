@@ -51,6 +51,12 @@ function tableRed() {
         tableToChange.style.backgroundColor = "red";
     }
 }
+function tableGreen() {
+    for (var i = 0; i < 10; i++) {
+        var tableToChange = document.getElementById("table" + i);
+        tableToChange.style.backgroundColor = "green";
+    }
+}
 
 //INIT WOMEN LEFT
 for (var i = 0; i < 10; i++) {
@@ -143,21 +149,33 @@ function shuffle() {
     var femaleRight = document.getElementById("femaleRight");
 
     //Flytta  män randomly
-    for (var i = 0; i < 10; i++) {
-        var randNumber = Math.round(Math.random() * (9 - i));
+    var firstMaleLeft = maleLeft.children[0];
+    //Flytta tillbaka kvinnor
+    for (var i = 9; firstMaleLeft != undefined;) {
+	var randNumber = Math.round(Math.random() * i);
         var maleToMove = maleLeft.children[randNumber];
-        if (maleToMove != undefined) {
+	if (maleToMove != undefined){
             maleRight.appendChild(maleToMove);
-        }
+	   
+	}
+        firstMaleLeft = maleLeft.children[0];
+	i--;
     }
     //Flytta female randomly
-    for (var i = 0; i < 10; i++) {
-        var randNumber = Math.round(Math.random() * (9 - i));
+    var firstFemaleLeft = femaleLeft.children[0];
+    //Flytta tillbaka kvinnor
+    for (var i = 9; firstFemaleLeft != undefined;) {
+	var randNumber = Math.round(Math.random() * i);
         var femaleToMove = femaleLeft.children[randNumber];
-        if (femaleToMove != undefined) {
+	if (femaleToMove != undefined){
             femaleRight.appendChild(femaleToMove);
-        }
+	    
+	}
+        firstFemaleLeft = femaleLeft.children[0];
+	i--;
     }
+    //Färg till grön
+    tableGreen();
     //Ändra admin messageboxxen
     var adminStat = document.getElementById("statusMessage");
     adminStat.textContent = "Matches have succesfully been shuffled.";
@@ -214,13 +232,11 @@ function startRound() {
     if (maleCheck == undefined || femaleCheck == undefined) {
         var statusM = document.getElementById("statusMessage");
         statusM.textContent = "Please match all dates!";
-    }
+    }   //Om alla matchningar är giltiga
     else {
         allowed = true;
-        console.log(allowed);
         //Skicka profilen som matchats med Maj-Britt
         getMajBrittsMatch();
-        console.log(allowed);
         var matchedMale = [];
         var matchedFemale = [];
 
@@ -234,7 +250,6 @@ function startRound() {
         var maleRight = document.getElementById("maleRight");
         var femaleRight = document.getElementById("femaleRight");
         var i = maleRight.children[0];
-
 
         //Flytta tillbaka män
         for (; i != undefined;) {
