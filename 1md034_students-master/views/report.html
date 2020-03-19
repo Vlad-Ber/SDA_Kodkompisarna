@@ -3,46 +3,43 @@
 
   <head>
 
-    <!--  <link rel="stylesheet" type="text/css" href="css/style.css">-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 	  <link rel="stylesheet" type="text/css" href="css/report.css">
 
+    <script type="text/javascript" src="js/reportVue.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    
+    
     
     <h1 id="rubrik">
       <u> Rapportera Användare </u>
     </h1>
 
-    <script>
-      function report1() {
-          location.href="/match"
-      }
 
-      function regret() {
-          location.href="/match"
-      }
-    </script>
   </head>
   
   <body>
-<div id="anmal">
-    <p>
-      
-	    <label for="report"></label><br>
-	    <input type ="text" id = "anmal" class= "input" name = "report" required= "required" placeholder = "Berätta gärna vad som hänt" />
-    </p>
-    </div>
-    
-  </body>
+   
+      <div id="rep">
+        
+        <p>
+          
+	        <label for="report"></label><br>
+	        <input type ="text" id = "anmal" class= "input" name = "report" required= "required" placeholder = "Berätta gärna vad som hänt" />
+        </p>
+        
+        
+        
+
+        <button id="regret" v-on:click="regret()">
+          Ångra
+        </button>
+        
+        <button id="report" v-on:click="report1()">
+          Anmäl
+        </button>
+      </div>
   
-  <footer>
-
-    <button id="regret" onclick="regret()">
-      Ångra
-    </button>
-    
-    <button id="report" onclick="report1()">
-      Anmäl
-    </button>
-
-
-  </footer>
+  </body>
 </html>

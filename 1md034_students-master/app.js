@@ -185,6 +185,13 @@ io.on('connection', function(socket) {
 		console.log("sending message");
 		io.emit('sendMessage', { match: data.getMatches() });
 	});
+    
+    socket.on('report', function (data) {
+
+        console.log(data.test);
+        io.emit('report', {report: data.test }); 
+            
+        });
 
 });
 
