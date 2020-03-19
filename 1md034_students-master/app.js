@@ -90,9 +90,13 @@ app.get('/dejt3', function(req, res) {
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
-    this.orders = {};
-    this.femma = 5;
-	this.ratings =  {};
+  this.orders = {};
+  this.femma = 5;
+  this.ratings = {};
+  this.match = [
+    this.profile = {},
+    this.table = 0,
+  ]
 }
 
 /*
@@ -121,6 +125,14 @@ Data.prototype.sendRatings = function() {
 	return this.ratings;
 }; 
 
+Data.prototype.setMatch = function (newMatch) {
+  this.match.profile = newMatch.profile;
+  this.match.table = newMatch.table;
+}
+
+Data.prototype.sendMatch = function () {
+  return this.match;
+}
 
 
 const data = new Data();
@@ -141,7 +153,12 @@ io.on('connection', function(socket) {
 	io.emit('nyRunda', {
 	    round: hej.round,
 	    allowed: hej.allowed,
-	});
+  });
+      //Receive a profile from admin and send it to the user.
+      socket.on('sendMatch', function (match) {
+        data.setMatch(match);
+        io.emit('getMatch', { match: data.sendMatch() });
+  })
     });
     socket.on('sendRating', function(rate){
 	console.log("recieved" + rate.conv + rate.intr + rate.match);

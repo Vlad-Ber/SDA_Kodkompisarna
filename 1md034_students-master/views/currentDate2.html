@@ -2,71 +2,64 @@
 <html lang="en">
 
 <head>
-
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/currentDate.css">
-
-  <script>
-    function rateYourDate(){
-      location.href = "/ryd2";
-
-        
-    }
-    function help(){
-        console.log("Vem är snyggast i rummet?");
-    }
-    </script>
-
+	<script type="text/javascript" src="js/currentDate.js" defer></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://vuejs.org/js/vue.js"></script>
+	<script>
+		function rateYourDate() {
+			location.href = "/ryd2";
+		}
+		function help() {
+			console.log("help");
+		}
+	</script>
 	<title>Dejt nr. 2</title>
 	<meta charset="utf-8" />
-
-
 </head>
 
 <body id="work_space">
-	<h1 id="date1">Andra Dejten</h1>
-	<section id="profile">
-		<div id="match_pic"> <!--TODO: Hämta profilbild från profilen.-->
-			<img id ="imgHere" src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" height="350px">
-		</div>
-		<div id="profile_name"> <!--TODO: Hämta namnet från profilen.-->
-			<p>{{name}}, {{ålder}} År</p>
-		</div>
-		<div id="profile_desc">
-      <p>
-			  {{INSERT DESC HERE}} <br />
-        Jag gillar kakor och kaffe. Det är mycket gott. Detta projekt är superkul!
-		  </p>
-
-    </div>
-    <div id="table"> 
-			<p>Ni ska sitta vid bord 2</p>
-			    <div id="tableSec">
-				  <div class = "table" id="table0">1</div>
-				  <div class = "table" id="table1">2</div>
-				  <div class = "table" id="table2">3</div>
-				  <div class = "table" id="table3">4</div>
-				  <div class = "table" id="table4">5</div>
-				  <div class = "table" id="table5">6</div>
-				  <div class = "table" id="table6">7</div>
-				  <div class = "table" id="table7">8</div>
-				  <div class = "table" id="table8">9</div>
-				  <div class = "table" id="table9">10</div>
+	<div id="current_date">
+		<h1 id="date1"> Andra Dejten</h1>
+		<section id="profile">
+			<div id="match_pic">
+				<!--TODO: Hämta profilbild från profilen.-->
+				<img id="pic" v-bind:src="'img/basicUser.jpg'" height="350px">
+			</div>
+			<div id="profile_name">
+				<p> {{ name }} </p>
+			</div>
+			<div id="profile_age">
+				<p> {{ age }} År </p>
+			</div>
+			<div id="profile_desc">
+				<p> {{ desc }} <br /></p>
+			</div>
+			<div id="table">
+				<p>Ni ska sitta vid bord:</p>
+				<div id="tableSec">
+					<div class="table" id="table0">1</div>
+					<div class="table" id="table1">2</div>
+					<div class="table" id="table2">3</div>
+					<div class="table" id="table3">4</div>
+					<div class="table" id="table4">5</div>
+					<div class="table" id="table5">6</div>
+					<div class="table" id="table6">7</div>
+					<div class="table" id="table7">8</div>
+					<div class="table" id="table8">9</div>
+					<div class="table" id="table9">10</div>
 				</div>
-		</div>
-		<br>
+			</div>
+			<br>
+			<div id="timer">
+				10:00
+			</div>
+		</section>
 
-
-
-		<div id = "timer">
-		
-      10:00
-	  </div>
-	</section>
-	
-	<button onclick="rateYourDate()" id="finishEarly" type="button" class="button">Avsluta dejten tidigt</button>
-  <button onclick="help()" id="dateHelp" type="button" class="button1">Frågehjälp :)</button>
-
-
+		<button onclick="rateYourDate()" id="finishEarly" type="button" class="button">Avsluta dejten tidigt</button>
+		<button onclick="help()" id="dateHelp" type="button" class="button1">Frågehjälp :)</button>
+	</div>
 </body>
+
 </html>

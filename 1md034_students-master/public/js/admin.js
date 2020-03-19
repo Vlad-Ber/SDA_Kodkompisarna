@@ -1,4 +1,3 @@
-
 //INIT MEN LEFT
 for(var i = 0; i<10; i++){
     let id = document.getElementById("sec"+i);
@@ -141,7 +140,27 @@ let round = new roundNumberMake(0);
 let roundNumber = round.getRoundNumber();
 let allowed = false;
 
-
+//Maj-Britt är dens profil man är som klient
+function getMajBrittsMatch() {
+    var maleRight = document.getElementById("maleRight");
+    var femaleRight = document.getElementById("femaleRight");
+    var profile = {};
+    var table = 0;
+    //Hitta Maj Britt för att få platsen, hämta bordet och dejt till adminVue.js
+    for (var i = 0; i < 10; i++) {
+        if (femaleRight.children[i].name == "Maj-Britt") {
+            if (maleRight.children[i] != undefined) {
+                profile = maleRight.children[i];
+                table = i;
+            }
+        }
+    }
+    //Skicka Maj-Britts match till servern
+    socket.emit("sendMatch", {
+        profile: profile,
+        table: table,
+    });
+}
 
 function startRound(){
     //Check om alla matchningar är giltiga
@@ -156,7 +175,9 @@ function startRound(){
     }
     else{
 	allowed = true;
-	console.log(allowed);
+        console.log(allowed);
+        //Skicka profilen som matchats med Maj-Britt
+        getMajBrittsMatch();
 	//Lägg tillbaka alla sections
 	var maleLeft = document.getElementById("maleLeft");
 	var femaleLeft = document.getElementById("femaleLeft");
