@@ -2,7 +2,6 @@
 const socket = io();
 
 const vm = new Vue({
-<<<<<<< HEAD
     el: '#page',
     data: {
 		    testArray: 1,
@@ -15,19 +14,7 @@ const vm = new Vue({
 		    b: 0,
 		    c: 0,
         reports: "DU ÄR ANMÄLD",
-=======
-	el: '#page',
-	data: {
-		testArray: 1,
-		name: "pelle",
-		showRatings: false,
-		conv: 0,
-		intr: 0,
-		match: 0,
-		a: 0,
-		b: 0,
-		c: 0, 
->>>>>>> cdcc1f04d63ae543d9ca1a085e22407482f6f3df
+
     },
     created: function () {		
 		    socket.on('redirectRating', function(data){
