@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/messages.css">
 	<script src="js/message.js" defer></script>
 	<script src="https://vuejs.org/js/vue.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
   </head>
   <body id = "work_space">
 	<h1>Dina Meddelanden</h1>
@@ -23,7 +24,57 @@
 				Från: LÖVE TEAM <br>
 				Om: Välkommen till LÖVE!
 			</p>
+		</div>
+		<div id = "read_message2" v-if="matchSeen" v-on:click="matchSeen = !matchSeen">
+			<p>
+				Dina matchningar! <br>
+					  <div class="wrapper">
+
+					<section class="matchOneImg" v-if="p1.match">
+					  <img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="400" height="400" id = "p_pic">
+					</section>
+
+					<section class="matchOneDesc" v-if="p1.match">
+					  {{p1.name}}<br>
+					  {{p1.age}} gammal<br>
+					  bor i {{p1.loc}}<br>
+					  tel {{p1.tel}}
+					</section>
+
+
+
+
+					<section class="matchTwoImg" v-if="p2.match">
+					  <img src="https://thumbs.dreamstime.com/z/successful-deal-happy-person-powerful-manager-713736.jpg" width="400" height="400" id = "p_pic" >
+					  
+					</section>
+					<section class="matchTwoDesc" v-if="p2.match">
+					  {{p2.name}}<br>
+					  {{p2.age}} gammal<br>
+					  bor i {{p2.loc}}<br>
+					  tel {{p2.tel}}
+					</section>
+
+
+					<section class="matchThreeImg" v-if="p3.match">
+					  <img src="https://previews.123rf.com/images/ljupco/ljupco1304/ljupco130400190/19122131-full-length-portrait-of-a-mature-gentleman-dancing-with-a-hula-hoop-isolated-on-white-background.jpg" width="400" height="400" id = "p_pic">
+					</section>
+					<section class="matchThreeDesc" v-if="p3.match">
+					  {{p3.name}}<br>
+					  {{p3.age}} gammal<br>
+					  bor i {{p3.loc}}<br>
+					  tel {{p3.tel}}
+					</section>
+					  </div>				
+			</p>
 		</div>	
+		<div id = "message" v-if="recievedMessage" v-on:click="matchSeen = !matchSeen">
+			<p>
+				Från: LÖVE TEAM <br>
+				Om: Dina matchningar!
+			</p>
+		</div>
+		<button v-on:click="refresh()" id="refresh" type="button">Refresh</button>
 	</div>
 	<p id = "go_back">
 		<a href="loggedIn">Tillbaka</a>

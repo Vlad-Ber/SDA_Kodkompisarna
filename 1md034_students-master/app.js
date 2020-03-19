@@ -100,6 +100,7 @@ function Data() {
     this.femma = 5;
     this.ratings =  {};
     this.roundnumber = 0;
+	this.matches = {};
 }
 
 /*
@@ -127,6 +128,16 @@ Data.prototype.setRatings = function(newRatings) {
 Data.prototype.sendRatings = function() {
 	return this.ratings;
 }; 
+
+Data.prototype.setMatches = function(matches) {
+	this.matches[0] = matches.p1; 
+	this.matches[1] = matches.p2;
+	this.matches[2] = matches.p3; 
+}
+
+Data.prototype.getMatches = function() {
+	return this.matches; 
+}
 
 
 
@@ -164,6 +175,16 @@ io.on('connection', function(socket) {
 	data.setRatings(rate); 
 	io.emit('redirectRating', { ratings: data.sendRatings(),});
     });
+	
+	socket.on('sendMatches', function(matches){
+		console.log("recieved matches for Maj-Britt, Sending to her messages"); 
+		data.setMatches(matches); 
+		io.emit('sendMessage', { match: data.getMatches(),});
+	});
+	socket.on('getMessage', function(){
+		console.log("sending message");
+		io.emit('sendMessage', { match: data.getMatches() });
+	});
 
 });
 
