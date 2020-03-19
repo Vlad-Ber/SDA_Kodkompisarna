@@ -134,3 +134,30 @@ p {
     color: white;
     padding: 10px;
 }
+
+
+#shuffle {
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+.rating{
+	font-size: 2vh;
+	position:absolute;
+	margin-left:12%;	
+	margin-top: 1.3%;
+	font-weight:bold;
+	background-color: powderblue;
+}
+
+.rate{
+	font-size: 1.8vh;
+	position: absolute;
+	margin-left:12%;
+	margin-top: -2.5%;
+	font-weight: bold;
+	background-color: powderblue;
+	width:7%;
+}

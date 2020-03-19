@@ -5,7 +5,9 @@
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/ryd.css">
-
+	<script type="text/javascript" src="js/ryd.js" defer></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://vuejs.org/js/vue.js"></script>
   <script>
     function rateYourDate(){
         location.href="/meetAgain";
@@ -29,51 +31,31 @@
 			<p>Klas</p>
 		</div>
 	</section>
+	<div id = "vuePlace">
 	<section id="rating">
 		<div class="slider">
 			Konversation<br>
-			<input id="conversationRange" type="range" min="1" max="10" value="5" class="slider">
-			<span id="conversationRangeValue" class="sliderValue"></span>
+			<input id="conversationRange" type="range" min="1" max="10" value="5" class="slider" v-model="conv">
+			{{conv}}
 		</div>
 		<div class="slider">
 			Intressen<br>
-			<input id="interestRange" type="range" min="1" max="10" value="5" class="slider">
-			<span id="interestRangeValue" class="sliderValue"></span>
+			<input id="interestRange" type="range" min="1" max="10" value="5" class="slider" v-model="intr">
+			{{intr}}
 		</div>
 		<div class="slider">
 			Hur bra var matchningen?<br>
-			<input id="matchRange" type="range" min="1" max="10" value="5" class="slider">
-			<span id="matchRangeValue" class="sliderValue"></span>
+			<input id="matchRange" type="range" min="1" max="10" value="5" class="slider" v-model="match">
+			{{match}}
 		</div>
 	</section>
 
-  <button onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
-
-	<script>
-		var conversationSlider = document.getElementById("conversationRange");
-		var conversationOutput = document.getElementById("conversationRangeValue");
-		conversationOutput.innerHTML = conversationSlider.value;
-
-		conversationSlider.oninput = function () {
-			conversationOutput.innerHTML = this.value;
-		}
-
-		var interestSlider = document.getElementById("interestRange");
-		var interestOutput = document.getElementById("interestRangeValue");
-		interestOutput.innerHTML = interestSlider.value;
-
-		interestSlider.oninput = function () {
-			interestOutput.innerHTML = this.value;
-		}
-
-		var matchSlider = document.getElementById("matchRange");
-		var matchOutput = document.getElementById("matchRangeValue");
-		matchOutput.innerHTML = matchSlider.value;
-
-		matchSlider.oninput = function () {
-			matchOutput.innerHTML = this.value;
-		}
-	</script>
+  <button v-on:click="sendRating" onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
+  <br>
+  <button type="submit" id="report">
+  <img src="img/report.png" width="50"/> Rapportera
+  </button>
+  </div>
 
 </body>
 </html>

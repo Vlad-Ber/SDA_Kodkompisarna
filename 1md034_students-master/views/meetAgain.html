@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/meetAgain.css">
 	<script src="js/meetAgain.js" defer></script>
 	<script src="https://vuejs.org/js/vue.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
 
 
     <script>
@@ -32,43 +33,43 @@
 <h2>Skulle du vilja träffa någon av dina dejter igen?</h2>
 <div class="wrapper">
 	<section class="matchOneImg">
-	  <img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="400" height="400" id = "p_pic">
+	  <img :src="p1.img" width="400" height="400" id = "p_pic">
 	</section>
 
 	<section class="matchOneDesc">
 	<br>
 	<br>
-	  <input name="choice" type="radio" id="yes" name="meetAgain" required="required" class="yesno" v-model="person1" v-bind:value="true"> Yes! <br />
-      <input name="choice" type="radio" id="no" name="meetAgain" required="required" class="yesno" v-model="person1" v-bind:value="false"> No <br />
+	  <input name="choice" type="radio" id="yes" name="meetAgain" required="required" class="yesno" v-model="p1.match" v-bind:value="true"> Yes! <br />
+      <input name="choice" type="radio" id="no" name="meetAgain" required="required" class="yesno" v-model="p1.match" v-bind:value="false"> No <br />
 	</section>
 
 
 
 
 	<section class="matchTwoImg">
-	  <img src="https://thumbs.dreamstime.com/z/successful-deal-happy-person-powerful-manager-713736.jpg" width="400" height="400" id = "p_pic" >
+	  <img :src="p2.img" width="400" height="400" id = "p_pic" >
 	  
 	</section>
 	<section class="matchTwoDesc">
 		<br>
 		<br>
-        <input name="choice2" type="radio" id="yes2" name="meetAgain" required="required" class="yesno" v-model="person2" v-bind:value="true"> Yes! <br />
-        <input name="choice2" type="radio" id="no2" name="meetAgain" required="required" class="yesno" v-model="person2" v-bind:value="false"> No <br />
+        <input name="choice2" type="radio" id="yes2" name="meetAgain" required="required" class="yesno" v-model="p2.match" v-bind:value="true"> Yes! <br />
+        <input name="choice2" type="radio" id="no2" name="meetAgain" required="required" class="yesno" v-model="p2.match" v-bind:value="false"> No <br />
 	</section>
 
 
 	<section class="matchThreeImg">
-	  <img src="https://previews.123rf.com/images/ljupco/ljupco1304/ljupco130400190/19122131-full-length-portrait-of-a-mature-gentleman-dancing-with-a-hula-hoop-isolated-on-white-background.jpg" width="400" height="400" id = "p_pic">
+	  <img :src="p3.img" width="400" height="400" id = "p_pic">
 	</section>
 	<section class="matchThreeDesc" required="required">
 		<br>
 		<br>    
-		<input name="choice3" type="radio" id="yes3" name="meetAgain" required="required" class="yesno" v-model="person3" v-bind:value="true"> Yes! <br />
-        <input name="choice3" type="radio" id="no3" name="meetAgain" required="required" class="yesno" v-model="person3" v-bind:value="false"> No <br />
+		<input name="choice3" type="radio" id="yes3" name="meetAgain" required="required" class="yesno" v-model="p3.match" v-bind:value="true"> Yes! <br />
+        <input name="choice3" type="radio" id="no3" name="meetAgain" required="required" class="yesno" v-model="p3.match" v-bind:value="false"> No <br />
 	</section>
  
 	<p>
-		<button id="meetAgainButton"  v-on:click="seen = !seen" type="button" class="button">Se dina matchningar</button>
+		<button id="meetAgainButton"  v-on:click="sendMatches()" type="button" class="button">Se dina matchningar</button>
 	</p>
 </div>
 <div id="yourMatches" class="matches" v-if="seen">
@@ -76,40 +77,40 @@
 
       <div class="wrapper">
 
-	<section class="matchOneImg" v-if="person1">
-	  <img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="400" height="400" id = "p_pic">
+	<section class="matchOneImg" v-if="p1.match">
+	  <img :src="p1.img" width="400" height="400" id = "p_pic">
 	</section>
 
-	<section class="matchOneDesc" v-if="person1">
-	  Temp<br>
-	  Temp gammal<br>
-	  Bor i Temp<br>
-	  Tel. Temp
+	<section class="matchOneDesc" v-if="p1.match">
+		  {{p1.name}}<br>
+		  {{p1.age}} gammal<br>
+		  bor i {{p1.loc}}<br>
+		  tel {{p1.tel}}
 	</section>
 
 
 
 
-	<section class="matchTwoImg" v-if="person2">
-	  <img src="https://thumbs.dreamstime.com/z/successful-deal-happy-person-powerful-manager-713736.jpg" width="400" height="400" id = "p_pic" >
+	<section class="matchTwoImg" v-if="p2.match">
+	  <img :src="p2.img" width="400" height="400" id = "p_pic" >
 	  
 	</section>
-	<section class="matchTwoDesc" v-if="person2">
-	  Temp<br>
-	  Temp gammal<br>
-	  Bor i Temp<br>
-	  Tel. Temp
+	<section class="matchTwoDesc" v-if="p2.match">
+		  {{p2.name}}<br>
+		  {{p2.age}} gammal<br>
+		  bor i {{p2.loc}}<br>
+		  tel {{p2.tel}}
 	</section>
 
 
-	<section class="matchThreeImg" v-if="person3">
-	  <img src="https://previews.123rf.com/images/ljupco/ljupco1304/ljupco130400190/19122131-full-length-portrait-of-a-mature-gentleman-dancing-with-a-hula-hoop-isolated-on-white-background.jpg" width="400" height="400" id = "p_pic">
+	<section class="matchThreeImg" v-if="p3.match">
+	  <img :src="p3.img" width="400" height="400" id = "p_pic">
 	</section>
-	<section class="matchThreeDesc" v-if="person3">
-	  Temp<br>
-	  Temp gammal<br>
-	  Bor i Temp<br>
-	  Tel. Temp
+	<section class="matchThreeDesc" v-if="p3.match">
+		  {{p2.name}}<br>
+		  {{p2.age}} gammal<br>
+		  bor i {{p2.loc}}<br>
+		  tel {{p2.tel}}
 	</section>
       </div>
     <main>

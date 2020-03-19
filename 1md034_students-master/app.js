@@ -86,17 +86,24 @@ app.get('/dejt3', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/userTimer3.html'));
 });
 
+app.get('/help', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/fragehjalp.html'));
+});
 
+app.get('/report', function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/report.html'));
+});
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
   this.orders = {};
   this.femma = 5;
   this.ratings = {};
-  this.match = [
+  this.match = [ // this.match används för currentDate. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem? (Om det finns tid)
     this.profile = {},
     this.table = 0,
-  ]
+  ],
+    this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
 }
 
 /*
@@ -125,6 +132,8 @@ Data.prototype.sendRatings = function() {
 	return this.ratings;
 }; 
 
+// Funktioner för currentDate 
+// TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
 Data.prototype.setMatch = function (newMatch) {
   this.match.profile = newMatch.profile;
   this.match.table = newMatch.table;
@@ -133,6 +142,19 @@ Data.prototype.setMatch = function (newMatch) {
 Data.prototype.sendMatch = function () {
   return this.match;
 }
+
+// Funktioner för meetAgain
+// TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
+Data.prototype.setMatches = function(matches) {
+	this.matches[0] = matches.p1; 
+	this.matches[1] = matches.p2;
+	this.matches[2] = matches.p3; 
+}
+
+Data.prototype.getMatches = function() {
+	return this.matches; 
+}
+
 
 
 const data = new Data();
@@ -149,9 +171,18 @@ io.on('connection', function(socket) {
 	io.emit('currentQueue', { orders: data.getAllOrders() });
     });
     socket.on('sendConsole', function(hej) {
+	if(data.roundnumber == 3){
+	    data.roundnumber == 0;
+	    console.log("Speedate event is now over!");
+	}
+	else{
+	    console.log("Round " + hej.round + " has started!");
+	    data.roundnumber = hej.round;
+	};
+	    
 	io.emit('skickaEtta', { ettan: data.sendConsole() });
 	io.emit('nyRunda', {
-	    round: hej.round,
+	    round: data.roundnumber,
 	    allowed: hej.allowed,
   });
       //Receive a profile from admin and send it to the user.
@@ -163,8 +194,19 @@ io.on('connection', function(socket) {
     socket.on('sendRating', function(rate){
 	console.log("recieved" + rate.conv + rate.intr + rate.match);
 	data.setRatings(rate); 
-	io.emit('redirectRating', { ratings: rate.match,});
+	io.emit('redirectRating', { ratings: data.sendRatings(),});
     });
+	
+	socket.on('sendMatches', function(matches){
+		console.log("recieved matches for Maj-Britt, Sending to her messages"); 
+		data.setMatches(matches); 
+		io.emit('sendMessage', { match: data.getMatches(),});
+	});
+	socket.on('getMessage', function(){
+		console.log("sending message");
+		io.emit('sendMessage', { match: data.getMatches() });
+	});
+
 });
 
 /* eslint-disable-next-line no-unused-vars */

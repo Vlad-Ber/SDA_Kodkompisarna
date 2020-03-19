@@ -1,0 +1,12 @@
+#dejt:hover{
+
+    background-color: Transparent;
+    width: 30%;
+    height: 10%;
+    margin-left: 40%;
+	  margin-top: 80%;
+    border: none;
+    cursor: pointer;	
+    background-color: pink;
+    
+}
