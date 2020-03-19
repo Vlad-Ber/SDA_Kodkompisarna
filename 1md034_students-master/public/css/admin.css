@@ -135,6 +135,14 @@ p {
     padding: 10px;
 }
 
+
+#shuffle {
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
 .rating{
 	font-size: 2vh;
 	position:absolute;

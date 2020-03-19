@@ -137,6 +137,34 @@ function roundNumberMake(number){
     };
 };
 
+function shuffle(){
+    var maleLeft = document.getElementById("maleLeft");
+    var femaleLeft = document.getElementById("femaleLeft");
+    var maleRight = document.getElementById("maleRight");
+    var femaleRight = document.getElementById("femaleRight");
+    
+    //Flytta  män randomly
+    for(var i = 0; i < 10;i++){
+	var randNumber = Math.round(Math.random() * (9-i));
+	var maleToMove = maleLeft.children[randNumber];
+	if(maleToMove != undefined){
+	    maleRight.appendChild(maleToMove);
+	}
+    }
+    //Flytta female randomly
+    for(var i = 0; i < 10;i++){
+	var randNumber = Math.round(Math.random() * (9-i));
+	var femaleToMove = femaleLeft.children[randNumber];
+	if (femaleToMove != undefined){
+	    femaleRight.appendChild(femaleToMove);
+	}
+    }
+    //Ändra admin messageboxxen
+    var adminStat = document.getElementById("statusMessage");
+    adminStat.textContent = "Matches have succesfully been shuffled.";
+    
+}
+
 let round = new roundNumberMake(0);
 let roundNumber = round.getRoundNumber();
 let allowed = false;
