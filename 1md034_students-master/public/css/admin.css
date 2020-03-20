@@ -143,6 +143,13 @@ p {
     padding: 10px;
 }
 
+#Reset {
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
 .rating{
 	font-size: 2vh;
 	position:absolute;
