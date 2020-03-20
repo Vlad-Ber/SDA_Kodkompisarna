@@ -93,6 +93,21 @@ app.get('/help', function(req, res) {
 app.get('/report', function(req, res) {
     res.sendFile(path.join(__dirname, 'views/report.html'));
 });
+
+app.get('/report2', function(req, res) {
+    res.sendFile(path.join(__dirname, 'views/regret2.html'));
+});
+
+app.get('/report3', function(req, res) {
+    res.sendFile(path.join(__dirname, 'views/regret3.html'));
+});
+app.get('/regret2', function(req, res) {
+    res.sendFile(path.join(__dirname, 'views/rateyourdate2.html'));
+});
+
+app.get('/regret3', function(req, res) {
+    res.sendFile(path.join(__dirname, 'views/rateyourdate3.html'));
+});
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
@@ -167,10 +182,10 @@ Data.prototype.getMatches = function() {
 
 Data.prototype.submitReports = function(hhg) {
     
-    this.reports[this.counter] = newReport;
+    this.reports[this.counter] = hhg;
     this.counter++; 
 };
-};
+
 
 
 
