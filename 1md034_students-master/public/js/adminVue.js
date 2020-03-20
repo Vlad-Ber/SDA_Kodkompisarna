@@ -13,7 +13,7 @@ const vm = new Vue({
 		    a: 0,
 		    b: 0,
 		    c: 0,
-        reports: "DU ÄR ANMÄLD",
+        reports: "",
 
     },
     created: function () {		

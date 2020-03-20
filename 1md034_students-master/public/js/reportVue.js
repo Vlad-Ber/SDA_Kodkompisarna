@@ -14,7 +14,7 @@ const rep = new Vue({
             
             socket.emit("report", {
                 test: this.reason,
-
+                
             })
         }
 
