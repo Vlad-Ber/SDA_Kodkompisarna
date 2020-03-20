@@ -27,16 +27,16 @@
 		<section id="profile">
 			<div id="match_pic">
 				<!--TODO: Hämta profilbild från profilen.-->
-				<img id="pic" v-bind:src="'img/basicUser.jpg'" height="350px">
+				<img id="pic" :src="p1.pic" height="350px">
 			</div>
 			<div id="profile_name">
-				<p> {{ name }} </p>
+				<p> {{ p1.name }} </p>
 			</div>
 			<div id="profile_age">
-				<p> {{ age }} År </p>
+				<p> {{ p1.age }} År </p>
 			</div>
 			<div id="profile_desc">
-				<p> {{ desc }} <br /></p>
+				<p> {{ p1.desc }} <br /></p>
 			</div>
 			<div id="table">
 				<p>Ni ska sitta vid bord:</p>

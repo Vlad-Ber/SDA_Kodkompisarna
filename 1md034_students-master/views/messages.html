@@ -31,7 +31,7 @@
 					  <div class="wrapper">
 
 					<section class="matchOneImg" v-if="p1.match">
-					  <img src="https://image.shutterstock.com/z/stock-photo-half-body-shot-of-an-average-guy-wearing-a-blue-shirt-isolated-against-a-white-background-109512821.jpg" width="400" height="400" id = "p_pic">
+					  <img :src="p1.img" width="400" height="400" id = "p_pic">
 					</section>
 
 					<section class="matchOneDesc" v-if="p1.match">
@@ -45,7 +45,7 @@
 
 
 					<section class="matchTwoImg" v-if="p2.match">
-					  <img src="https://thumbs.dreamstime.com/z/successful-deal-happy-person-powerful-manager-713736.jpg" width="400" height="400" id = "p_pic" >
+					  <img :src="p2.img" width="400" height="400" id = "p_pic" >
 					  
 					</section>
 					<section class="matchTwoDesc" v-if="p2.match">
@@ -57,7 +57,7 @@
 
 
 					<section class="matchThreeImg" v-if="p3.match">
-					  <img src="https://previews.123rf.com/images/ljupco/ljupco1304/ljupco130400190/19122131-full-length-portrait-of-a-mature-gentleman-dancing-with-a-hula-hoop-isolated-on-white-background.jpg" width="400" height="400" id = "p_pic">
+					  <img :src="p3.img" width="400" height="400" id = "p_pic">
 					</section>
 					<section class="matchThreeDesc" v-if="p3.match">
 					  {{p3.name}}<br>

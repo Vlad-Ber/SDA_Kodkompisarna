@@ -222,28 +222,19 @@ function rating(maleRight, femaleRight, i) {
     matchF.appendChild(pf);
 }
 
-function startRound() {
-    //Check om alla matchningar är giltiga
+function getTimerTime() {
+    var minute = document.getElementById("minuteGet").value * 60;
+    var seconds = document.getElementById("secondGet").value;
+    return minute + seconds;
+}
 
-    var maleRight = document.getElementById("maleRight");
-    var femaleRight = document.getElementById("femaleRight");
-    var maleCheck = maleRight.children[9];
-    var femaleCheck = femaleRight.children[9];
-    if (maleCheck == undefined || femaleCheck == undefined) {
-        var statusM = document.getElementById("statusMessage");
-        statusM.textContent = "Please match all dates!";
-    }   //Om alla matchningar är giltiga
-    else {
-        allowed = true;
+function roundFinished() {
+    
         //Skicka profilen som matchats med Maj-Britt
         getMajBrittsMatch();
         var matchedMale = [];
         var matchedFemale = [];
 
-        for (var k = 0; k < 10; k++) {
-            console.log("hej");
-            rating(maleRight, femaleRight, k);
-        }
         //Lägg tillbaka alla sections
         var maleLeft = document.getElementById("maleLeft");
         var femaleLeft = document.getElementById("femaleLeft");
@@ -266,6 +257,27 @@ function startRound() {
             a = femaleRight.children[0];
         }
         tableRed();
+}
+
+function startRound() {
+    //Check om alla matchningar är giltiga
+	
+	
+
+    var maleRight = document.getElementById("maleRight");
+    var femaleRight = document.getElementById("femaleRight");
+    var maleCheck = maleRight.children[9];
+    var femaleCheck = femaleRight.children[9];
+    if (maleCheck == undefined || femaleCheck == undefined) {
+        var statusM = document.getElementById("statusMessage");
+        statusM.textContent = "Please match all dates!";
+    }   //Om alla matchningar är giltiga
+    else {
+        allowed = true;
+        for (var k = 0; k < 10; k++) {
+            console.log("hej");
+            rating(maleRight, femaleRight, k);
+        }
 
         //Börja Nästa Runda
         if (roundNumber != 3) {
@@ -277,12 +289,14 @@ function startRound() {
             adminStat.textContent = "Status: Round " + roundNumber + " is ongoing!";
             var statusM = document.getElementById("statusMessage");
             statusM.textContent = "Round " + roundNumber + " has now started!";
+            startTimer();
         }
         else {
             var adminStat = document.getElementById("adminStat");
             adminStat.textContent = "Status: Speeddating event is finished";
             var statusM = document.getElementById("statusMessage");
             statusM.textContent = "";
+            startTimer();
         }
     }
 }
@@ -304,7 +318,7 @@ const COLOR_CODES = {
   }
 };
 
-const TIME_LIMIT = 20;
+var TIME_LIMIT = 600;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
@@ -334,13 +348,15 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
-startTimer();
-
-function onTimesUp() {
-  clearInterval(timerInterval);
+function onTimesUp() {  
+    roundFinished();
+    clearInterval(timerInterval);
+    timePassed = 0;
+    timeLeft = TIME_LIMIT;
 }
 
 function startTimer() {
+    TIME_LIMIT = getTimerTime();
   timerInterval = setInterval(() => {
     timePassed = timePassed += 1;
     timeLeft = TIME_LIMIT - timePassed;
@@ -350,7 +366,7 @@ function startTimer() {
     setCircleDasharray();
     setRemainingPathColor(timeLeft);
 
-    if (timeLeft === 0) {
+      if (timeLeft === 0) {
       onTimesUp();
     }
   }, 1000);
