@@ -235,10 +235,6 @@ function roundFinished() {
         var matchedMale = [];
         var matchedFemale = [];
 
-        for (var k = 0; k < 10; k++) {
-            console.log("hej");
-            //rating(maleRight, femaleRight, k);
-        }
         //Lägg tillbaka alla sections
         var maleLeft = document.getElementById("maleLeft");
         var femaleLeft = document.getElementById("femaleLeft");
@@ -265,6 +261,8 @@ function roundFinished() {
 
 function startRound() {
     //Check om alla matchningar är giltiga
+	
+	
 
     var maleRight = document.getElementById("maleRight");
     var femaleRight = document.getElementById("femaleRight");
@@ -276,6 +274,10 @@ function startRound() {
     }   //Om alla matchningar är giltiga
     else {
         allowed = true;
+        for (var k = 0; k < 10; k++) {
+            console.log("hej");
+            rating(maleRight, femaleRight, k);
+        }
 
         //Börja Nästa Runda
         if (roundNumber != 3) {
