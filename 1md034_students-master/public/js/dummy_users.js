@@ -1,3 +1,41 @@
+let loggedIn = [];
+
+function getUser(key, value, multiple, case_sense){
+    let result = [];
+
+    for(var index in men){
+
+        var men = men[index];
+        if(typeof men[key] != 'undefined'){
+            var compare = user[key];
+
+            if(case_sense){
+
+                if(typeof compare == 'string')
+                {
+                    compare = compare.toLowerCase();
+                }
+
+                if(typeof value == 'string')
+                {
+                    value = value.toLowerCase();
+                }
+            }
+
+            if (typeof value == 'undefined' || ((strict && compare === value) || (!strict && compare == value))) {
+                // if we want multiple results
+                if (multiple) {
+                    // the result will be appended to the result array
+                    result.push(user);
+                } else {
+                    // otherwise we just return it
+                    return user;
+                }
+            }
+        }
+    }
+     return multiple ? result : null;
+}
 let men = [
 	  {
         "id": 2,
