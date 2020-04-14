@@ -4,15 +4,15 @@ const socket = io();
 const vm = new Vue({
     el: '#page',
     data: {
-		    testArray: 1,
-		    name: "pelle",
-		    showRatings: false,
-		    conv: 0,
-		    intr: 0,
-		    match: 0,
-		    a: 0,
-		    b: 0,
-		    c: 0,
+	testArray: 1,
+	name: "pelle",
+	showRatings: false,
+	conv: 0,
+	intr: 0,
+	match: 0,
+	a: 0,
+	b: 0,
+	c: 0,
         reports: "",
 
     },
@@ -33,17 +33,15 @@ const vm = new Vue({
         })
     },	
     methods: {
-
-	
-		msgUser: function() {
-			socket.emit("sendConsole", {
-				testArray: this.testArray,
-				round: roundNumber,
-				allowed: allowed,
-			}),
-			this.showRatings = false; 
-			console.log("Roundnumber is : " + roundNumber);
-			allowed = false;
+	msgUser: function() {
+		    socket.emit("sendConsole", {
+			testArray: this.testArray,
+			round: roundNumber,
+			allowed: allowed,
+		    }),
+		    this.showRatings = false; 
+		    console.log("Roundnumber is : " + roundNumber);
+		    allowed = false;
 		}
 	}
 

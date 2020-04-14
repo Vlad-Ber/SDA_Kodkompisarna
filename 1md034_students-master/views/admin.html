@@ -27,149 +27,148 @@
 	      <div id="maleLeft" class="splitter" ondrop="dropmale(event)" ondragover="allowDrop(event)">
 		<div id="sec0" onclick="movem(sec0)" draggable="true" ondragstart="drag(event)" class="userSec">
 		  <div id="user0pic" class="column">
-			<div class="rating">
-				<p v-if="showRatings"> 5 5 5 </p>
-			</div>
-			</div>
-		       </div>
-		<div id="sec1" onclick="movem(sec1)" draggable="true" ondragstart="drag(event)" class="userSec">
-		 <div id="user1pic" class="column">
-			<div class="rating"> 
-				<p v-if="showRatings"> {{a}} {{b}} {{c}}</p>
-			</div> 
-		 </div>
-	     </div>
-	    <div id="sec2" onclick="movem(sec2)" draggable="true" ondragstart="drag(event)" class="userSec">
-		 <div id="user2pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{b}} {{c}} {{c}}</p>
-			</div>
+		    <div class="rating">
+		      <p v-if="showRatings"> 5 5 5 </p>
+		    </div>
+		  </div>
 		</div>
+		<div id="sec1" onclick="movem(sec1)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user1pic" class="column">
+		    <div class="rating"> 
+		      <p v-if="showRatings"> {{a}} {{b}} {{c}}</p>
+		    </div> 
+		  </div>
+		</div>
+		<div id="sec2" onclick="movem(sec2)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user2pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{b}} {{c}} {{c}}</p>
+		    </div>
+		  </div>
 		</div>	
-	  <div id="sec3" onclick="movem(sec3)" draggable="true" ondragstart="drag(event)"class="userSec">
-	    <div id="user3pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{a}} {{c}}</p>
-			</div>
-		</div>		
-	 </div>
-	<div id="sec4" onclick="movem(sec4)" draggable="true" ondragstart="drag(event)"class="userSec">
-	  <div id="user4pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{c}} {{b}} {{a}}</p>
-			</div>
-		</div>		
-	   </div>
-    <div id="sec5" onclick="movem(sec5)" draggable="true" ondragstart="drag(event)" class="userSec">
-      <div id="user5pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{b}} {{a}}</p>
-			</div>
-		</div>	
-	   </div>
-<div id="sec6" onclick="movem(sec6)" draggable="true" ondragstart="drag(event)" class="userSec">
-  <div id="user6pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{a}} {{b}}</p>
-			</div>
-		</div>	
-       </div>
-<div id="sec7" onclick="movem(sec7)" draggable="true" ondragstart="drag(event)" class="userSec">
-  <div id="user7pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{c}} {{a}}</p>
-			</div>
-		</div>	
-       </div>
-<div id="sec8" onclick="movem(sec8)" draggable="true" ondragstart="drag(event)" class="userSec">
-  <div id="user8pic" class="column">		
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{b}} {{c}}</p>
-			</div>		
-		</div>	
-       </div>
-			<p id="rating"> </p>
-<div id="sec9"  onclick="movem(sec9)" draggable="true" ondragstart="drag(event)"class="userSec">
-  <div id="user9pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{b}} {{a}} {{c}}</p>
-			</div>
-		</div>	
-       </div>
-</div>
-<div id="femaleLeft" class="splitter" ondrop="dropfemale(event)" ondragover="allowDrop(event)">
-  <div id="sec10" onclick="movef(sec10)" draggable="true" ondragstart="drag(event)" class="userSec">
-    <div id="user10pic" class="column">
-		<div class="rating"> 
-			<p v-if="showRatings"> {{conv}} {{intr}} {{match}}</p>
-		</div> 
-	</div> 
-	</div>
-<div id="sec11" onclick="movef(sec11)" draggable="true" ondragstart="drag(event)" class="userSec">
-	      <div id="user11pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{b}} {{c}}</p>
-			</div>
-			</div>	
-		   </div>
-	  <div id="sec12" onclick="movef(sec12)" draggable="true" ondragstart="drag(event)" class="userSec">
-	    <div id="user12pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{c}} {{c}}</p>
-			</div>
-		</div>	
-		 </div>
-	<div id="sec13" onclick="movef(sec13)" draggable="true" ondragstart="drag(event)"class="userSec">
-	  <div id="user13pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{b}} {{b}} {{c}}</p>
-			</div>
-			</div>	
-	       </div>
-      <div id="sec14" onclick="movef(sec14)"draggable="true" ondragstart="drag(event)"class="userSec">
-	<div id="user14pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{c}} {{a}} {{b}}</p>
-			</div>
-		</div>	
-	   </div>
-<div id="sec15" onclick="movef(sec15)" draggable="true" ondragstart="drag(event)" class="userSec">
-  <div id="user15pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{b}} {{c}}</p>
-			</div>
-		</div>	
-       </div>
-<div id="sec16" onclick="movef(sec16)" draggable="true" ondragstart="drag(event)" class="userSec">
-  <div id="user16pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{a}} {{b}}</p>
-			</div>
-		</div>	
-       </div>
-<div id="sec17" onclick="movef(sec17)" draggable="true" ondragstart="drag(event)" class="userSec">
-  <div id="user17pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{c}} {{a}} {{a}}</p>
-			</div>
-		</div>	
-       </div>
-<div id="sec18" onclick="movef(sec18)" draggable="true" ondragstart="drag(event)" class="userSec">
-  <div id="user18pic" class="column">		
-			<div class="rating">
-			<p v-if="showRatings"> {{c}} {{b}} {{a}}</p>
-			</div>
-		</div>	
-       </div>
-<div id="sec19" onclick="movef(sec19)" draggable="true" ondragstart="drag(event)" class="userSec">
-  <div id="user19pic" class="column">
-			<div class="rating">
-			<p v-if="showRatings"> {{a}} {{a}} {{c}}</p>
-			</div>
-		</div>	
-       </div>
-  </div>
-</div>
+		<div id="sec3" onclick="movem(sec3)" draggable="true" ondragstart="drag(event)"class="userSec">
+		  <div id="user3pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{a}} {{c}}</p>
+		    </div>
+		  </div>		
+		</div>
+		<div id="sec4" onclick="movem(sec4)" draggable="true" ondragstart="drag(event)"class="userSec">
+		  <div id="user4pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{c}} {{b}} {{a}}</p>
+		    </div>
+		  </div>		
+		</div>
+		<div id="sec5" onclick="movem(sec5)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user5pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{b}} {{a}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec6" onclick="movem(sec6)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user6pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{a}} {{b}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec7" onclick="movem(sec7)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user7pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{c}} {{a}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec8" onclick="movem(sec8)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user8pic" class="column">		
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{b}} {{c}}</p>
+		    </div>		
+		  </div>	
+		</div>
+		<div id="sec9"  onclick="movem(sec9)" draggable="true" ondragstart="drag(event)"class="userSec">
+		  <div id="user9pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{b}} {{a}} {{c}}</p>
+		    </div>
+		  </div>	
+		</div>
+	      </div>
+	      <div id="femaleLeft" class="splitter" ondrop="dropfemale(event)" ondragover="allowDrop(event)">
+		<div id="sec10" onclick="movef(sec10)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user10pic" class="column">
+		    <div class="rating"> 
+		      <p v-if="showRatings"> {{conv}} {{intr}} {{match}}</p>
+		    </div> 
+		  </div> 
+		</div>
+		<div id="sec11" onclick="movef(sec11)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user11pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{b}} {{c}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec12" onclick="movef(sec12)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user12pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{c}} {{c}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec13" onclick="movef(sec13)" draggable="true" ondragstart="drag(event)"class="userSec">
+		  <div id="user13pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{b}} {{b}} {{c}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec14" onclick="movef(sec14)"draggable="true" ondragstart="drag(event)"class="userSec">
+		  <div id="user14pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{c}} {{a}} {{b}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec15" onclick="movef(sec15)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user15pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{b}} {{c}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec16" onclick="movef(sec16)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user16pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{a}} {{b}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec17" onclick="movef(sec17)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user17pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{c}} {{a}} {{a}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec18" onclick="movef(sec18)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user18pic" class="column">		
+		    <div class="rating">
+		      <p v-if="showRatings"> {{c}} {{b}} {{a}}</p>
+		    </div>
+		  </div>	
+		</div>
+		<div id="sec19" onclick="movef(sec19)" draggable="true" ondragstart="drag(event)" class="userSec">
+		  <div id="user19pic" class="column">
+		    <div class="rating">
+		      <p v-if="showRatings"> {{a}} {{a}} {{c}}</p>
+		    </div>
+		  </div>	
+		</div>
+	      </div>
+	    </div>
 	    <button id="nextR" type="button" onclick="startRound()" v-on:click="msgUser">Start Next Round!</button>
 	    <button id="shuffle" onclick="shuffle()" type="button" >Shuffle!</button>
       <button id="Reset" onclick="onTimesUp()" type="button"> End timer </button>
