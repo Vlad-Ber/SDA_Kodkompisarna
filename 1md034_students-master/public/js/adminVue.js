@@ -17,17 +17,17 @@ const vm = new Vue({
 
     },
     created: function () {		
-		    socket.on('redirectRating', function(data){
-				    this.conv = data.ratings[0];
-				    this.intr = data.ratings[1]; 
-				    this.match = data.ratings[2];
-				    console.log("Rating recieved" + this.conv + this.intr + this.match);
-				    this.showRatings = true; 
-				    this.a = Math.floor(Math.random()*(10)+1); 
-				    this.b = Math.floor(Math.random()*(10)+1);
-				    this.c = Math.floor(Math.random()*(10)+1);
-		    }.bind(this));
-
+	socket.on('redirectRating', function(data){
+	    this.conv = data.ratings[0];
+	    this.intr = data.ratings[1]; 
+	    this.match = data.ratings[2];
+	    console.log("Rating recieved" + this.conv + this.intr + this.match);
+	    this.showRatings = true; 
+	    this.a = Math.floor(Math.random()*(10)+1); 
+	    this.b = Math.floor(Math.random()*(10)+1);
+	    this.c = Math.floor(Math.random()*(10)+1);
+	}.bind(this));
+	
         socket.on('report', function(data){
             this.reports = data.report;
         })

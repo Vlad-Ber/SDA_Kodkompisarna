@@ -122,6 +122,7 @@ function Data() {
 
     ],
     this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
+    this.timer=0;
 };
 
 
@@ -185,8 +186,6 @@ Data.prototype.submitReports = function(hhg) {
     this.reports[this.counter] = hhg;
     this.counter++; 
 };
-
-
 
 
 const data = new Data();

@@ -240,8 +240,7 @@ function rating(maleRight, femaleRight, i) {
 
 function getTimerTime() {
     var minute = document.getElementById("minuteGet").value * 60;
-    var seconds = document.getElementById("secondGet").value;
-    return minute + seconds;
+    return minute;
 }
 
 function roundFinished() {
@@ -427,5 +426,3 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
-
-
