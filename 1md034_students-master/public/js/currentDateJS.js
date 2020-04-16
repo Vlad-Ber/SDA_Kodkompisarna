@@ -47,14 +47,12 @@ document.getElementById("app").innerHTML = `
 `;
 
 function onTimesUp() {  
-    roundFinished();
     clearInterval(timerInterval);
     timePassed = 0;
     timeLeft = TIME_LIMIT;
 }
 
 function startTimer() {
-    TIME_LIMIT = getTimerTime();
     timerInterval = setInterval(() => {
 	timePassed = timePassed += 1;
 	timeLeft = TIME_LIMIT - timePassed;
