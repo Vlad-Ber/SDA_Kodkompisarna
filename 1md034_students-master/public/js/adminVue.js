@@ -18,9 +18,9 @@ const vm = new Vue({
     },
     created: function () {		
 	socket.on('redirectRating', function(data){
-	    this.conv = data.ratings[0];
-	    this.intr = data.ratings[1]; 
-	    this.match = data.ratings[2];
+	    this.conv = data.ratings[0].conv;
+	    this.intr = data.ratings[0].intr;
+	    this.match = data.ratings[0].match;
 	    console.log("Rating recieved" + this.conv + this.intr + this.match);
 	    this.showRatings = true; 
 	    this.a = Math.floor(Math.random()*(10)+1); 

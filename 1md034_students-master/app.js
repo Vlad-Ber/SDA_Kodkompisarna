@@ -113,6 +113,7 @@ app.get('/regret3', function(req, res) {
 function Data() {
     this.reports = {};
     this.counter = 0;
+    this.no_of_ratings = 0; 
     this.orders = {};
     this.femma = 5;
     this.ratings = {};
@@ -148,14 +149,13 @@ Data.prototype.getAllOrders = function() {
     return this.orders;
 };
 
-Data.prototype.setRatings = function(newRatings) {
-	  this.ratings[0] = newRatings.conv;
-	  this.ratings[1] = newRatings.intr; 
-	  this.ratings[2] = newRatings.match;
+Data.prototype.setRatings = function(newRatings) {    
+    this.ratings[this.no_of_ratings] = newRatings;
+    //this.no_of_ratings++;
 }
 
 Data.prototype.sendRatings = function() {
-	  return this.ratings;
+    return this.ratings;
 }; 
 
 // Funktioner för currentDate 
@@ -172,13 +172,13 @@ Data.prototype.sendMatch = function () {
 // Funktioner för meetAgain
 // TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
 Data.prototype.setMatches = function(matches) {
-	  this.matches[0] = matches.p1; 
-	  this.matches[1] = matches.p2;
-	  this.matches[2] = matches.p3; 
+    this.matches[0] = matches.p1; 
+    this.matches[1] = matches.p2;
+    this.matches[2] = matches.p3; 
 }
 
 Data.prototype.getMatches = function() {
-	  return this.matches; 
+    return this.matches; 
 }
 
 Data.prototype.submitReports = function(hhg) {
@@ -196,25 +196,25 @@ io.on('connection', function(socket) {
 
     // When a connected client emits an "addOrder" message
     socket.on('addOrder', function(order) {
-	      data.addOrder(order);
-	      // send updated info to all connected clients,
-	      // note the use of io instead of socket
-	      io.emit('currentQueue', { orders: data.getAllOrders() });
+	data.addOrder(order);
+	// send updated info to all connected clients,
+	// note the use of io instead of socket
+	io.emit('currentQueue', { orders: data.getAllOrders() });
     });
     socket.on('sendConsole', function(hej) {
-	      if(data.roundnumber == 3){
-	          data.roundnumber == 0;
-	          console.log("Speedate event is now over!");
-	      }
-	      else{
-	          console.log("Round " + hej.round + " has started!");
-	          data.roundnumber = hej.round;
-	      };
-	      
-	      io.emit('skickaEtta', { ettan: data.sendConsole() });
-	      io.emit('nyRunda', {
-	          round: data.roundnumber,
-	          allowed: hej.allowed,
+	if(data.roundnumber == 3){
+	    data.roundnumber == 0;
+	    console.log("Speedate event is now over!");
+	}
+	else{
+	    console.log("Round " + hej.round + " has started!");
+	    data.roundnumber = hej.round;
+	};
+	
+	io.emit('skickaEtta', { ettan: data.sendConsole() });
+	io.emit('nyRunda', {
+	    round: data.roundnumber,
+	    allowed: hej.allowed,
         });
         //Receive a profile from admin and send it to the user.
         socket.on('sendMatch', function (match) {
@@ -223,20 +223,20 @@ io.on('connection', function(socket) {
         })
     });
     socket.on('sendRating', function(rate){
-	      console.log("recieved" + rate.conv + rate.intr + rate.match);
-	      data.setRatings(rate); 
-	      io.emit('redirectRating', { ratings: data.sendRatings(),});
+	console.log("recieved" + rate.conv + rate.intr + rate.match);
+	data.setRatings(rate); 
+	io.emit('redirectRating', { ratings: data.sendRatings(),});
     });
-	  
-	  socket.on('sendMatches', function(matches){
-		    console.log("recieved matches for Maj-Britt, Sending to her messages"); 
-		    data.setMatches(matches); 
-		    io.emit('sendMessage', { match: data.getMatches(),});
-	  });
-	  socket.on('getMessage', function(){
-		    console.log("sending message");
-		    io.emit('sendMessage', { match: data.getMatches() });
-	  });
+    
+    socket.on('sendMatches', function(matches){
+	console.log("recieved matches for Maj-Britt, Sending to her messages"); 
+	data.setMatches(matches); 
+	io.emit('sendMessage', { match: data.getMatches(),});
+    });
+    socket.on('getMessage', function(){
+	console.log("sending message");
+	io.emit('sendMessage', { match: data.getMatches() });
+    });
     
     socket.on('report', function(ihiog){
         data.submitReports(ihiog.test); 
