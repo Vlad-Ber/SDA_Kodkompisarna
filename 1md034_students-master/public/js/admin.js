@@ -209,6 +209,69 @@ function getMajBrittsMatch() {
         table: table,
     });
 }
+
+function getMatches() {
+    var maleRight = document.getElementById("maleRight")
+    var femaleRight = document.getElementById("femaleRight")
+
+    //adminInfo = {(1, Maj-Britt, Klas), (2, Britta, Ingar), (3, Sofia, Oskar), etc}
+    var adminInfo = {
+        date1: {
+            table: 1,
+            male: maleRight[0], // table - 1, för arrayer börjar på 0!
+            female: femaleRight[0]
+        },
+        date2: {
+            table: 2,
+            male: maleRight[1],
+            female: femaleRight[1]
+        },
+        date3: {
+            table: 3,
+            male: maleRight[2],
+            female: femaleRight[2]
+        },
+        date4: {
+            table: 4,
+            male: maleRight[3],
+            female: femaleRight[3]
+        },
+        date5: {
+            table: 5,
+            male: maleRight[4],
+            female: femaleRight[4]
+        },
+        date6: {
+            table: 6,
+            male: maleRight[5],
+            female: femaleRight[5]
+        },
+        date7: {
+            table: 7,
+            male: maleRight[6],
+            female: femaleRight[6]
+        },
+        date8: {
+            table: 8,
+            male: maleRight[7],
+            female: femaleRight[7]
+        },
+        date9: {
+            table: 9,
+            male: maleRight[8],
+            female: femaleRight[8]
+        },
+        date10: {
+            table: 10,
+            male: maleRight[9],
+            female: femaleRight[9]
+        },
+    }
+    socket.emit("sendMatch", {
+        adminInfo: adminInfo
+    });
+}
+
 function rating(maleRight, femaleRight, i) {
     var matchM = maleRight.children[i];
     var matchF = femaleRight.children[i];
@@ -246,7 +309,7 @@ function getTimerTime() {
 function roundFinished() {
     
         //Skicka profilen som matchats med Maj-Britt
-        getMajBrittsMatch();
+        //getMajBrittsMatch();
         var matchedMale = [];
         var matchedFemale = [];
 
@@ -285,6 +348,7 @@ function startRound() {
     }   //Om alla matchningar är giltiga
     else {
         allowed = true;
+        getMatches();
         for (var k = 0; k < 10; k++) {
             console.log("Inne i rating Loop med index: " + k);
             rating(maleRight, femaleRight, k);
