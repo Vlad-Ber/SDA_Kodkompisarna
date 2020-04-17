@@ -111,6 +111,7 @@ app.get('/regret3', function (req, res) {
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
+    this.timer = 0;
     this.reports = {};
     this.counter = 0;
     this.no_of_ratings = 0; 
@@ -195,6 +196,9 @@ const data = new Data();
 io.on('connection', function (socket) {
     // Send list of orders when a client connects
     socket.emit('initialize', { data1: data.sendConsole() });
+    socket.emit('userTimer', {
+        timer: data.timer
+    });
 
     // When a connected client emits an "addOrder" message
 
@@ -212,6 +216,8 @@ io.on('connection', function (socket) {
         else {
             console.log("Round " + hej.round + " has started!");
             data.roundnumber = hej.round;
+            data.timer = hej.timer;
+            console.log("server timer = " + data.timer);
         };
 
         io.emit('skickaEtta', { ettan: data.sendConsole() });
@@ -223,8 +229,10 @@ io.on('connection', function (socket) {
         //Receive a profile from admin and send it to the user.
         socket.on('sendMatch', function (match) {
             data.setMatch(match);
-            io.emit('getMatch', { match: data.sendMatch() });
-        })
+            io.emit('getMatch', {
+                match: data.sendMatch(),
+            });
+        });
     });
 
     socket.on('sendRating', function (rate) {
