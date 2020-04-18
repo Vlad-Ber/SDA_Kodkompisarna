@@ -5,7 +5,7 @@ let vo = new Vue({
     el: "#vuePlace", 
     data:{
 	dateName: "",
-	myName: "", 
+	myName: "maj-britt", 
 	conv: 5,
 	intr: 5,
 	match: 5,
