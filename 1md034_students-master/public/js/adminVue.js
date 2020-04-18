@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 const socket = io();
 
 const vm = new Vue({
@@ -28,7 +28,7 @@ const vm = new Vue({
 	      
         socket.on('report', function(data){
             this.reports = data.report;
-        })
+        });
     },	
     methods: {
 	      msgUser: function() {
@@ -47,3 +47,4 @@ const vm = new Vue({
 
 });
 
+*/
