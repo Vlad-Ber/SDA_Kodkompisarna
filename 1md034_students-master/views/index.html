@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <title>SPEED DEJTING</title>
@@ -6,19 +7,38 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script type="text/javascript" src="js/indexVue.js" defer ></script>
+    <script type="text/javascript" src="js/dummy_users.js" defer ></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://vuejs.org/js/vue.js"></script>
+  
     <script>
       function openLogin() {
           if (email.value == "admin") {//&& password.value == "hej") {
           location.href = "/admin";
         }
 
-        else {
-          location.href = "/loggedIn";
-        }
-      }
+          else
+           
+              for(var index in men){
+              if (email.value == surname[index]) {
+
+                //this.currentUser = this.allUsers[this.surname];
+                //this.contacts = this.currentUser.matches;
+
+                //socket.emit('loggedIn', this.currentUser);
+                //sessionStorage.setItem("currentUser", JSON.stringify(this.currentUser));
+                  window.location.href = "/loggedIn";
+            } //else {
+                //document.getElementById("loginInfo").style.display = "block";
+                //location.href = "/loggedIn";
+           // }
+                  console.log(this.name);  
+              }}
+          
+        
+      
     </script>
+
   <!--  <script>
       login() {
     if(this.input.username != "" && this.input.password != "") {

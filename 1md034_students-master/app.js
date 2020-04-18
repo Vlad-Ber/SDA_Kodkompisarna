@@ -109,18 +109,7 @@ app.get('/regret3', function (req, res) {
     res.sendFile(path.join(__dirname, 'views/rateyourdate3.html'));
 });
 
-//Add logged in users
 
-socket.on('loggedIn', function(user){
-    data.addLoggedIn(user){
-        var users=[];
-
-        var dict = data.getLoggedInUsers();
-        for(var key in dict)
-            users.push(dict[key]);
-        io.emit('currentLoggedIn', {loggedIn: users});
-    }
-});
 
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
@@ -270,6 +259,19 @@ io.on('connection', function (socket) {
 
     socket.on('sendMatch', function () {
         console.log("Received adminInfo");
+    });
+    //Add logged in users
+
+socket.on('loggedIn', function(user){
+    data.addLoggedIn(user);
+        var users=[];
+
+        var dict = data.getLoggedInUsers();
+        for(var key in dict)
+            users.push(dict[key]);
+    console.log(users);
+    console.log(dict);
+        io.emit('currentLoggedIn', {loggedIn: users});
     });
 });
 

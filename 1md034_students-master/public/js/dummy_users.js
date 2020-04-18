@@ -1,6 +1,6 @@
 let loggedIn = [];
 
-function getUser(key, value, multiple, case_sense){
+/*function getUser(key, value, multiple, case_sense){
     let result = [];
 
     for(var index in men){
@@ -36,10 +36,11 @@ function getUser(key, value, multiple, case_sense){
     }
      return multiple ? result : null;
 }
+*/
 let men = [
 	  {
-        "password": "peter69",
-		"name": "Peter",
+        "password": "peter96",
+		"surname": "Peter",
 		"age": 42,
 		"gender": "M",
 		"desc": "Har fyra barn.",
@@ -89,7 +90,7 @@ let men = [
 /* 2 */
 	  {
         "password": "pellegillarhets",
-		"name": "Pelle",
+		"surname": "Pelle",
 		"age": 25,
 		"gender": "M",
 		"desc": "Är ny i staden.",
@@ -138,7 +139,7 @@ let men = [
 	},	
 	  {
         "password": "henriksexkungen",
-		"name": "Henrik",
+		"surname": "Henrik",
 		"age": 33,
 		"gender": "M",
 		"desc": "Gillar matlagning.",
@@ -188,7 +189,7 @@ let men = [
 /* 6 */
 	  {
         "password": "racerjanne25",
-		"name": "Janne",
+		"surname": "Janne",
 		"age": 22,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -237,7 +238,7 @@ let men = [
 	},
 	  {
         "password": "bärsberra",
-		"name": "Berra",
+		"surname": "Berra",
 		"age": 34,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -289,7 +290,7 @@ let men = [
 
 	  {
         "password": "mangemaker9612",
-		"name": "Mange",
+		"surname": "Mange",
 		"age": 27,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -338,7 +339,7 @@ let men = [
 	},
 	  {
         "password": "xxsigge17xx",
-		"name": "Sigmund",
+		"surname": "Sigmund",
 		"age": 25,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -388,7 +389,7 @@ let men = [
 /* 14 */
 	  {
         "password":"karsetens",
-		"name": "Karsten",
+		"surname": "Karsten",
 		"age": 30,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -437,7 +438,7 @@ let men = [
 	},
 	  {
         "password": "callmebond007",
-		"name": "James",
+		"surname": "James",
 		"age": 59,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -486,7 +487,7 @@ let men = [
 	},
 /* 18 */
 	  {"password":"oloftheman17",
-		"name": "Olof",
+		"surname": "Olof",
 		"age": 50,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -536,7 +537,7 @@ let men = [
 ]
 let women = [
 	  {"password": "maggan17",
-		"name": "Maj-Britt",
+		"surname": "Maj-Britt",
 		"age": 65,
 		"gender": "F",
 		"desc": "Gillar katter.",
@@ -584,7 +585,7 @@ let women = [
 		}
 	},
 	  {"password": "bakningefint",
-		"name": "Ylva",
+		"surname": "Ylva",
 		"age": 25,
 		"gender": "F",
 		"desc": "Söker en soul mate.",
@@ -633,7 +634,7 @@ let women = [
 	},
 /* 4 */
 	  {"password": "hets",
-		"name": "Anna",
+		"surname": "Anna",
 		"age": 30,
 		"gender": "F",
 		"desc": "Gillar natur.",
@@ -681,7 +682,7 @@ let women = [
 		}
 	},
 	  {"password": "ingabinga",
-		"name": "Inger",
+		"surname": "Inger",
 		"age": 40,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -730,7 +731,7 @@ let women = [
 	},
 /* 8 */
 	  {"password": "benefits",
-		"name": "Benita",
+		"surname": "Benita",
 		"age": 22,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -778,7 +779,7 @@ let women = [
 		}
 	},
 	  {"password": "barbo2w3",
-		"name": "Barbro",
+		"surname": "Barbro",
 		"age": 43,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -827,7 +828,7 @@ let women = [
 	},
 /* 12 */
 	  {"password": "hewlöa",
-		"name": "Helga",
+		"surname": "Helga",
 		"age": 28,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -876,7 +877,7 @@ let women = [
 	},
 
 	  {"password": "berit12",
-		"name": "Berit",
+		"surname": "Berit",
 		"age": 23,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -924,7 +925,7 @@ let women = [
 		}
 	},
 	  {"password": "helena1987",
-		"name": "Helena",
+		"surname": "Helena",
 		"age": 52,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -972,7 +973,7 @@ let women = [
 		}
 	},
     {"password": "hejhej",
-		"name": "Sanna",
+		"surname": "Sanna",
 		"age": 34,
 		"gender": "F",
 		"desc": "Gillar att baka bullar.",
