@@ -40,7 +40,7 @@ let loggedIn = [];
 let men = [
 	  {
         "password": "peter96",
-		"surname": "Peter",
+		"name": "Peter",
 		"age": 42,
 		"gender": "M",
 		"desc": "Har fyra barn.",
@@ -90,7 +90,7 @@ let men = [
 /* 2 */
 	  {
         "password": "pellegillarhets",
-		"surname": "Pelle",
+		"name": "Pelle",
 		"age": 25,
 		"gender": "M",
 		"desc": "Är ny i staden.",
@@ -139,7 +139,7 @@ let men = [
 	},	
 	  {
         "password": "henriksexkungen",
-		"surname": "Henrik",
+		"name": "Henrik",
 		"age": 33,
 		"gender": "M",
 		"desc": "Gillar matlagning.",
@@ -189,7 +189,7 @@ let men = [
 /* 6 */
 	  {
         "password": "racerjanne25",
-		"surname": "Janne",
+		"name": "Janne",
 		"age": 22,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -238,7 +238,7 @@ let men = [
 	},
 	  {
         "password": "bärsberra",
-		"surname": "Berra",
+		"name": "Berra",
 		"age": 34,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -290,7 +290,7 @@ let men = [
 
 	  {
         "password": "mangemaker9612",
-		"surname": "Mange",
+		"name": "Mange",
 		"age": 27,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -339,7 +339,7 @@ let men = [
 	},
 	  {
         "password": "xxsigge17xx",
-		"surname": "Sigmund",
+		"name": "Sigmund",
 		"age": 25,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -389,7 +389,7 @@ let men = [
 /* 14 */
 	  {
         "password":"karsetens",
-		"surname": "Karsten",
+		"name": "Karsten",
 		"age": 30,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -438,7 +438,7 @@ let men = [
 	},
 	  {
         "password": "callmebond007",
-		"surname": "James",
+		"name": "James",
 		"age": 59,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -487,7 +487,7 @@ let men = [
 	},
 /* 18 */
 	  {"password":"oloftheman17",
-		"surname": "Olof",
+		"name": "Olof",
 		"age": 50,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -537,7 +537,7 @@ let men = [
 ]
 let women = [
 	  {"password": "maggan17",
-		"surname": "Maj-Britt",
+		"name": "Maj-Britt",
 		"age": 65,
 		"gender": "F",
 		"desc": "Gillar katter.",
@@ -585,7 +585,7 @@ let women = [
 		}
 	},
 	  {"password": "bakningefint",
-		"surname": "Ylva",
+		"name": "Ylva",
 		"age": 25,
 		"gender": "F",
 		"desc": "Söker en soul mate.",
@@ -634,7 +634,7 @@ let women = [
 	},
 /* 4 */
 	  {"password": "hets",
-		"surname": "Anna",
+		"name": "Anna",
 		"age": 30,
 		"gender": "F",
 		"desc": "Gillar natur.",
@@ -682,7 +682,7 @@ let women = [
 		}
 	},
 	  {"password": "ingabinga",
-		"surname": "Inger",
+		"name": "Inger",
 		"age": 40,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -731,7 +731,7 @@ let women = [
 	},
 /* 8 */
 	  {"password": "benefits",
-		"surname": "Benita",
+		"name": "Benita",
 		"age": 22,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -779,7 +779,7 @@ let women = [
 		}
 	},
 	  {"password": "barbo2w3",
-		"surname": "Barbro",
+		"name": "Barbro",
 		"age": 43,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -828,7 +828,7 @@ let women = [
 	},
 /* 12 */
 	  {"password": "hewlöa",
-		"surname": "Helga",
+		"name": "Helga",
 		"age": 28,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -877,7 +877,7 @@ let women = [
 	},
 
 	  {"password": "berit12",
-		"surname": "Berit",
+		"name": "Berit",
 		"age": 23,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -925,7 +925,7 @@ let women = [
 		}
 	},
 	  {"password": "helena1987",
-		"surname": "Helena",
+		"name": "Helena",
 		"age": 52,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -973,7 +973,7 @@ let women = [
 		}
 	},
     {"password": "hejhej",
-		"surname": "Sanna",
+		"name": "Sanna",
 		"age": 34,
 		"gender": "F",
 		"desc": "Gillar att baka bullar.",

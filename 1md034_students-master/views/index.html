@@ -10,76 +10,92 @@
     <script type="text/javascript" src="js/dummy_users.js" defer ></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://vuejs.org/js/vue.js"></script>
-  
+    
     <script>
       function openLogin() {
           if (email.value == "admin") {//&& password.value == "hej") {
-          location.href = "/admin";
-        }
+              location.href = "/admin";
+          }
 
-          else
-           
-              for(var index in men){
-              if (email.value == surname[index]) {
+          else {
+              
+              for(var i =0; i<10; ++i){
 
-                //this.currentUser = this.allUsers[this.surname];
-                //this.contacts = this.currentUser.matches;
 
-                //socket.emit('loggedIn', this.currentUser);
-                //sessionStorage.setItem("currentUser", JSON.stringify(this.currentUser));
-                  window.location.href = "/loggedIn";
-            } //else {
-                //document.getElementById("loginInfo").style.display = "block";
-                //location.href = "/loggedIn";
-           // }
-                  console.log(this.name);  
-              }}
+                  let userName = men[i].name;
+                  let losen = men[i].password;
+                  if (email.value == userName && password.value == losen) {
+                      window.location.href = "/loggedIn";
+                  }
+                  console.log(userName);  
+              }
+              for(var i =0; i<10; ++i){
+
+
+                  let userNameF = women[i].name;
+                  let passwordF = women[i].name;
+                  if (email.value == userNameF && password.value == passwordF[i]) {
+                      window.location.href = "/loggedIn";
+                  }
+                  //this.currentUser = this.allUsers[this.surname];
+                  //this.contacts = this.currentUser.matches;
+
+                  //socket.emit('loggedIn', this.currentUser);
+                  //sessionStorage.setItem("currentUser", JSON.stringify(this.currentUser));
+                  
+                  //else {
+                  //document.getElementById("loginInfo").style.display = "block";
+                  //location.href = "/loggedIn";
+                  // }
+                  console.log(userNameF);  
+              }
+          }
+      }
           
-        
-      
+          
     </script>
 
-  <!--  <script>
-      login() {
-    if(this.input.username != "" && this.input.password != "") {
-        if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-            this.$emit("authenticated", true);
-            this.$router.replace({ name: "secure" });
-        } else {
-            console.log("The username and / or password is incorrect");
-        }
-    } else {
-        console.log("A username and password must be present");
-    }
-      }
-      </script>-->
+    <!--  <script>
+          login() {
+          if(this.input.username != "" && this.input.password != "") {
+          if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
+          this.$emit("authenticated", true);
+          this.$router.replace({ name: "secure" });
+          } else {
+          console.log("The username and / or password is incorrect");
+          }
+          } else {
+          console.log("A username and password must be present");
+          }
+          }
+          </script>-->
   </head>
   <body id="work_space">
     <div id="msgTest">
-    <div>
-    <h1>Logga in</h1>
-    <form>
-      <p>
-	<label for="email"></label><br>
-	<input type ="text" class = "input" id = "email" name = "email" required= "required" placeholder = "email"/>
-      </p>
-      <p>
-	<label for="password"></label><br>
-	<input type ="text" id = "password" class= "input" name = "password" required= "required" placeholder = "lösen" />
-      </p>
-      <button onclick="openLogin()" id="loginKnapp" type = "button" class ="input">LOGGA IN</button>
-      <form>
-	<p>
-          <a href="reg">Registrera</a>
-	</p>
-      </form>
-    </div>
+      <div>
+        <h1>Logga in</h1>
+        <form>
+          <p>
+	          <label for="email"></label><br>
+	          <input type ="text" class = "input" id = "email" name = "email" required= "required" placeholder = "email"/>
+          </p>
+          <p>
+	          <label for="password"></label><br>
+	          <input type ="text" id = "password" class= "input" name = "password" required= "required" placeholder = "lösen" />
+          </p>
+          <button onclick="openLogin()" id="loginKnapp" type = "button" class ="input">LOGGA IN</button>
+          <form>
+	          <p>
+              <a href="reg">Registrera</a>
+	          </p>
+          </form>
+      </div>
 
-    <!--    <div id="login">
-        <h1>Login</h1>
-        <input type="text" name="username" v-model="input.username" placeholder="Username" />
-        <input type="password" name="password" v-model="input.password" placeholder="Password" />
-        <button type="button" v-on:click="login()">Login</button>
-    </div>-->
+      <!--    <div id="login">
+              <h1>Login</h1>
+              <input type="text" name="username" v-model="input.username" placeholder="Username" />
+              <input type="password" name="password" v-model="input.password" placeholder="Password" />
+              <button type="button" v-on:click="login()">Login</button>
+      </div>-->
   </body>
 </html>
