@@ -123,7 +123,8 @@ function Data() {
 
     ],
         this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
-    this.timer = 0;
+  this.timer = 0;
+  this.adminInfo = [];
 };
 
 
@@ -188,6 +189,18 @@ Data.prototype.submitReports = function (hhg) {
     this.counter++;
 };
 
+Data.prototype.setAdminInfo = function (adminInfo) {
+    this.date1 = adminInfo.date1;
+    this.date2 = adminInfo.date2;
+    this.date3 = adminInfo.date3;
+    this.date4 = adminInfo.date4;
+    this.date5 = adminInfo.date5;
+    this.date6 = adminInfo.date6;
+    this.date7 = adminInfo.date7;
+    this.date8 = adminInfo.date8;
+    this.date9 = adminInfo.date9;
+    this.date10 = adminInfo.date10;
+}
 
 const data = new Data();
 
@@ -208,7 +221,7 @@ io.on('connection', function (socket) {
     socket.on('sendConsole', function (hej) {
         if (data.roundnumber == 3) {
             data.roundnumber == 0;
-            console.log("Speedate event is now over!");
+            console.log("Speed date event is now over!");
         }
         else {
             console.log("Round " + hej.round + " has started!");
@@ -253,8 +266,20 @@ io.on('connection', function (socket) {
         io.emit('report', { report: data.getReports() });
     });
 
-    socket.on('sendMatch', function () {
+    socket.on('sendMatch', function (adminInfo) {
         console.log("Received adminInfo");
+        data.setAdminInfo(adminInfo);
+        var name = "";
+        //Send date info to men
+        for (var i = 0; i < 10; i++) {
+            name = data.adminInfo[i].male.name;
+            io.emit(name, { adminInfo: data.adminInfo[i]});
+        } 
+        //Send date info to women
+        for (var i = 0; i < 10; i++) {
+            name = data.adminInfo[i].female.name;
+            io.emit(name, { adminInfo: data.adminInfo[i] });
+        } 
     });
 });
 
