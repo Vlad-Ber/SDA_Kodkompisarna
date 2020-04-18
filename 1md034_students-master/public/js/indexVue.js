@@ -48,6 +48,8 @@ const ind = new Vue({
     el:'#msgTest',
     data: {
 	      testNumber: 0,
+        username: "",
+        password: "",
     },
     created: function () {
 	      socket.on('initialize', function (data) {
@@ -60,6 +62,24 @@ const ind = new Vue({
 	          console.log(this.testNumber);
 	      }.bind(this));
     },
+
+    methods: {
+        login: function () {
+            console.log(this.gender);
+            if (this.userName in this.allUsers &&
+                this.allUsers[this.userName]['password'] == this.password) {
+
+                this.currentUser = this.allUsers[this.userName];
+                this.contacts = this.currentUser.matches;
+
+                socket.emit('loggedIn', this.currentUser);
+                sessionStorage.setItem("currentUser", JSON.stringify(this.currentUser));
+                window.location.href = "/user"
+            } else {
+                document.getElementById("loginInfo").style.display = "block";
+            }
+        }
+    }
 });
 
 
