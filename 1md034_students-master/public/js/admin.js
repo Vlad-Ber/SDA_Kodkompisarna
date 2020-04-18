@@ -142,44 +142,46 @@ function roundNumberMake(number) {
     };
 };
 
-function shuffle() {
+async function shuffle() {
+    //Hämta alla sections som används
     var maleLeft = document.getElementById("maleLeft");
     var femaleLeft = document.getElementById("femaleLeft");
     var maleRight = document.getElementById("maleRight");
     var femaleRight = document.getElementById("femaleRight");
 
+    
+    var adminStat = document.getElementById("statusMessage");
+    adminStat.textContent = "Shuffling matches...";
+
     //Flytta  män randomly
     var firstMaleLeft = maleLeft.children[0];
-    //Flytta tillbaka kvinnor
-    for (var i = 9; firstMaleLeft != undefined;) {
+    for (var i = 9; firstMaleLeft !=undefined;) {
 	var randNumber = Math.round(Math.random() * i);
         var maleToMove = maleLeft.children[randNumber];
+	await new Promise(r => setTimeout(r, 50));
 	if (maleToMove != undefined){
-            maleRight.appendChild(maleToMove);
-	   
+            maleRight.appendChild(maleToMove); 
 	}
-        firstMaleLeft = maleLeft.children[0];
+	firstMaleLeft = maleLeft.children[0];
 	i--;
     }
     //Flytta female randomly
     var firstFemaleLeft = femaleLeft.children[0];
-    //Flytta tillbaka kvinnor
     for (var i = 9; firstFemaleLeft != undefined;) {
 	var randNumber = Math.round(Math.random() * i);
         var femaleToMove = femaleLeft.children[randNumber];
+	await new Promise(r => setTimeout(r, 50));
 	if (femaleToMove != undefined){
             femaleRight.appendChild(femaleToMove);
-	    
 	}
         firstFemaleLeft = femaleLeft.children[0];
 	i--;
     }
-    //Färg till grön
+    //Ändra färgen på alla bord till grön (Vi antar att shuffle alltid funkar)
     tableGreen();
     //Ändra admin messageboxxen
-    var adminStat = document.getElementById("statusMessage");
+    adminStat = document.getElementById("statusMessage");
     adminStat.textContent = "Matches have succesfully been shuffled.";
-
 }
 
 let round = new roundNumberMake(0);
@@ -207,31 +209,107 @@ function getMajBrittsMatch() {
         table: table,
     });
 }
+
+function getMatches() {
+    var maleRight = document.getElementById("maleRight")
+    var femaleRight = document.getElementById("femaleRight")
+
+    //adminInfo = {(1, Maj-Britt, Klas), (2, Britta, Ingar), (3, Sofia, Oskar), etc}
+    var adminInfo = {
+        date1: {
+            table: 1,
+            male: maleRight[0], // table - 1, för arrayer börjar på 0!
+            female: femaleRight[0]
+        },
+        date2: {
+            table: 2,
+            male: maleRight[1],
+            female: femaleRight[1]
+        },
+        date3: {
+            table: 3,
+            male: maleRight[2],
+            female: femaleRight[2]
+        },
+        date4: {
+            table: 4,
+            male: maleRight[3],
+            female: femaleRight[3]
+        },
+        date5: {
+            table: 5,
+            male: maleRight[4],
+            female: femaleRight[4]
+        },
+        date6: {
+            table: 6,
+            male: maleRight[5],
+            female: femaleRight[5]
+        },
+        date7: {
+            table: 7,
+            male: maleRight[6],
+            female: femaleRight[6]
+        },
+        date8: {
+            table: 8,
+            male: maleRight[7],
+            female: femaleRight[7]
+        },
+        date9: {
+            table: 9,
+            male: maleRight[8],
+            female: femaleRight[8]
+        },
+        date10: {
+            table: 10,
+            male: maleRight[9],
+            female: femaleRight[9]
+        },
+    }
+    socket.emit("sendMatch", {
+        adminInfo: adminInfo
+    });
+}
+
 function rating(maleRight, femaleRight, i) {
     var matchM = maleRight.children[i];
     var matchF = femaleRight.children[i];
     var pm = document.createElement('p');
     var pf = document.createElement('p');
-    let txtm = document.createTextNode("Rating: " + matchF.children[1].textContent);
     pm.setAttribute("class", "rate");
-    let txtf = document.createTextNode("Rating: " + matchM.children[1].textContent);
     pf.setAttribute("class", "rate");
-    pm.appendChild(txtm);
-    pf.appendChild(txtf);
-    matchM.appendChild(pm);
-    matchF.appendChild(pf);
+    //Female rating index i
+    
+    if(typeof matchF.children[1].textContent == undefined){
+	console.log("Undefined female at index :" + i);
+    }
+    else{
+	let txtm = document.createTextNode("Rating: " + matchF.children[1].textContent);
+	pm.appendChild(txtm);
+	matchM.appendChild(pm);
+    }
+    //Male rating index i
+    var maleText = matchM.children[1];
+    if(maleText == undefined){
+	console.log("Undefined male at index :" + i);
+    }
+    else{
+	let txtf = document.createTextNode("Rating: " + matchM.children[1].textContent);
+	pf.appendChild(txtf);
+	matchF.appendChild(pf);
+    }
 }
 
 function getTimerTime() {
     var minute = document.getElementById("minuteGet").value * 60;
-    var seconds = document.getElementById("secondGet").value;
-    return minute + seconds;
+    return minute;
 }
 
 function roundFinished() {
     
         //Skicka profilen som matchats med Maj-Britt
-        getMajBrittsMatch();
+        //getMajBrittsMatch();
         var matchedMale = [];
         var matchedFemale = [];
 
@@ -246,7 +324,6 @@ function roundFinished() {
         for (; i != undefined;) {
             var maleToMove = maleRight.children[0];
             maleLeft.appendChild(maleToMove);
-
             i = maleRight.children[0];
         }
         var a = femaleRight.children[0];
@@ -261,9 +338,6 @@ function roundFinished() {
 
 function startRound() {
     //Check om alla matchningar är giltiga
-	
-	
-
     var maleRight = document.getElementById("maleRight");
     var femaleRight = document.getElementById("femaleRight");
     var maleCheck = maleRight.children[9];
@@ -274,8 +348,9 @@ function startRound() {
     }   //Om alla matchningar är giltiga
     else {
         allowed = true;
+        getMatches();
         for (var k = 0; k < 10; k++) {
-            console.log("hej");
+            console.log("Inne i rating Loop med index: " + k);
             rating(maleRight, femaleRight, k);
         }
 
@@ -318,7 +393,7 @@ const COLOR_CODES = {
   }
 };
 
-var TIME_LIMIT = 600;
+var TIME_LIMIT = 120;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
@@ -357,19 +432,19 @@ function onTimesUp() {
 
 function startTimer() {
     TIME_LIMIT = getTimerTime();
-  timerInterval = setInterval(() => {
-    timePassed = timePassed += 1;
-    timeLeft = TIME_LIMIT - timePassed;
-    document.getElementById("base-timer-label").innerHTML = formatTime(
-      timeLeft
-    );
-    setCircleDasharray();
-    setRemainingPathColor(timeLeft);
-
-      if (timeLeft === 0) {
-      onTimesUp();
-    }
-  }, 1000);
+    timerInterval = setInterval(() => {
+	timePassed = timePassed += 1;
+	timeLeft = TIME_LIMIT - timePassed;
+	document.getElementById("base-timer-label").innerHTML = formatTime(
+	    timeLeft
+	);
+	setCircleDasharray();
+	setRemainingPathColor(timeLeft);
+	
+	if (timeLeft === 0) {
+	    onTimesUp();
+	}
+    }, 1000);
 }
 
 function formatTime(time) {
@@ -415,5 +490,3 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
-
-
