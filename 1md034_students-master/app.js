@@ -108,6 +108,20 @@ app.get('/regret2', function (req, res) {
 app.get('/regret3', function (req, res) {
     res.sendFile(path.join(__dirname, 'views/rateyourdate3.html'));
 });
+
+//Add logged in users
+
+socket.on('loggedIn', function(user){
+    data.addLoggedIn(user){
+        var users=[];
+
+        var dict = data.getLoggedInUsers();
+        for(var key in dict)
+            users.push(dict[key]);
+        io.emit('currentLoggedIn', {loggedIn: users});
+    }
+});
+
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
@@ -117,6 +131,7 @@ function Data() {
     this.orders = {};
     this.femma = 5;
     this.ratings = {};
+    this.users={};
     this.match = [ // this.match används för currentDate. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem? (Om det finns tid)
         this.profile = {},
         this.table = 0,
