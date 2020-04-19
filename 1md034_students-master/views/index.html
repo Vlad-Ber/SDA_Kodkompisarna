@@ -1,102 +1,71 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <title>SPEED DEJTING</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <script type="text/javascript" src="js/indexVue.js" defer ></script>
-    <script type="text/javascript" src="js/currentProfile.js" defer></script>
-    <script type="text/javascript" src="js/dummy_users.js" defer ></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://vuejs.org/js/vue.js"></script>
-    
-    <script>
-      function openLogin() {
-          if (email.value == "admin") {//&& password.value == "hej") {
-              location.href = "/admin";
-          }
 
-          else {
-              
-              for(var i =0; i<10; ++i){
+<head>
+  <title>SPEED DEJTING</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script type="text/javascript" src="js/indexVue.js" defer></script>
+  <script type="text/javascript" src="js/dummy_users.js" defer></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://vuejs.org/js/vue.js"></script>
 
-
-                  let userName = men[i].name;
-                  let losen = men[i].password;
-                  if (email.value == userName && password.value == losen) {
-                      window.location.href = "/loggedIn";
-                  }
-                  console.log(userName);  
-              }
-              for(var i =0; i<10; ++i){
-
-
-                  let userNameF = women[i].name;
-                  let passwordF = women[i].name;
-                  if (email.value == userNameF && password.value == passwordF[i]) {
-                      window.location.href = "/loggedIn";
-                  }
-                  //this.currentUser = this.allUsers[this.surname];
-                  //this.contacts = this.currentUser.matches;
-
-                  //socket.emit('loggedIn', this.currentUser);
-                  //sessionStorage.setItem("currentUser", JSON.stringify(this.currentUser));
-                  
-                  //else {
-                  //document.getElementById("loginInfo").style.display = "block";
-                  //location.href = "/loggedIn";
-                  // }
-                  console.log(userNameF);  
-              }
-          }
+  <script>
+    function openLogin() {
+      if (username.value == "admin") {//&& password.value == "hej") {
+        location.href = "/admin";
       }
-          
-          
-    </script>
 
-    <!--  <script>
-          login() {
-          if(this.input.username != "" && this.input.password != "") {
-          if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-          this.$emit("authenticated", true);
-          this.$router.replace({ name: "secure" });
-          } else {
-          console.log("The username and / or password is incorrect");
+      else {
+
+        for (var i = 0; i < 10; ++i) {
+          let currentName = men[i].name;
+          let currentPassword = men[i].password;
+
+          if (username.value == currentName && password.value == currentPassword) {
+            currentProfile = men[i];
+            window.sessionStorage.setItem("currentProfile", JSON.stringify(currentProfile));
+            window.location.href = "/loggedIn";
           }
-          } else {
-          console.log("A username and password must be present");
+        }
+        for (var i = 0; i < 10; ++i) {
+          currentName = women[i].name;
+          currentPassword = women[i].password;
+
+          if (username.value == currentName && password.value == currentPassword) {
+            currentProfile = women[i];
+            window.sessionStorage.setItem("currentProfile", JSON.stringify(currentProfile));
+            window.location.href = "/loggedIn";
           }
-          }
-          </script>-->
-  </head>
-  <body id="work_space">
-    <div id="msgTest">
-      <div>
-        <h1>Logga in</h1>
+        }
+      }
+    }
+  </script>
+</head>
+
+<body id="work_space">
+  <div id="msgTest">
+    <div>
+      <h1>Logga in</h1>
+      <form>
+        <p>
+          <label for="username"></label><br>
+          <input type="text" class="input" id="username" name="username" required="required" placeholder="användarnamn" />
+        </p>
+        <p>
+          <label for="password"></label><br>
+          <input type="text" id="password" class="input" name="password" required="required" placeholder="lösenord" />
+        </p>
+        <button onclick="openLogin()" id="loginKnapp" type="button" class="input">LOGGA IN</button>
         <form>
           <p>
-	          <label for="email"></label><br>
-	          <input type ="text" class = "input" id = "email" name = "email" required= "required" placeholder = "email"/>
+            <a href="reg">Registrera</a>
           </p>
-          <p>
-	          <label for="password"></label><br>
-	          <input type ="text" id = "password" class= "input" name = "password" required= "required" placeholder = "lösen" />
-          </p>
-          <button onclick="openLogin()" id="loginKnapp" type = "button" class ="input">LOGGA IN</button>
-          <form>
-	          <p>
-              <a href="reg">Registrera</a>
-	          </p>
-          </form>
-      </div>
+        </form>
+    </div>
 
-      <!--    <div id="login">
-              <h1>Login</h1>
-              <input type="text" name="username" v-model="input.username" placeholder="Username" />
-              <input type="password" name="password" v-model="input.password" placeholder="Password" />
-              <button type="button" v-on:click="login()">Login</button>
-      </div>-->
-  </body>
+</body>
+
 </html>

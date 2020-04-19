@@ -1,45 +1,6 @@
-let loggedIn = [];
-
-/*function getUser(key, value, multiple, case_sense){
-    let result = [];
-
-    for(var index in men){
-
-        var men = men[index];
-        if(typeof men[key] != 'undefined'){
-            var compare = user[key];
-
-            if(case_sense){
-
-                if(typeof compare == 'string')
-                {
-                    compare = compare.toLowerCase();
-                }
-
-                if(typeof value == 'string')
-                {
-                    value = value.toLowerCase();
-                }
-            }
-
-            if (typeof value == 'undefined' || ((strict && compare === value) || (!strict && compare == value))) {
-                // if we want multiple results
-                if (multiple) {
-                    // the result will be appended to the result array
-                    result.push(user);
-                } else {
-                    // otherwise we just return it
-                    return user;
-                }
-            }
-        }
-    }
-     return multiple ? result : null;
-}
-*/
 let men = [
-	  {
-        "password": "password",
+	{
+		"password": "password",
 		"name": "Peter",
 		"age": 42,
 		"gender": "M",
@@ -87,9 +48,9 @@ let men = [
 			},
 		}
 	},
-/* 2 */
-	  {
-        "password": "password",
+	/* 2 */
+	{
+		"password": "password",
 		"name": "Pelle",
 		"age": 25,
 		"gender": "M",
@@ -136,9 +97,9 @@ let men = [
 				}
 			},
 		}
-	},	
-	  {
-        "password": "password",
+	},
+	{
+		"password": "password",
 		"name": "Henrik",
 		"age": 33,
 		"gender": "M",
@@ -186,9 +147,9 @@ let men = [
 			},
 		}
 	},
-/* 6 */
-	  {
-        "password": "password",
+	/* 6 */
+	{
+		"password": "password",
 		"name": "Janne",
 		"age": 22,
 		"gender": "M",
@@ -236,8 +197,8 @@ let men = [
 			},
 		}
 	},
-	  {
-        "password": "password",
+	{
+		"password": "password",
 		"name": "Berra",
 		"age": 34,
 		"gender": "M",
@@ -286,10 +247,10 @@ let men = [
 		}
 	},
 
-/* 10 */
+	/* 10 */
 
-	  {
-        "password": "password",
+	{
+		"password": "password",
 		"name": "Mange",
 		"age": 27,
 		"gender": "M",
@@ -337,8 +298,8 @@ let men = [
 			},
 		}
 	},
-	  {
-        "password": "password",
+	{
+		"password": "password",
 		"name": "Sigmund",
 		"age": 25,
 		"gender": "M",
@@ -386,9 +347,9 @@ let men = [
 			},
 		}
 	},
-/* 14 */
-	  {
-        "password": "password",
+	/* 14 */
+	{
+		"password": "password",
 		"name": "Karsten",
 		"age": 30,
 		"gender": "M",
@@ -436,8 +397,8 @@ let men = [
 			},
 		}
 	},
-	  {
-        "password": "password",
+	{
+		"password": "password",
 		"name": "James",
 		"age": 59,
 		"gender": "M",
@@ -485,8 +446,9 @@ let men = [
 			},
 		}
 	},
-/* 18 */
-	  {"password":"password",
+	/* 18 */
+	{
+		"password": "password",
 		"name": "Olof",
 		"age": 50,
 		"gender": "M",
@@ -536,7 +498,8 @@ let men = [
 	}
 ]
 let women = [
-	  {"password": "password",
+	{
+		"password": "password",
 		"name": "Maj-Britt",
 		"age": 65,
 		"gender": "F",
@@ -584,7 +547,8 @@ let women = [
 			},
 		}
 	},
-	  {"password": "password",
+	{
+		"password": "password",
 		"name": "Ylva",
 		"age": 25,
 		"gender": "F",
@@ -632,8 +596,9 @@ let women = [
 			},
 		}
 	},
-/* 4 */
-	  {"password": "password",
+	/* 4 */
+	{
+		"password": "password",
 		"name": "Anna",
 		"age": 30,
 		"gender": "F",
@@ -681,7 +646,8 @@ let women = [
 			},
 		}
 	},
-	  {"password": "password",
+	{
+		"password": "password",
 		"name": "Inger",
 		"age": 40,
 		"gender": "F",
@@ -729,8 +695,9 @@ let women = [
 			},
 		}
 	},
-/* 8 */
-	  {"password": "password",
+	/* 8 */
+	{
+		"password": "password",
 		"name": "Benita",
 		"age": 22,
 		"gender": "F",
@@ -778,7 +745,8 @@ let women = [
 			},
 		}
 	},
-	  {"password": "password",
+	{
+		"password": "password",
 		"name": "Barbro",
 		"age": 43,
 		"gender": "F",
@@ -826,8 +794,9 @@ let women = [
 			},
 		}
 	},
-/* 12 */
-	  {"password": "password",
+	/* 12 */
+	{
+		"password": "password",
 		"name": "Helga",
 		"age": 28,
 		"gender": "F",
@@ -876,7 +845,8 @@ let women = [
 		}
 	},
 
-	  {"password": "password",
+	{
+		"password": "password",
 		"name": "Berit",
 		"age": 23,
 		"gender": "F",
@@ -924,7 +894,8 @@ let women = [
 			},
 		}
 	},
-	  {"password": "password",
+	{
+		"password": "password",
 		"name": "Helena",
 		"age": 52,
 		"gender": "F",
@@ -972,7 +943,8 @@ let women = [
 			},
 		}
 	},
-    {"password": "password",
+	{
+		"password": "password",
 		"name": "Sanna",
 		"age": 34,
 		"gender": "F",

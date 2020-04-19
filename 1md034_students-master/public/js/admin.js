@@ -191,90 +191,189 @@ let round = new roundNumberMake(0);
 let roundNumber = round.getRoundNumber();
 let allowed = false;
 
-//Maj-Britt är dens profil man är som klient
-function getMajBrittsMatch() {
-    var maleRight = document.getElementById("maleRight");
-    var femaleRight = document.getElementById("femaleRight");
-    var profile = {};
-    var table = 0;
-    //Hitta Maj Britt för att få platsen, hämta bordet och dejt till adminVue.js
-    for (var i = 0; i < 10; i++) {
-        if (femaleRight.children[i].name == "Maj-Britt") {
-            if (maleRight.children[i] != undefined) {
-                profile = maleRight.children[i];
-                table = i;
-            }
-        }
-    }
-    //Skicka Maj-Britts match till servern
-    socket.emit("sendMatch", {
-        profile: profile,
-        table: table,
-    });
-}
-
 function getMatches() {
-    var maleRight = document.getElementById("maleRight")
-    var femaleRight = document.getElementById("femaleRight")
-
-    //adminInfo = {(1, Maj-Britt, Klas), (2, Britta, Ingar), (3, Sofia, Oskar), etc}
-    if (maleRight != undefined) {
-        var adminInfo = {
-          date1: {
-            table: 1,
-            male: maleRight.children[0], // table - 1, för arrayer börjar på 0!
-            female: femaleRight.children[0],
-          },
-          date2: {
-            table: 2,
-            male: maleRight.children[1],
-            female: femaleRight.children[1],
-          },
-          date3: {
-            table: 3,
-            male: maleRight.children[2],
-            female: femaleRight.children[2],
-          },
-          date4: {
-            table: 4,
-            male: maleRight.children[3],
-            female: femaleRight.children[3],
-          },
-          date5: {
-            table: 5,
-            male: maleRight.children[4],
-            female: femaleRight.children[4],
-          },
-          date6: {
-            table: 6,
-            male: maleRight.children[5],
-            female: femaleRight.children[5],
-          },
-          date7: {
-            table: 7,
-            male: maleRight.children[6],
-            female: femaleRight.children[6],
-          },
-          date8: {
-            table: 8,
-            male: maleRight.children[7],
-            female: femaleRight.children[7],
-          },
-          date9: {
-            table: 9,
-            male: maleRight.children[8],
-            female: femaleRight.children[8],
-          },
-          date10: {
-            table: 10,
-            male: maleRight.children[9],
-            female: femaleRight.children[9],
-          },
-        };
+  var maleRight = document.getElementById("maleRight");
+  var femaleRight = document.getElementById("femaleRight");
+  console.log(maleRight.children[0].children[0].children[1].src);
+  //adminInfo = {(1, Maj-Britt, Klas), (2, Britta, Ingar), (3, Sofia, Oskar), etc}
+  if (maleRight != undefined && femaleRight != undefined) {
+    let adminInfo = {
+      date1: {
+        table: 1,
+        male: {
+          name: maleRight.children[0].children[1].textContent,
+          age: maleRight.children[0].children[2].textContent,
+          gender: maleRight.children[0].children[3].textContent,
+          desc: maleRight.children[0].children[4].textContent,
+          pic: ""//maleRight.children[0].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[0].children[1].textContent,
+          age: femaleRight.children[0].children[2].textContent,
+          gender: femaleRight.children[0].children[3].textContent,
+          desc: femaleRight.children[0].children[4].textContent,
+          pic: ""//femaleRight.children[0].children[0].children[1].src,
+        }
+      },
+      date2: {
+        table: 2,
+        male: {
+          name: maleRight.children[1].children[1].textContent,
+          age: maleRight.children[1].children[2].textContent,
+          gender: maleRight.children[1].children[3].textContent,
+          desc: maleRight.children[1].children[4].textContent,
+          pic: ""//maleRight.children[1].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[1].children[1].textContent,
+          age: femaleRight.children[1].children[2].textContent,
+          gender: femaleRight.children[1].children[3].textContent,
+          desc: femaleRight.children[1].children[4].textContent,
+          pic: ""//femaleRight.children[1].children[0].children[1].src,
+        },
+      },
+      date3: {
+        table: 3,
+        male: {
+          name: maleRight.children[2].children[1].textContent,
+          age: maleRight.children[2].children[2].textContent,
+          gender: maleRight.children[2].children[3].textContent,
+          desc: maleRight.children[2].children[4].textContent,
+          pic: ""//maleRight.children[2].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[2].children[1].textContent,
+          age: femaleRight.children[2].children[2].textContent,
+          gender: femaleRight.children[2].children[3].textContent,
+          desc: femaleRight.children[2].children[4].textContent,
+          pic: ""//femaleRight.children[2].children[0].children[1].src,
+        },
+      },
+      date4: {
+        table: 4,
+        male: {
+          name: maleRight.children[3].children[1].textContent,
+          age: maleRight.children[3].children[2].textContent,
+          gender: maleRight.children[3].children[3].textContent,
+          desc: maleRight.children[3].children[4].textContent,
+          pic: ""//maleRight.children[3].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[3].children[1].textContent,
+          age: femaleRight.children[3].children[2].textContent,
+          gender: femaleRight.children[3].children[3].textContent,
+          desc: femaleRight.children[3].children[4].textContent,
+          pic: ""//femaleRight.children[3].children[0].children[1].src,
+        },
+      },
+      date5: {
+        table: 5,
+        male: {
+          name: maleRight.children[4].children[1].textContent,
+          age: maleRight.children[4].children[2].textContent,
+          gender: maleRight.children[4].children[3].textContent,
+          desc: maleRight.children[4].children[4].textContent,
+          pic: ""//maleRight.children[4].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[4].children[1].textContent,
+          age: femaleRight.children[4].children[2].textContent,
+          gender: femaleRight.children[4].children[3].textContent,
+          desc: femaleRight.children[4].children[4].textContent,
+          pic: ""//femaleRight.children[4].children[0].children[1].src,
+        },
+      },
+      date6: {
+        table: 6,
+        male: {
+          name: maleRight.children[5].children[1].textContent,
+          age: maleRight.children[5].children[2].textContent,
+          gender: maleRight.children[5].children[3].textContent,
+          desc: maleRight.children[5].children[4].textContent,
+          pic: ""//maleRight.children[5].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[5].children[1].textContent,
+          age: femaleRight.children[5].children[2].textContent,
+          gender: femaleRight.children[5].children[3].textContent,
+          desc: femaleRight.children[5].children[4].textContent,
+          pic: ""//femaleRight.children[5].children[0].children[1].src,
+        },
+      },
+      date7: {
+        table: 7,
+        male: {
+          name: maleRight.children[6].children[1].textContent,
+          age: maleRight.children[6].children[2].textContent,
+          gender: maleRight.children[6].children[3].textContent,
+          desc: maleRight.children[6].children[4].textContent,
+          pic: ""//maleRight.children[6].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[6].children[1].textContent,
+          age: femaleRight.children[6].children[2].textContent,
+          gender: femaleRight.children[6].children[3].textContent,
+          desc: femaleRight.children[6].children[4].textContent,
+          pic: ""//femaleRight.children[6].children[0].children[1].src,
+        },
+      },
+      date8: {
+        table: 8,
+        male: {
+          name: maleRight.children[7].children[1].textContent,
+          age: maleRight.children[7].children[2].textContent,
+          gender: maleRight.children[7].children[3].textContent,
+          desc: maleRight.children[7].children[4].textContent,
+          pic: ""//maleRight.children[7].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[7].children[1].textContent,
+          age: femaleRight.children[7].children[2].textContent,
+          gender: femaleRight.children[7].children[3].textContent,
+          desc: femaleRight.children[7].children[4].textContent,
+          pic: ""//femaleRight.children[7].children[0].children[1].src,
+        },
+      },
+      date9: {
+        table: 9,
+        male: {
+          name: maleRight.children[8].children[1].textContent,
+          age: maleRight.children[8].children[2].textContent,
+          gender: maleRight.children[8].children[3].textContent,
+          desc: maleRight.children[8].children[4].textContent,
+          pic: ""//maleRight.children[8].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[8].children[1].textContent,
+          age: femaleRight.children[8].children[2].textContent,
+          gender: femaleRight.children[8].children[3].textContent,
+          desc: femaleRight.children[8].children[4].textContent,
+          pic: ""//femaleRight.children[8].children[0].children[1].src,
+        },
+      },
+      date10: {
+        table: 10,
+        male: {
+          name: maleRight.children[9].children[1].textContent,
+          age: maleRight.children[9].children[2].textContent,
+          gender: maleRight.children[9].children[3].textContent,
+          desc: maleRight.children[9].children[4].textContent,
+          pic: ""//maleRight.children[9].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[9].children[1].textContent,
+          age: femaleRight.children[9].children[2].textContent,
+          gender: femaleRight.children[9].children[3].textContent,
+          desc: femaleRight.children[9].children[4].textContent,
+          pic: ""//femaleRight.children[9].children[0].children[1].src,
+        },
+      },
     }
+    console.log(adminInfo.date1);
     socket.emit("sendMatch", {
-        adminInfo: adminInfo
+      adminInfo: adminInfo
     });
+  }
 }
 
 function rating(maleRight, femaleRight, i) {
