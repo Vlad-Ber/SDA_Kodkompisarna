@@ -51,9 +51,24 @@ const matchVue = new Vue ({
             onTimesUp();
         }.bind(this));    
     },
+<<<<<<< HEAD
     
 	  mounted: 
     function() {
 		    setTable(2);
 	  }
+=======
+	mounted: function() {
+		socket.on('redirectAdminInfo', function (matchProfile) {
+			this.name = matchProfile.profile.name;
+			this.desc = matchProfile.profile.desc;
+			this.age = matchProfile.profile.age;
+			this.pic = matchProfile.profile.pic;
+			  this.table = matchProfile.table;
+		}.bind(this));
+	},
+	mounted: function () {
+		setTable(2);
+	}
+>>>>>>> 6aa16403febb5695260b611a8f3e41ec9c7f9c12
 });

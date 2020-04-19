@@ -108,22 +108,28 @@ app.get('/regret2', function (req, res) {
 app.get('/regret3', function (req, res) {
     res.sendFile(path.join(__dirname, 'views/rateyourdate3.html'));
 });
+
+
+
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
     this.timer = 0;
     this.reports = {};
     this.counter = 0;
+    this.no_of_ratings = 0; 
     this.orders = {};
     this.femma = 5;
     this.ratings = {};
+    this.users={};
     this.match = [ // this.match används för currentDate. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem? (Om det finns tid)
         this.profile = {},
         this.table = 0,
 
     ],
         this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
-    this.timer = 0;
+  this.timer = 0;
+  this.adminInfo = [];
 };
 
 
@@ -149,15 +155,14 @@ Data.prototype.getAllOrders = function () {
     return this.orders;
 };
 
-Data.prototype.setRatings = function (newRatings) {
-    this.ratings[0] = newRatings.conv;
-    this.ratings[1] = newRatings.intr;
-    this.ratings[2] = newRatings.match;
+Data.prototype.setRatings = function(newRatings) {    
+    this.ratings[this.no_of_ratings] = newRatings;
+    //this.no_of_ratings++;
 }
 
-Data.prototype.sendRatings = function () {
+Data.prototype.sendRatings = function() {
     return this.ratings;
-};
+}; 
 
 // Funktioner för currentDate 
 // TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
@@ -172,6 +177,7 @@ Data.prototype.sendMatch = function () {
 
 // Funktioner för meetAgain
 // TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
+
 Data.prototype.setMatches = function (matches) {
     this.matches[0] = matches.p1;
     this.matches[1] = matches.p2;
@@ -180,6 +186,7 @@ Data.prototype.setMatches = function (matches) {
 
 Data.prototype.getMatches = function () {
     return this.matches;
+
 }
 
 Data.prototype.submitReports = function (hhg) {
@@ -188,6 +195,18 @@ Data.prototype.submitReports = function (hhg) {
     this.counter++;
 };
 
+Data.prototype.setAdminInfo = function (adminInfo) {
+    this.adminInfo[0] = adminInfo.adminInfo.date1;
+    this.adminInfo[1] = adminInfo.adminInfo.date2;
+    this.adminInfo[2] = adminInfo.adminInfo.date3;
+    this.adminInfo[3] = adminInfo.adminInfo.date4;
+    this.adminInfo[4] = adminInfo.adminInfo.date5;
+    this.adminInfo[5] = adminInfo.adminInfo.date6;
+    this.adminInfo[6] = adminInfo.adminInfo.date7;
+    this.adminInfo[7] = adminInfo.adminInfo.date8;
+    this.adminInfo[8] = adminInfo.adminInfo.date9;
+    this.adminInfo[9] = adminInfo.adminInfo.date10;
+}
 
 const data = new Data();
 
@@ -199,6 +218,7 @@ io.on('connection', function (socket) {
     });
 
     // When a connected client emits an "addOrder" message
+
     socket.on('addOrder', function (order) {
         data.addOrder(order);
         // send updated info to all connected clients,
@@ -207,8 +227,13 @@ io.on('connection', function (socket) {
     });
     socket.on('sendConsole', function (hej) {
         if (data.roundnumber == 3) {
+<<<<<<< HEAD
             data.roundnumber = 0;
             console.log("Speedate event is now over!");
+=======
+            data.roundnumber == 0;
+            console.log("Speed date event is now over!");
+>>>>>>> 6aa16403febb5695260b611a8f3e41ec9c7f9c12
         }
         else {
             console.log("Round " + hej.round + " has started!");
@@ -221,6 +246,7 @@ io.on('connection', function (socket) {
         io.emit('nyRunda', {
             round: data.roundnumber,
             allowed: hej.allowed,
+
         });
         //Receive a profile from admin and send it to the user.
         socket.on('sendMatch', function (match) {
@@ -230,12 +256,16 @@ io.on('connection', function (socket) {
             });
         });
     });
+<<<<<<< HEAD
     socket.on('endRound', function (foo) {
         console.log("In server, timer should be 0: " + foo.timer);
         io.emit("endUserRound", {
             timer: foo.timer
         });
     });
+=======
+
+>>>>>>> 6aa16403febb5695260b611a8f3e41ec9c7f9c12
     socket.on('sendRating', function (rate) {
         console.log("recieved" + rate.conv + rate.intr + rate.match);
         data.setRatings(rate);
@@ -246,6 +276,7 @@ io.on('connection', function (socket) {
         console.log("recieved matches for Maj-Britt, Sending to her messages");
         data.setMatches(matches);
         io.emit('sendMessage', { match: data.getMatches(), });
+
     });
 
     socket.on('getMessage', function () {
@@ -259,8 +290,33 @@ io.on('connection', function (socket) {
         io.emit('report', { report: data.getReports() });
     });
 
-    socket.on('sendMatch', function () {
+    socket.on('sendMatch', function (adminInfo) {
         console.log("Received adminInfo");
+        data.setAdminInfo(adminInfo);
+        var name = "";
+        //Send date info to men
+        for (var i = 0; i < 10; i++) {
+            name = data.adminInfo[i].male.name;
+            io.emit(name, { adminInfo: data.adminInfo[i]});
+        } 
+        //Send date info to women
+        for (var i = 0; i < 10; i++) {
+            name = data.adminInfo[i].female.name;
+            io.emit(name, { adminInfo: data.adminInfo[i] });
+        } 
+    });
+    //Add logged in users
+
+socket.on('loggedIn', function(user){
+    data.addLoggedIn(user);
+        var users=[];
+
+        var dict = data.getLoggedInUsers();
+        for(var key in dict)
+            users.push(dict[key]);
+    console.log(users);
+    console.log(dict);
+        io.emit('currentLoggedIn', {loggedIn: users});
     });
 });
 
