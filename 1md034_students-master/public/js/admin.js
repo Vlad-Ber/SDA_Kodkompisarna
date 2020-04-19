@@ -218,57 +218,59 @@ function getMatches() {
     var femaleRight = document.getElementById("femaleRight")
 
     //adminInfo = {(1, Maj-Britt, Klas), (2, Britta, Ingar), (3, Sofia, Oskar), etc}
-    var adminInfo = {
-        date1: {
+    if (maleRight != undefined) {
+        var adminInfo = {
+          date1: {
             table: 1,
-            male: maleRight[0], // table - 1, för arrayer börjar på 0!
-            female: femaleRight[0]
-        },
-        date2: {
+            male: maleRight.children[0], // table - 1, för arrayer börjar på 0!
+            female: femaleRight.children[0],
+          },
+          date2: {
             table: 2,
-            male: maleRight[1],
-            female: femaleRight[1]
-        },
-        date3: {
+            male: maleRight.children[1],
+            female: femaleRight.children[1],
+          },
+          date3: {
             table: 3,
-            male: maleRight[2],
-            female: femaleRight[2]
-        },
-        date4: {
+            male: maleRight.children[2],
+            female: femaleRight.children[2],
+          },
+          date4: {
             table: 4,
-            male: maleRight[3],
-            female: femaleRight[3]
-        },
-        date5: {
+            male: maleRight.children[3],
+            female: femaleRight.children[3],
+          },
+          date5: {
             table: 5,
-            male: maleRight[4],
-            female: femaleRight[4]
-        },
-        date6: {
+            male: maleRight.children[4],
+            female: femaleRight.children[4],
+          },
+          date6: {
             table: 6,
-            male: maleRight[5],
-            female: femaleRight[5]
-        },
-        date7: {
+            male: maleRight.children[5],
+            female: femaleRight.children[5],
+          },
+          date7: {
             table: 7,
-            male: maleRight[6],
-            female: femaleRight[6]
-        },
-        date8: {
+            male: maleRight.children[6],
+            female: femaleRight.children[6],
+          },
+          date8: {
             table: 8,
-            male: maleRight[7],
-            female: femaleRight[7]
-        },
-        date9: {
+            male: maleRight.children[7],
+            female: femaleRight.children[7],
+          },
+          date9: {
             table: 9,
-            male: maleRight[8],
-            female: femaleRight[8]
-        },
-        date10: {
+            male: maleRight.children[8],
+            female: femaleRight.children[8],
+          },
+          date10: {
             table: 10,
-            male: maleRight[9],
-            female: femaleRight[9]
-        },
+            male: maleRight.children[9],
+            female: femaleRight.children[9],
+          },
+        };
     }
     socket.emit("sendMatch", {
         adminInfo: adminInfo
