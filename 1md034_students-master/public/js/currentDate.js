@@ -51,12 +51,8 @@ const matchVue = new Vue ({
             onTimesUp();
         }.bind(this));    
     },
-	  mounted: 
-    function() {
-		    setTable(2);
-	  }
-
-/*	mounted: function() {
+    
+	mounted: function() {
 		socket.on('redirectAdminInfo', function (matchProfile) {
 			this.name = matchProfile.profile.name;
 			this.desc = matchProfile.profile.desc;
@@ -67,6 +63,7 @@ const matchVue = new Vue ({
 	},
 	mounted: function () {
 		setTable(2);
-	}*/
+
+	}
 
 });

@@ -524,7 +524,7 @@ const vm = new Vue({
 	socket.on('redirectRating', function(data){
 	    this.testArray = data.ratings;
 	    console.log("Rating recieved" + this.testArray[0].conv + this.testArray[0].intr + this.testArray[0].match);
-      
+
 	    this.showRatings = true; 
 	    this.a = Math.floor(Math.random()*(10)+1); 
 	    this.b = Math.floor(Math.random()*(10)+1);

@@ -230,9 +230,9 @@ io.on('connection', function (socket) {
     });
     socket.on('sendConsole', function (hej) {
         if (data.roundnumber == 3) {
-
             data.roundnumber = 0;
-            console.log("Speed date event is now over!");
+            console.log("Speedate event is now over!");
+
         }
         else {
             console.log("Round " + hej.round + " has started!");
