@@ -196,16 +196,16 @@ Data.prototype.submitReports = function (hhg) {
 };
 
 Data.prototype.setAdminInfo = function (adminInfo) {
-    this.adminInfo[0] = adminInfo.date1;
-    this.adminInfo[1] = adminInfo.date2;
-    this.adminInfo[2] = adminInfo.date3;
-    this.adminInfo[3] = adminInfo.date4;
-    this.adminInfo[4] = adminInfo.date5;
-    this.adminInfo[5] = adminInfo.date6;
-    this.adminInfo[6] = adminInfo.date7;
-    this.adminInfo[7] = adminInfo.date8;
-    this.adminInfo[8] = adminInfo.date9;
-    this.adminInfo[9] = adminInfo.date10;
+    this.adminInfo[0] = adminInfo.adminInfo.date1;
+    this.adminInfo[1] = adminInfo.adminInfo.date2;
+    this.adminInfo[2] = adminInfo.adminInfo.date3;
+    this.adminInfo[3] = adminInfo.adminInfo.date4;
+    this.adminInfo[4] = adminInfo.adminInfo.date5;
+    this.adminInfo[5] = adminInfo.adminInfo.date6;
+    this.adminInfo[6] = adminInfo.adminInfo.date7;
+    this.adminInfo[7] = adminInfo.adminInfo.date8;
+    this.adminInfo[8] = adminInfo.adminInfo.date9;
+    this.adminInfo[9] = adminInfo.adminInfo.date10;
 }
 
 const data = new Data();
