@@ -1,11 +1,11 @@
-'use strict';
+/*'use strict';
 const socket = io();
 
 const vm = new Vue({
     el: '#page',
     data: {
-	testArray: 1,
-	name: "pelle",
+	userRatings: [],
+	name: "maj-britt",
 	showRatings: false,
 	conv: 0,
 	intr: 0,
@@ -16,12 +16,10 @@ const vm = new Vue({
         reports: "",
 
     },
-    created: function () {		
+    created: function() {		
 	socket.on('redirectRating', function(data){
-	    this.conv = data.ratings[0];
-	    this.intr = data.ratings[1]; 
-	    this.match = data.ratings[2];
-	    console.log("Rating recieved" + this.conv + this.intr + this.match);
+	    this.testArray = data.ratings;
+	    console.log("Rating recieved" + this.testArray[0].conv + this.testArray[0].intr + this.testArray[0].match);
 	    this.showRatings = true; 
 	    this.a = Math.floor(Math.random()*(10)+1); 
 	    this.b = Math.floor(Math.random()*(10)+1);
@@ -30,7 +28,7 @@ const vm = new Vue({
 	      
         socket.on('report', function(data){
             this.reports = data.report;
-        })
+        });
     },	
     methods: {
 	      msgUser: function() {
@@ -49,3 +47,4 @@ const vm = new Vue({
 
 });
 
+*/

@@ -48,7 +48,7 @@ const matchVue = new Vue({
 	      }.bind(this));
     },
 	mounted: function() {
-		socket.on('getMatch', function (matchProfile) {
+		socket.on('redirectAdminInfo', function (matchProfile) {
 			this.name = matchProfile.profile.name;
 			this.desc = matchProfile.profile.desc;
 			this.age = matchProfile.profile.age;

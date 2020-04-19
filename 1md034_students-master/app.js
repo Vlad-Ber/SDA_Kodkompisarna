@@ -117,6 +117,7 @@ function Data() {
     this.timer = 0;
     this.reports = {};
     this.counter = 0;
+    this.no_of_ratings = 0; 
     this.orders = {};
     this.femma = 5;
     this.ratings = {};
@@ -127,7 +128,8 @@ function Data() {
 
     ],
         this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
-    this.timer = 0;
+  this.timer = 0;
+  this.adminInfo = [];
 };
 
 
@@ -153,15 +155,14 @@ Data.prototype.getAllOrders = function () {
     return this.orders;
 };
 
-Data.prototype.setRatings = function (newRatings) {
-    this.ratings[0] = newRatings.conv;
-    this.ratings[1] = newRatings.intr;
-    this.ratings[2] = newRatings.match;
+Data.prototype.setRatings = function(newRatings) {    
+    this.ratings[this.no_of_ratings] = newRatings;
+    //this.no_of_ratings++;
 }
 
-Data.prototype.sendRatings = function () {
+Data.prototype.sendRatings = function() {
     return this.ratings;
-};
+}; 
 
 // Funktioner för currentDate 
 // TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
@@ -176,6 +177,7 @@ Data.prototype.sendMatch = function () {
 
 // Funktioner för meetAgain
 // TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
+
 Data.prototype.setMatches = function (matches) {
     this.matches[0] = matches.p1;
     this.matches[1] = matches.p2;
@@ -184,6 +186,7 @@ Data.prototype.setMatches = function (matches) {
 
 Data.prototype.getMatches = function () {
     return this.matches;
+
 }
 
 Data.prototype.submitReports = function (hhg) {
@@ -192,6 +195,18 @@ Data.prototype.submitReports = function (hhg) {
     this.counter++;
 };
 
+Data.prototype.setAdminInfo = function (adminInfo) {
+    this.date1 = adminInfo.date1;
+    this.date2 = adminInfo.date2;
+    this.date3 = adminInfo.date3;
+    this.date4 = adminInfo.date4;
+    this.date5 = adminInfo.date5;
+    this.date6 = adminInfo.date6;
+    this.date7 = adminInfo.date7;
+    this.date8 = adminInfo.date8;
+    this.date9 = adminInfo.date9;
+    this.date10 = adminInfo.date10;
+}
 
 const data = new Data();
 
@@ -203,6 +218,7 @@ io.on('connection', function (socket) {
     });
 
     // When a connected client emits an "addOrder" message
+
     socket.on('addOrder', function (order) {
         data.addOrder(order);
         // send updated info to all connected clients,
@@ -212,7 +228,7 @@ io.on('connection', function (socket) {
     socket.on('sendConsole', function (hej) {
         if (data.roundnumber == 3) {
             data.roundnumber == 0;
-            console.log("Speedate event is now over!");
+            console.log("Speed date event is now over!");
         }
         else {
             console.log("Round " + hej.round + " has started!");
@@ -225,6 +241,7 @@ io.on('connection', function (socket) {
         io.emit('nyRunda', {
             round: data.roundnumber,
             allowed: hej.allowed,
+
         });
         //Receive a profile from admin and send it to the user.
         socket.on('sendMatch', function (match) {
@@ -234,6 +251,7 @@ io.on('connection', function (socket) {
             });
         });
     });
+
     socket.on('sendRating', function (rate) {
         console.log("recieved" + rate.conv + rate.intr + rate.match);
         data.setRatings(rate);
@@ -244,6 +262,7 @@ io.on('connection', function (socket) {
         console.log("recieved matches for Maj-Britt, Sending to her messages");
         data.setMatches(matches);
         io.emit('sendMessage', { match: data.getMatches(), });
+
     });
 
     socket.on('getMessage', function () {
@@ -257,8 +276,20 @@ io.on('connection', function (socket) {
         io.emit('report', { report: data.getReports() });
     });
 
-    socket.on('sendMatch', function () {
+    socket.on('sendMatch', function (adminInfo) {
         console.log("Received adminInfo");
+        data.setAdminInfo(adminInfo);
+        var name = "";
+        //Send date info to men
+        for (var i = 0; i < 10; i++) {
+            name = data.adminInfo[i].male.name;
+            io.emit(name, { adminInfo: data.adminInfo[i]});
+        } 
+        //Send date info to women
+        for (var i = 0; i < 10; i++) {
+            name = data.adminInfo[i].female.name;
+            io.emit(name, { adminInfo: data.adminInfo[i] });
+        } 
     });
     //Add logged in users
 
