@@ -207,7 +207,7 @@ io.on('connection', function (socket) {
     });
     socket.on('sendConsole', function (hej) {
         if (data.roundnumber == 3) {
-            data.roundnumber == 0;
+            data.roundnumber = 0;
             console.log("Speedate event is now over!");
         }
         else {
@@ -228,6 +228,12 @@ io.on('connection', function (socket) {
             io.emit('getMatch', {
                 match: data.sendMatch(),
             });
+        });
+    });
+    socket.on('endRound', function (foo) {
+        console.log("In server, timer should be 0: " + foo.timer);
+        io.emit("endUserRound", {
+            timer: foo.timer
         });
     });
     socket.on('sendRating', function (rate) {
