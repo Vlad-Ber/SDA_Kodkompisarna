@@ -5,11 +5,14 @@ let vo = new Vue({
     el: "#vuePlace", 
     data:{
 	dateName: "",
-	myName: "maj-britt", 
+	myName: "Peter", 
 	conv: 5,
 	intr: 5,
 	match: 5,
 	
+    },
+    created: function () {
+	console.log(currentProfile);
     },
     methods: {
 	sendRating: function() {
