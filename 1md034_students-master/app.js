@@ -2,6 +2,9 @@
 /* eslint-env node */
 'use strict';
 
+//number of participants
+let joinedEvent = 0;
+
 // Require express, socket.io, and vue
 const express = require('express');
 const app = express();
@@ -158,7 +161,7 @@ Data.prototype.getAllOrders = function () {
 Data.prototype.setRatings = function(newRatings) {    
     this.ratings[this.no_of_ratings] = newRatings;
     //this.no_of_ratings++;
-}
+};
 
 Data.prototype.sendRatings = function() {
     return this.ratings;
@@ -169,11 +172,11 @@ Data.prototype.sendRatings = function() {
 Data.prototype.setMatch = function (newMatch) {
     this.match.profile = newMatch.profile;
     this.match.table = newMatch.table;
-}
+};
 
 Data.prototype.sendMatch = function () {
     return this.match;
-}
+};
 
 // Funktioner för meetAgain
 // TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
@@ -182,12 +185,12 @@ Data.prototype.setMatches = function (matches) {
     this.matches[0] = matches.p1;
     this.matches[1] = matches.p2;
     this.matches[2] = matches.p3;
-}
+};
 
 Data.prototype.getMatches = function () {
     return this.matches;
 
-}
+};
 
 Data.prototype.submitReports = function (hhg) {
 
@@ -206,7 +209,7 @@ Data.prototype.setAdminInfo = function (adminInfo) {
     this.adminInfo[7] = adminInfo.adminInfo.date8;
     this.adminInfo[8] = adminInfo.adminInfo.date9;
     this.adminInfo[9] = adminInfo.adminInfo.date10;
-}
+};
 
 const data = new Data();
 
@@ -227,13 +230,9 @@ io.on('connection', function (socket) {
     });
     socket.on('sendConsole', function (hej) {
         if (data.roundnumber == 3) {
-<<<<<<< HEAD
+
             data.roundnumber = 0;
-            console.log("Speedate event is now over!");
-=======
-            data.roundnumber == 0;
             console.log("Speed date event is now over!");
->>>>>>> 6aa16403febb5695260b611a8f3e41ec9c7f9c12
         }
         else {
             console.log("Round " + hej.round + " has started!");
@@ -256,16 +255,13 @@ io.on('connection', function (socket) {
             });
         });
     });
-<<<<<<< HEAD
     socket.on('endRound', function (foo) {
         console.log("In server, timer should be 0: " + foo.timer);
         io.emit("endUserRound", {
             timer: foo.timer
         });
     });
-=======
 
->>>>>>> 6aa16403febb5695260b611a8f3e41ec9c7f9c12
     socket.on('sendRating', function (rate) {
         console.log("recieved" + rate.conv + rate.intr + rate.match);
         data.setRatings(rate);
@@ -296,11 +292,13 @@ io.on('connection', function (socket) {
         var name = "";
         //Send date info to men
         for (var i = 0; i < 10; i++) {
+            ++joinedEvent;
             name = data.adminInfo[i].male.name;
             io.emit(name, { adminInfo: data.adminInfo[i]});
         } 
         //Send date info to women
         for (var i = 0; i < 10; i++) {
+            ++joinedEvent;
             name = data.adminInfo[i].female.name;
             io.emit(name, { adminInfo: data.adminInfo[i] });
         } 
