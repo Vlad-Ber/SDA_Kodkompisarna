@@ -46,10 +46,20 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
+function rateYourDate() {
+    location.href = "/match";
+};
+
+function help() {
+    console.log("help");
+    location.href = "/help";
+};   
+
 function onTimesUp() {  
     clearInterval(timerInterval);
     timePassed = 0;
     timeLeft = TIME_LIMIT;
+    rateYourDate();
 }
 
 function startTimer() {
@@ -111,3 +121,4 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+

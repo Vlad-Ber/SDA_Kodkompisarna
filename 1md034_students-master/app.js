@@ -227,8 +227,13 @@ io.on('connection', function (socket) {
     });
     socket.on('sendConsole', function (hej) {
         if (data.roundnumber == 3) {
+<<<<<<< HEAD
+            data.roundnumber = 0;
+            console.log("Speedate event is now over!");
+=======
             data.roundnumber == 0;
             console.log("Speed date event is now over!");
+>>>>>>> 6aa16403febb5695260b611a8f3e41ec9c7f9c12
         }
         else {
             console.log("Round " + hej.round + " has started!");
@@ -251,7 +256,16 @@ io.on('connection', function (socket) {
             });
         });
     });
+<<<<<<< HEAD
+    socket.on('endRound', function (foo) {
+        console.log("In server, timer should be 0: " + foo.timer);
+        io.emit("endUserRound", {
+            timer: foo.timer
+        });
+    });
+=======
 
+>>>>>>> 6aa16403febb5695260b611a8f3e41ec9c7f9c12
     socket.on('sendRating', function (rate) {
         console.log("recieved" + rate.conv + rate.intr + rate.match);
         data.setRatings(rate);

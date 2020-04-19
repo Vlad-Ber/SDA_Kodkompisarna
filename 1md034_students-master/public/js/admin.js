@@ -435,6 +435,15 @@ function onTimesUp() {
     timeLeft = TIME_LIMIT;
 }
 
+function endEarly() {
+    roundFinished();
+    clearInterval(timerInterval);
+    timePassed = 0;
+    timeLeft = TIME_LIMIT;
+    vm.msgEndTimer();
+    
+}
+
 function startTimer() {
     TIME_LIMIT = getTimerTime();
     timerInterval = setInterval(() => {
@@ -512,9 +521,17 @@ const vm = new Vue({
 
     },
     created: function () {		
+<<<<<<< HEAD
+	socket.on('redirectRating', function(data) {
+	    this.conv = data.ratings[0];
+	    this.intr = data.ratings[1]; 
+	    this.match = data.ratings[2];
+	    console.log("Rating recieved" + this.conv + this.intr + this.match);
+=======
 	socket.on('redirectRating', function(data){
 	    this.testArray = data.ratings;
 	    console.log("Rating recieved" + this.testArray[0].conv + this.testArray[0].intr + this.testArray[0].match);
+>>>>>>> 6aa16403febb5695260b611a8f3e41ec9c7f9c12
 	    this.showRatings = true; 
 	    this.a = Math.floor(Math.random()*(10)+1); 
 	    this.b = Math.floor(Math.random()*(10)+1);
@@ -537,7 +554,12 @@ const vm = new Vue({
 		        console.log("Roundnumber is : " + roundNumber);
            
 		        allowed = false;
-		    }
+		    },
+        msgEndTimer: function() {
+            socket.emit("endRound", {
+                timer: 0
+            });
+        }
 	  }
 
 });
