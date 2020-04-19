@@ -39,7 +39,7 @@ let loggedIn = [];
 */
 let men = [
 	  {
-        "password": "peter96",
+        "password": "password",
 		"name": "Peter",
 		"age": 42,
 		"gender": "M",
@@ -89,7 +89,7 @@ let men = [
 	},
 /* 2 */
 	  {
-        "password": "pellegillarhets",
+        "password": "password",
 		"name": "Pelle",
 		"age": 25,
 		"gender": "M",
@@ -138,7 +138,7 @@ let men = [
 		}
 	},	
 	  {
-        "password": "henriksexkungen",
+        "password": "password",
 		"name": "Henrik",
 		"age": 33,
 		"gender": "M",
@@ -188,7 +188,7 @@ let men = [
 	},
 /* 6 */
 	  {
-        "password": "racerjanne25",
+        "password": "password",
 		"name": "Janne",
 		"age": 22,
 		"gender": "M",
@@ -237,7 +237,7 @@ let men = [
 		}
 	},
 	  {
-        "password": "bärsberra",
+        "password": "password",
 		"name": "Berra",
 		"age": 34,
 		"gender": "M",
@@ -289,7 +289,7 @@ let men = [
 /* 10 */
 
 	  {
-        "password": "mangemaker9612",
+        "password": "password",
 		"name": "Mange",
 		"age": 27,
 		"gender": "M",
@@ -338,7 +338,7 @@ let men = [
 		}
 	},
 	  {
-        "password": "xxsigge17xx",
+        "password": "password",
 		"name": "Sigmund",
 		"age": 25,
 		"gender": "M",
@@ -388,7 +388,7 @@ let men = [
 	},
 /* 14 */
 	  {
-        "password":"karsetens",
+        "password": "password",
 		"name": "Karsten",
 		"age": 30,
 		"gender": "M",
@@ -437,7 +437,7 @@ let men = [
 		}
 	},
 	  {
-        "password": "callmebond007",
+        "password": "password",
 		"name": "James",
 		"age": 59,
 		"gender": "M",
@@ -486,7 +486,7 @@ let men = [
 		}
 	},
 /* 18 */
-	  {"password":"oloftheman17",
+	  {"password":"password",
 		"name": "Olof",
 		"age": 50,
 		"gender": "M",
@@ -536,7 +536,7 @@ let men = [
 	}
 ]
 let women = [
-	  {"password": "maggan17",
+	  {"password": "password",
 		"name": "Maj-Britt",
 		"age": 65,
 		"gender": "F",
@@ -584,7 +584,7 @@ let women = [
 			},
 		}
 	},
-	  {"password": "bakningefint",
+	  {"password": "password",
 		"name": "Ylva",
 		"age": 25,
 		"gender": "F",
@@ -633,7 +633,7 @@ let women = [
 		}
 	},
 /* 4 */
-	  {"password": "hets",
+	  {"password": "password",
 		"name": "Anna",
 		"age": 30,
 		"gender": "F",
@@ -681,7 +681,7 @@ let women = [
 			},
 		}
 	},
-	  {"password": "ingabinga",
+	  {"password": "password",
 		"name": "Inger",
 		"age": 40,
 		"gender": "F",
@@ -730,7 +730,7 @@ let women = [
 		}
 	},
 /* 8 */
-	  {"password": "benefits",
+	  {"password": "password",
 		"name": "Benita",
 		"age": 22,
 		"gender": "F",
@@ -778,7 +778,7 @@ let women = [
 			},
 		}
 	},
-	  {"password": "barbo2w3",
+	  {"password": "password",
 		"name": "Barbro",
 		"age": 43,
 		"gender": "F",
@@ -827,7 +827,7 @@ let women = [
 		}
 	},
 /* 12 */
-	  {"password": "hewlöa",
+	  {"password": "password",
 		"name": "Helga",
 		"age": 28,
 		"gender": "F",
@@ -876,7 +876,7 @@ let women = [
 		}
 	},
 
-	  {"password": "berit12",
+	  {"password": "password",
 		"name": "Berit",
 		"age": 23,
 		"gender": "F",
@@ -924,7 +924,7 @@ let women = [
 			},
 		}
 	},
-	  {"password": "helena1987",
+	  {"password": "password",
 		"name": "Helena",
 		"age": 52,
 		"gender": "F",
@@ -972,7 +972,7 @@ let women = [
 			},
 		}
 	},
-    {"password": "hejhej",
+    {"password": "password",
 		"name": "Sanna",
 		"age": 34,
 		"gender": "F",
