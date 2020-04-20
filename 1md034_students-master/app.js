@@ -303,11 +303,32 @@ io.on('connection', function (socket) {
         for (i = 0; i < 10; i++) {
             ++joinedEvent;
             name = data.adminInfo[i].female.name;
-            console.log(name);
+            console.log(name);	    
             io.emit(name, { adminInfo: data.adminInfo[i] });
         } 
     });
     //Add logged in users
+
+    socket.on("getProfiles", function() {
+	console.log("sending profiles");
+	var name = "";
+        var i;
+        //Send date info to men
+	for (i = 0; i < 10; i++) {
+            ++joinedEvent;
+            name = data.adminInfo[i].male.name;
+            console.log(name);
+            io.emit(name, { adminInfo: data.adminInfo[i]});
+        } 
+        //Send date info to women
+        for (i = 0; i < 10; i++) {
+            ++joinedEvent;
+            name = data.adminInfo[i].female.name;
+            console.log(name);	    
+            io.emit(name, { adminInfo: data.adminInfo[i] });
+        } 
+	
+    });
 
 socket.on('loggedIn', function(user){
     data.addLoggedIn(user);
@@ -321,6 +342,8 @@ socket.on('loggedIn', function(user){
         io.emit('currentLoggedIn', {loggedIn: users});
     });
 });
+
+
 
 /* eslint-disable-next-line no-unused-vars */
 const server = http.listen(3000, function () {

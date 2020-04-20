@@ -5,19 +5,22 @@ let vo = new Vue({
     el: "#vuePlace", 
     data:{
 	dateName: "",
-	currentProfile: JSON.parse(window.sessionStorage.getItem("currentProfile")), 
+	currentProfile: JSON.parse(window.sessionStorage.getItem("currentProfile")),
+	name: "",
 	conv: 5,
 	intr: 5,
 	match: 5,
 	
     },
     created: function () {
-	console.log(this.currentProfile.name);
-	socket.on(this.currentProfile.name, function (data){
-	    console.log("something");
-	    this.dateName = data.name;	    
+	socket.emit("getProfiles", {}),
+	this.name = this.currentProfile.name; 
+	console.log("i am " + this.name);
+	socket.on(this.name, function (data){
+	    console.log(data);
+	    this.dateName = data.adminInfo.female.name;
+	    console.log("i am dating " + this.dateName);
 	}.bind(this));
-	console.log(this.dateName); 
     },
     methods: {
 	sendRating: function() {
