@@ -4,8 +4,11 @@
     <title>Logged In</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/loggedIn.css">
-  <script>
+    <link rel="stylesheet" type="text/css" href="css/loggedIn.css">
+    <script type="text/javascript" src="js/loggedIn.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script>
       function userPage() {
       location.href = "/profile";
       }
@@ -17,9 +20,9 @@
       }
       
       function logOut() {
-           
-          location.href = "/";
-       }
+      
+      location.href = "/";
+      }
     </script>
   </head>
   <body id = "work_space">
@@ -32,7 +35,7 @@
 	<button id="heart_button" class="closing" onclick="match()"><img id = "Heart_Pic" src = "img\heart.png"/></button> 
   </body>
   <footer>
-     <button id="signOut" class="button" onclick="logOut()">Logga ut</button>
+    <button id="signOut" class="button" onclick="logOut()">Logga ut</button>
   </footer>
 </html>
 <main>

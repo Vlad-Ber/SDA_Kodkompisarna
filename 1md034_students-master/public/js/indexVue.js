@@ -27,7 +27,7 @@ const ind = new Vue({
 	      }.bind(this));
     },
 
-    methods: {
+    methods: {	
         login: function () {
             console.log(this.gender);
             if (this.surname in this.allUsers &&
