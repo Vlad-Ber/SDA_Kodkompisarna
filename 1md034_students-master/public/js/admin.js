@@ -154,7 +154,7 @@ async function shuffle() {
 
     
     var adminStat = document.getElementById("statusMessage");
-    adminStat.textContent = "Shuffling matches...";
+    adminStat.textContent = "Shuffling matches..";
 
     //Flytta  män randomly
     var firstMaleLeft = maleLeft.children[0];
@@ -194,7 +194,8 @@ let allowed = false;
 function getMatches() {
   var maleRight = document.getElementById("maleRight");
   var femaleRight = document.getElementById("femaleRight");
-  console.log(maleRight.children[0].children[0].children[1].src);
+  console.log(femaleRight.children[1]);
+  console.log(femaleRight.children[0].children[3].innerHTML);
   //adminInfo = {(1, Maj-Britt, Klas), (2, Britta, Ingar), (3, Sofia, Oskar), etc}
   if (maleRight != undefined && femaleRight != undefined) {
     let adminInfo = {
@@ -203,16 +204,16 @@ function getMatches() {
         male: {
           name: maleRight.children[0].children[1].textContent,
           age: maleRight.children[0].children[2].textContent,
-          gender: maleRight.children[0].children[3].textContent,
+          gender: String(maleRight.children[0].children[3].innerHTML),
           desc: maleRight.children[0].children[4].textContent,
-          pic: ""//maleRight.children[0].children[0].children[1].src,
+          pic: maleRight.children[0].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[0].children[1].textContent,
           age: femaleRight.children[0].children[2].textContent,
-          gender: femaleRight.children[0].children[3].textContent,
+          gender: String(femaleRight.children[0].children[3].innerHTML),
           desc: femaleRight.children[0].children[4].textContent,
-          pic: ""//femaleRight.children[0].children[0].children[1].src,
+          pic: femaleRight.children[0].children[0].children[1].src,
         }
       },
       date2: {
@@ -220,16 +221,16 @@ function getMatches() {
         male: {
           name: maleRight.children[1].children[1].textContent,
           age: maleRight.children[1].children[2].textContent,
-          gender: maleRight.children[1].children[3].textContent,
+          gender: String(maleRight.children[1].children[3].innerHTML),
           desc: maleRight.children[1].children[4].textContent,
-          pic: ""//maleRight.children[1].children[0].children[1].src,
+          pic: maleRight.children[1].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[1].children[1].textContent,
           age: femaleRight.children[1].children[2].textContent,
-          gender: femaleRight.children[1].children[3].textContent,
+          gender: String(femaleRight.children[1].children[3].innerHTML),
           desc: femaleRight.children[1].children[4].textContent,
-          pic: ""//femaleRight.children[1].children[0].children[1].src,
+          pic: femaleRight.children[1].children[0].children[1].src,
         },
       },
       date3: {
@@ -237,16 +238,16 @@ function getMatches() {
         male: {
           name: maleRight.children[2].children[1].textContent,
           age: maleRight.children[2].children[2].textContent,
-          gender: maleRight.children[2].children[3].textContent,
+          gender: String(maleRight.children[2].children[3].innerHTML),
           desc: maleRight.children[2].children[4].textContent,
-          pic: ""//maleRight.children[2].children[0].children[1].src,
+          pic: maleRight.children[2].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[2].children[1].textContent,
           age: femaleRight.children[2].children[2].textContent,
-          gender: femaleRight.children[2].children[3].textContent,
+          gender: String(femaleRight.children[2].children[3].innerHTML),
           desc: femaleRight.children[2].children[4].textContent,
-          pic: ""//femaleRight.children[2].children[0].children[1].src,
+          pic: femaleRight.children[2].children[0].children[1].src,
         },
       },
       date4: {
@@ -254,16 +255,16 @@ function getMatches() {
         male: {
           name: maleRight.children[3].children[1].textContent,
           age: maleRight.children[3].children[2].textContent,
-          gender: maleRight.children[3].children[3].textContent,
+          gender: String(maleRight.children[3].children[3].innerHTML),
           desc: maleRight.children[3].children[4].textContent,
-          pic: ""//maleRight.children[3].children[0].children[1].src,
+          pic: maleRight.children[3].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[3].children[1].textContent,
           age: femaleRight.children[3].children[2].textContent,
-          gender: femaleRight.children[3].children[3].textContent,
+          gender: String(femaleRight.children[3].children[3].innerHTML),
           desc: femaleRight.children[3].children[4].textContent,
-          pic: ""//femaleRight.children[3].children[0].children[1].src,
+          pic: femaleRight.children[3].children[0].children[1].src,
         },
       },
       date5: {
@@ -271,16 +272,16 @@ function getMatches() {
         male: {
           name: maleRight.children[4].children[1].textContent,
           age: maleRight.children[4].children[2].textContent,
-          gender: maleRight.children[4].children[3].textContent,
+          gender: String(maleRight.children[4].children[3].innerHTML),
           desc: maleRight.children[4].children[4].textContent,
-          pic: ""//maleRight.children[4].children[0].children[1].src,
+          pic: maleRight.children[4].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[4].children[1].textContent,
           age: femaleRight.children[4].children[2].textContent,
-          gender: femaleRight.children[4].children[3].textContent,
+          gender: String(femaleRight.children[4].children[3].innerHTML),
           desc: femaleRight.children[4].children[4].textContent,
-          pic: ""//femaleRight.children[4].children[0].children[1].src,
+          pic: femaleRight.children[4].children[0].children[1].src,
         },
       },
       date6: {
@@ -288,16 +289,16 @@ function getMatches() {
         male: {
           name: maleRight.children[5].children[1].textContent,
           age: maleRight.children[5].children[2].textContent,
-          gender: maleRight.children[5].children[3].textContent,
+          gender: String(maleRight.children[5].children[3].innerHTML),
           desc: maleRight.children[5].children[4].textContent,
-          pic: ""//maleRight.children[5].children[0].children[1].src,
+          pic: maleRight.children[5].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[5].children[1].textContent,
           age: femaleRight.children[5].children[2].textContent,
-          gender: femaleRight.children[5].children[3].textContent,
+          gender: String(femaleRight.children[5].children[3].innerHTML),
           desc: femaleRight.children[5].children[4].textContent,
-          pic: ""//femaleRight.children[5].children[0].children[1].src,
+          pic: femaleRight.children[5].children[0].children[1].src,
         },
       },
       date7: {
@@ -305,16 +306,16 @@ function getMatches() {
         male: {
           name: maleRight.children[6].children[1].textContent,
           age: maleRight.children[6].children[2].textContent,
-          gender: maleRight.children[6].children[3].textContent,
+          gender: String(maleRight.children[6].children[3].innerHTML),
           desc: maleRight.children[6].children[4].textContent,
-          pic: ""//maleRight.children[6].children[0].children[1].src,
+          pic: maleRight.children[6].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[6].children[1].textContent,
           age: femaleRight.children[6].children[2].textContent,
-          gender: femaleRight.children[6].children[3].textContent,
+          gender: String(femaleRight.children[6].children[3].innerHTML),
           desc: femaleRight.children[6].children[4].textContent,
-          pic: ""//femaleRight.children[6].children[0].children[1].src,
+          pic: femaleRight.children[6].children[0].children[1].src,
         },
       },
       date8: {
@@ -322,16 +323,16 @@ function getMatches() {
         male: {
           name: maleRight.children[7].children[1].textContent,
           age: maleRight.children[7].children[2].textContent,
-          gender: maleRight.children[7].children[3].textContent,
+          gender: String(maleRight.children[7].children[3].innerHTML),
           desc: maleRight.children[7].children[4].textContent,
-          pic: ""//maleRight.children[7].children[0].children[1].src,
+          pic: maleRight.children[7].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[7].children[1].textContent,
           age: femaleRight.children[7].children[2].textContent,
-          gender: femaleRight.children[7].children[3].textContent,
+          gender: String(femaleRight.children[7].children[3].innerHTML),
           desc: femaleRight.children[7].children[4].textContent,
-          pic: ""//femaleRight.children[7].children[0].children[1].src,
+          pic: femaleRight.children[7].children[0].children[1].src,
         },
       },
       date9: {
@@ -339,16 +340,16 @@ function getMatches() {
         male: {
           name: maleRight.children[8].children[1].textContent,
           age: maleRight.children[8].children[2].textContent,
-          gender: maleRight.children[8].children[3].textContent,
+          gender: String(maleRight.children[8].children[3].innerHTML),
           desc: maleRight.children[8].children[4].textContent,
-          pic: ""//maleRight.children[8].children[0].children[1].src,
+          pic: maleRight.children[8].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[8].children[1].textContent,
           age: femaleRight.children[8].children[2].textContent,
-          gender: femaleRight.children[8].children[3].textContent,
+          gender: String(femaleRight.children[8].children[3].innerHTML),
           desc: femaleRight.children[8].children[4].textContent,
-          pic: ""//femaleRight.children[8].children[0].children[1].src,
+          pic: femaleRight.children[8].children[0].children[1].src,
         },
       },
       date10: {
@@ -356,16 +357,16 @@ function getMatches() {
         male: {
           name: maleRight.children[9].children[1].textContent,
           age: maleRight.children[9].children[2].textContent,
-          gender: maleRight.children[9].children[3].textContent,
+          gender: String(maleRight.children[9].children[3].innerHTML),
           desc: maleRight.children[9].children[4].textContent,
-          pic: ""//maleRight.children[9].children[0].children[1].src,
+          pic: maleRight.children[9].children[0].children[1].src,
         },
         female: {
           name: femaleRight.children[9].children[1].textContent,
           age: femaleRight.children[9].children[2].textContent,
-          gender: femaleRight.children[9].children[3].textContent,
+          gender: String(femaleRight.children[9].children[3].innerHTML),
           desc: femaleRight.children[9].children[4].textContent,
-          pic: ""//femaleRight.children[9].children[0].children[1].src,
+          pic: femaleRight.children[9].children[0].children[1].src,
         },
       },
     }

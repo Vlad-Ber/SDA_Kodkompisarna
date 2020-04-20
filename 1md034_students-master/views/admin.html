@@ -99,8 +99,8 @@
 	      <div id="femaleLeft" class="splitter" ondrop="dropfemale(event)" ondragover="allowDrop(event)">
 		<div id="sec10" onclick="movef(sec10)" draggable="true" ondragstart="drag(event)" class="userSec">
 		  <div id="user10pic" class="column">
-		    <div class="rating" v-if="showRatings"> 
-		      <p>
+		    <div class="rating">
+		      <p v-if="showRatings">
 			{{testArray[0].conv}} {{testArray[0].intr}} {{testArray[0].match}}
 		      </p>
 		    </div> 

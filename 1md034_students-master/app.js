@@ -209,7 +209,6 @@ Data.prototype.setAdminInfo = function (adminInfo) {
     this.adminInfo[7] = adminInfo.date8;
     this.adminInfo[8] = adminInfo.date9;
     this.adminInfo[9] = adminInfo.date10;
-    console.log(this.adminInfo);
 }
 
 const data = new Data();
@@ -269,13 +268,6 @@ io.on('connection', function (socket) {
         io.emit('redirectRating', { ratings: data.sendRatings(), });
     });
 
-    socket.on('sendMatches', function (matches) {
-        console.log("recieved matches for Maj-Britt, Sending to her messages");
-        data.setMatches(matches);
-        io.emit('sendMessage', { match: data.getMatches(), });
-
-    });
-
     socket.on('getMessage', function () {
         console.log("sending message");
         io.emit('sendMessage', { match: data.getMatches() });
@@ -296,14 +288,12 @@ io.on('connection', function (socket) {
         for (i = 0; i < 10; i++) {
             ++joinedEvent;
             name = data.adminInfo[i].male.name;
-            console.log(name);
             io.emit(name, { adminInfo: data.adminInfo[i]});
         } 
         //Send date info to women
         for (i = 0; i < 10; i++) {
             ++joinedEvent;
-            name = data.adminInfo[i].female.name;
-            console.log(name);	    
+            name = data.adminInfo[i].female.name;   
             io.emit(name, { adminInfo: data.adminInfo[i] });
         } 
     });
@@ -317,14 +307,12 @@ io.on('connection', function (socket) {
 	for (i = 0; i < 10; i++) {
             ++joinedEvent;
             name = data.adminInfo[i].male.name;
-            console.log(name);
             io.emit(name, { adminInfo: data.adminInfo[i]});
         } 
         //Send date info to women
         for (i = 0; i < 10; i++) {
             ++joinedEvent;
             name = data.adminInfo[i].female.name;
-            console.log(name);	    
             io.emit(name, { adminInfo: data.adminInfo[i] });
         } 
 	

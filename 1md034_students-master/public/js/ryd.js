@@ -5,7 +5,7 @@ let vo = new Vue({
     el: "#vuePlace", 
     data:{
 	dateName: "",
-	dateImg: "https://image.shutterstock.com/image-photo/handsome-man-vivid-poncho-holding-600w-273427037.jpg",
+	dateImg: "",
 	currentProfile: JSON.parse(window.sessionStorage.getItem("currentProfile")),
 	name: "",
 	conv: 5,
@@ -19,7 +19,8 @@ let vo = new Vue({
 	console.log("i am " + this.name);
 	socket.on(this.name, function (data){
 	    console.log(data);
-	    this.dateName = data.adminInfo.female.name;
+		this.dateName = data.adminInfo.female.name;
+		this.dateImg = data.adminInfo.female.pic;
 	    console.log("i am dating " + this.dateName);
 	}.bind(this));
     },
