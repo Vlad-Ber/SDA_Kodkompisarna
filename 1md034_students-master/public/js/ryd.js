@@ -5,6 +5,7 @@ let vo = new Vue({
     el: "#vuePlace", 
     data:{
 	dateName: "",
+	dateImg: "https://image.shutterstock.com/image-photo/handsome-man-vivid-poncho-holding-600w-273427037.jpg",
 	currentProfile: JSON.parse(window.sessionStorage.getItem("currentProfile")),
 	name: "",
 	conv: 5,
