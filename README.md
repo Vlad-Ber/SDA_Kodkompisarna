@@ -15,6 +15,9 @@ To login as an admin:
 - Press login (no password required)
 - Match the users by either dragging the males and females over to the right side, or by clicking on the profiles. You may also use the shuffle method to match the profiles.
 - Each row corrresponds to a table where an event will occur with the male and the female on that row
+- Set the round length for admin/users by typing the amount of minutes in the field above the buttons.
+- Press the"Start next Round" button to start the round. This is only available if the matches are placed correctly.
+- Press the "End Timer" button to end the round earlier.
 
 ### User
 
