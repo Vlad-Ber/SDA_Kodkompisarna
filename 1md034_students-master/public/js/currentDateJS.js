@@ -46,10 +46,6 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
-function rateYourDate() {
-    location.href = "/match";
-};
-
 function help() {
     console.log("help");
     location.href = "/help";
