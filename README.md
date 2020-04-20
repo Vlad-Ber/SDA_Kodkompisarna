@@ -18,6 +18,8 @@ To login as an admin:
 
 ### User
 
+To login as a user:
+- Go to localhost:3000
 - login using our premade profiles
 - Profiles available for men : 
 **Pelle, Peter, Henrik, Janne, Berra, Mange, Sigmund, James, Karsten, Olof**
