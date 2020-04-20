@@ -12,7 +12,7 @@ Please use the latest version of google chrome in order to access to all feautur
 To login as an admin:
 - Go to localhost:3000
 - Type admin in the username input
-- Login
+- Press login (no password required)
 - Match the users by either dragging the males and females over to the right side, or by clicking on the profiles. You may also use the shuffle method to match the profiles.
 - Each row corrresponds to a table where an event will occur with the male and the female on that row
 
