@@ -627,14 +627,13 @@ function printRatings() {
 	    console.log(str2);
 	    if(str1.localeCompare(str2) == 0){
 		console.log("hejsan");
-		test = document.createTextNode("1 2 3");
+		test = document.createTextNode(ratings[k].conv + " " + ratings[k].intr + " " + ratings[k].match);
 	    }
 	    	    
 	}
 	pm.appendChild(test);
 	currentMale.appendChild(pm);
     }
-    connectedUsers = 0;
     ratings = [];
     
 }
