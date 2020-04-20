@@ -5,14 +5,19 @@ let vo = new Vue({
     el: "#vuePlace", 
     data:{
 	dateName: "",
-	myName: "Peter", 
+	currentProfile: JSON.parse(window.sessionStorage.getItem("currentProfile")), 
 	conv: 5,
 	intr: 5,
 	match: 5,
 	
     },
     created: function () {
-	console.log(currentProfile);
+	console.log(this.currentProfile.name);
+	socket.on(this.currentProfile.name, function (data){
+	    console.log("something");
+	    this.dateName = data.name;	    
+	}.bind(this));
+	console.log(this.dateName); 
     },
     methods: {
 	sendRating: function() {
