@@ -1,3 +1,6 @@
+'use strict';
+const socket = io();
+
 //INIT MEN LEFT
 for (var i = 0; i < 10; i++) {
     let id = document.getElementById("sec" + i);
@@ -188,88 +191,189 @@ let round = new roundNumberMake(0);
 let roundNumber = round.getRoundNumber();
 let allowed = false;
 
-//Maj-Britt är dens profil man är som klient
-function getMajBrittsMatch() {
-    var maleRight = document.getElementById("maleRight");
-    var femaleRight = document.getElementById("femaleRight");
-    var profile = {};
-    var table = 0;
-    //Hitta Maj Britt för att få platsen, hämta bordet och dejt till adminVue.js
-    for (var i = 0; i < 10; i++) {
-        if (femaleRight.children[i].name == "Maj-Britt") {
-            if (maleRight.children[i] != undefined) {
-                profile = maleRight.children[i];
-                table = i;
-            }
-        }
-    }
-    //Skicka Maj-Britts match till servern
-    socket.emit("sendMatch", {
-        profile: profile,
-        table: table,
-    });
-}
-
 function getMatches() {
-    var maleRight = document.getElementById("maleRight")
-    var femaleRight = document.getElementById("femaleRight")
-
-    //adminInfo = {(1, Maj-Britt, Klas), (2, Britta, Ingar), (3, Sofia, Oskar), etc}
-    var adminInfo = {
-        date1: {
-            table: 1,
-            male: maleRight[0], // table - 1, för arrayer börjar på 0!
-            female: femaleRight[0]
+  var maleRight = document.getElementById("maleRight");
+  var femaleRight = document.getElementById("femaleRight");
+  console.log(maleRight.children[0].children[0].children[1].src);
+  //adminInfo = {(1, Maj-Britt, Klas), (2, Britta, Ingar), (3, Sofia, Oskar), etc}
+  if (maleRight != undefined && femaleRight != undefined) {
+    let adminInfo = {
+      date1: {
+        table: 1,
+        male: {
+          name: maleRight.children[0].children[1].textContent,
+          age: maleRight.children[0].children[2].textContent,
+          gender: maleRight.children[0].children[3].textContent,
+          desc: maleRight.children[0].children[4].textContent,
+          pic: ""//maleRight.children[0].children[0].children[1].src,
         },
-        date2: {
-            table: 2,
-            male: maleRight[1],
-            female: femaleRight[1]
+        female: {
+          name: femaleRight.children[0].children[1].textContent,
+          age: femaleRight.children[0].children[2].textContent,
+          gender: femaleRight.children[0].children[3].textContent,
+          desc: femaleRight.children[0].children[4].textContent,
+          pic: ""//femaleRight.children[0].children[0].children[1].src,
+        }
+      },
+      date2: {
+        table: 2,
+        male: {
+          name: maleRight.children[1].children[1].textContent,
+          age: maleRight.children[1].children[2].textContent,
+          gender: maleRight.children[1].children[3].textContent,
+          desc: maleRight.children[1].children[4].textContent,
+          pic: ""//maleRight.children[1].children[0].children[1].src,
         },
-        date3: {
-            table: 3,
-            male: maleRight[2],
-            female: femaleRight[2]
+        female: {
+          name: femaleRight.children[1].children[1].textContent,
+          age: femaleRight.children[1].children[2].textContent,
+          gender: femaleRight.children[1].children[3].textContent,
+          desc: femaleRight.children[1].children[4].textContent,
+          pic: ""//femaleRight.children[1].children[0].children[1].src,
         },
-        date4: {
-            table: 4,
-            male: maleRight[3],
-            female: femaleRight[3]
+      },
+      date3: {
+        table: 3,
+        male: {
+          name: maleRight.children[2].children[1].textContent,
+          age: maleRight.children[2].children[2].textContent,
+          gender: maleRight.children[2].children[3].textContent,
+          desc: maleRight.children[2].children[4].textContent,
+          pic: ""//maleRight.children[2].children[0].children[1].src,
         },
-        date5: {
-            table: 5,
-            male: maleRight[4],
-            female: femaleRight[4]
+        female: {
+          name: femaleRight.children[2].children[1].textContent,
+          age: femaleRight.children[2].children[2].textContent,
+          gender: femaleRight.children[2].children[3].textContent,
+          desc: femaleRight.children[2].children[4].textContent,
+          pic: ""//femaleRight.children[2].children[0].children[1].src,
         },
-        date6: {
-            table: 6,
-            male: maleRight[5],
-            female: femaleRight[5]
+      },
+      date4: {
+        table: 4,
+        male: {
+          name: maleRight.children[3].children[1].textContent,
+          age: maleRight.children[3].children[2].textContent,
+          gender: maleRight.children[3].children[3].textContent,
+          desc: maleRight.children[3].children[4].textContent,
+          pic: ""//maleRight.children[3].children[0].children[1].src,
         },
-        date7: {
-            table: 7,
-            male: maleRight[6],
-            female: femaleRight[6]
+        female: {
+          name: femaleRight.children[3].children[1].textContent,
+          age: femaleRight.children[3].children[2].textContent,
+          gender: femaleRight.children[3].children[3].textContent,
+          desc: femaleRight.children[3].children[4].textContent,
+          pic: ""//femaleRight.children[3].children[0].children[1].src,
         },
-        date8: {
-            table: 8,
-            male: maleRight[7],
-            female: femaleRight[7]
+      },
+      date5: {
+        table: 5,
+        male: {
+          name: maleRight.children[4].children[1].textContent,
+          age: maleRight.children[4].children[2].textContent,
+          gender: maleRight.children[4].children[3].textContent,
+          desc: maleRight.children[4].children[4].textContent,
+          pic: ""//maleRight.children[4].children[0].children[1].src,
         },
-        date9: {
-            table: 9,
-            male: maleRight[8],
-            female: femaleRight[8]
+        female: {
+          name: femaleRight.children[4].children[1].textContent,
+          age: femaleRight.children[4].children[2].textContent,
+          gender: femaleRight.children[4].children[3].textContent,
+          desc: femaleRight.children[4].children[4].textContent,
+          pic: ""//femaleRight.children[4].children[0].children[1].src,
         },
-        date10: {
-            table: 10,
-            male: maleRight[9],
-            female: femaleRight[9]
+      },
+      date6: {
+        table: 6,
+        male: {
+          name: maleRight.children[5].children[1].textContent,
+          age: maleRight.children[5].children[2].textContent,
+          gender: maleRight.children[5].children[3].textContent,
+          desc: maleRight.children[5].children[4].textContent,
+          pic: ""//maleRight.children[5].children[0].children[1].src,
         },
+        female: {
+          name: femaleRight.children[5].children[1].textContent,
+          age: femaleRight.children[5].children[2].textContent,
+          gender: femaleRight.children[5].children[3].textContent,
+          desc: femaleRight.children[5].children[4].textContent,
+          pic: ""//femaleRight.children[5].children[0].children[1].src,
+        },
+      },
+      date7: {
+        table: 7,
+        male: {
+          name: maleRight.children[6].children[1].textContent,
+          age: maleRight.children[6].children[2].textContent,
+          gender: maleRight.children[6].children[3].textContent,
+          desc: maleRight.children[6].children[4].textContent,
+          pic: ""//maleRight.children[6].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[6].children[1].textContent,
+          age: femaleRight.children[6].children[2].textContent,
+          gender: femaleRight.children[6].children[3].textContent,
+          desc: femaleRight.children[6].children[4].textContent,
+          pic: ""//femaleRight.children[6].children[0].children[1].src,
+        },
+      },
+      date8: {
+        table: 8,
+        male: {
+          name: maleRight.children[7].children[1].textContent,
+          age: maleRight.children[7].children[2].textContent,
+          gender: maleRight.children[7].children[3].textContent,
+          desc: maleRight.children[7].children[4].textContent,
+          pic: ""//maleRight.children[7].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[7].children[1].textContent,
+          age: femaleRight.children[7].children[2].textContent,
+          gender: femaleRight.children[7].children[3].textContent,
+          desc: femaleRight.children[7].children[4].textContent,
+          pic: ""//femaleRight.children[7].children[0].children[1].src,
+        },
+      },
+      date9: {
+        table: 9,
+        male: {
+          name: maleRight.children[8].children[1].textContent,
+          age: maleRight.children[8].children[2].textContent,
+          gender: maleRight.children[8].children[3].textContent,
+          desc: maleRight.children[8].children[4].textContent,
+          pic: ""//maleRight.children[8].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[8].children[1].textContent,
+          age: femaleRight.children[8].children[2].textContent,
+          gender: femaleRight.children[8].children[3].textContent,
+          desc: femaleRight.children[8].children[4].textContent,
+          pic: ""//femaleRight.children[8].children[0].children[1].src,
+        },
+      },
+      date10: {
+        table: 10,
+        male: {
+          name: maleRight.children[9].children[1].textContent,
+          age: maleRight.children[9].children[2].textContent,
+          gender: maleRight.children[9].children[3].textContent,
+          desc: maleRight.children[9].children[4].textContent,
+          pic: ""//maleRight.children[9].children[0].children[1].src,
+        },
+        female: {
+          name: femaleRight.children[9].children[1].textContent,
+          age: femaleRight.children[9].children[2].textContent,
+          gender: femaleRight.children[9].children[3].textContent,
+          desc: femaleRight.children[9].children[4].textContent,
+          pic: ""//femaleRight.children[9].children[0].children[1].src,
+        },
+      },
     }
+    console.log(adminInfo.date1);
     socket.emit("sendMatch", {
-        adminInfo: adminInfo
+      adminInfo: adminInfo
     });
+  }
 }
 
 function rating(maleRight, femaleRight, i) {
@@ -430,6 +534,15 @@ function onTimesUp() {
     timeLeft = TIME_LIMIT;
 }
 
+function endEarly() {
+    roundFinished();
+    clearInterval(timerInterval);
+    timePassed = 0;
+    timeLeft = TIME_LIMIT;
+    vm.msgEndTimer();
+    
+}
+
 function startTimer() {
     TIME_LIMIT = getTimerTime();
     timerInterval = setInterval(() => {
@@ -490,3 +603,56 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+
+const vm = new Vue({
+    el: '#page',
+    data: {
+	userRatings: [],
+	name: "maj-britt",
+	showRatings: false,
+	conv: 0,
+	intr: 0,
+	match: 0,
+	a: 0,
+	b: 0,
+	c: 0,
+        reports: "",
+
+    },
+    created: function () {		
+	socket.on('redirectRating', function(data){
+	    this.testArray = data.ratings;
+	    console.log("Rating recieved" + this.testArray[0].conv + this.testArray[0].intr + this.testArray[0].match);
+
+	    this.showRatings = true; 
+	    this.a = Math.floor(Math.random()*(10)+1); 
+	    this.b = Math.floor(Math.random()*(10)+1);
+	    this.c = Math.floor(Math.random()*(10)+1);
+	}.bind(this));
+	      
+        socket.on('report', function(data){
+            this.reports = data.report;
+        });
+    },	
+    methods: {
+	      msgUser: function() {
+		        socket.emit("sendConsole", {
+			          testArray: this.testArray,
+			          round: roundNumber,
+			          allowed: allowed,
+                timer: TIME_LIMIT,
+		        }),
+		        this.showRatings = false; 
+		        console.log("Roundnumber is : " + roundNumber);
+           
+		        allowed = false;
+		    },
+        msgEndTimer: function() {
+            socket.emit("endRound", {
+                timer: 0
+            });
+        }
+	  }
+
+});
+

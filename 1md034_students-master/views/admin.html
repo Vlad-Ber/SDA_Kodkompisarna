@@ -99,8 +99,10 @@
 	      <div id="femaleLeft" class="splitter" ondrop="dropfemale(event)" ondragover="allowDrop(event)">
 		<div id="sec10" onclick="movef(sec10)" draggable="true" ondragstart="drag(event)" class="userSec">
 		  <div id="user10pic" class="column">
-		    <div class="rating"> 
-		      <p v-if="showRatings"> {{conv}} {{intr}} {{match}}</p>
+		    <div class="rating" v-if="showRatings"> 
+		      <p>
+			{{testArray[0].conv}} {{testArray[0].intr}} {{testArray[0].match}}
+		      </p>
 		    </div> 
 		  </div> 
 		</div>
@@ -171,7 +173,7 @@
 	    </div>
 	    <button id="nextR" type="button" onclick="startRound()" v-on:click="msgUser">Start Next Round!</button>
 	    <button id="shuffle" onclick="shuffle()" type="button" >Shuffle!</button>
-      <button id="Reset" onclick="onTimesUp()" type="button"> End timer </button>
+      <button id="Reset" onclick="endEarly()" type="button"> End timer </button>
       <p> Minuter: </p>
       <input type="number" id="minuteGet" value="2">
       <p>

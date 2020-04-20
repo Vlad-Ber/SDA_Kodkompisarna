@@ -1,6 +1,6 @@
 let men = [
-	  {
-        "id": 2,
+	{
+		"password": "password",
 		"name": "Peter",
 		"age": 42,
 		"gender": "M",
@@ -48,8 +48,9 @@ let men = [
 			},
 		}
 	},
-/* 2 */
+	/* 2 */
 	{
+		"password": "password",
 		"name": "Pelle",
 		"age": 25,
 		"gender": "M",
@@ -96,8 +97,9 @@ let men = [
 				}
 			},
 		}
-	},	
+	},
 	{
+		"password": "password",
 		"name": "Henrik",
 		"age": 33,
 		"gender": "M",
@@ -145,8 +147,9 @@ let men = [
 			},
 		}
 	},
-/* 6 */
+	/* 6 */
 	{
+		"password": "password",
 		"name": "Janne",
 		"age": 22,
 		"gender": "M",
@@ -195,6 +198,7 @@ let men = [
 		}
 	},
 	{
+		"password": "password",
 		"name": "Berra",
 		"age": 34,
 		"gender": "M",
@@ -243,9 +247,10 @@ let men = [
 		}
 	},
 
-/* 10 */
+	/* 10 */
 
 	{
+		"password": "password",
 		"name": "Mange",
 		"age": 27,
 		"gender": "M",
@@ -294,6 +299,7 @@ let men = [
 		}
 	},
 	{
+		"password": "password",
 		"name": "Sigmund",
 		"age": 25,
 		"gender": "M",
@@ -341,8 +347,9 @@ let men = [
 			},
 		}
 	},
-/* 14 */
+	/* 14 */
 	{
+		"password": "password",
 		"name": "Karsten",
 		"age": 30,
 		"gender": "M",
@@ -391,11 +398,12 @@ let men = [
 		}
 	},
 	{
+		"password": "password",
 		"name": "James",
 		"age": 59,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
-		"pic": "https://image.shutterstock.com/image-photo/portrait-young-man-squinting-his-260nw-412697746.jpg",
+		"pic": "https://image.shutterstock.com/image-photo/portrait-young-man-squinting-his-260nw-412177746.jpg",
 		"history": {
 			"firstDate": {
 				"name": "", /* Namnet på personen de dejtade */
@@ -438,8 +446,9 @@ let men = [
 			},
 		}
 	},
-/* 18 */
+	/* 18 */
 	{
+		"password": "password",
 		"name": "Olof",
 		"age": 50,
 		"gender": "M",
@@ -490,6 +499,7 @@ let men = [
 ]
 let women = [
 	{
+		"password": "password",
 		"name": "Maj-Britt",
 		"age": 65,
 		"gender": "F",
@@ -538,6 +548,7 @@ let women = [
 		}
 	},
 	{
+		"password": "password",
 		"name": "Ylva",
 		"age": 25,
 		"gender": "F",
@@ -585,8 +596,9 @@ let women = [
 			},
 		}
 	},
-/* 4 */
+	/* 4 */
 	{
+		"password": "password",
 		"name": "Anna",
 		"age": 30,
 		"gender": "F",
@@ -635,6 +647,7 @@ let women = [
 		}
 	},
 	{
+		"password": "password",
 		"name": "Inger",
 		"age": 40,
 		"gender": "F",
@@ -682,8 +695,9 @@ let women = [
 			},
 		}
 	},
-/* 8 */
+	/* 8 */
 	{
+		"password": "password",
 		"name": "Benita",
 		"age": 22,
 		"gender": "F",
@@ -732,6 +746,7 @@ let women = [
 		}
 	},
 	{
+		"password": "password",
 		"name": "Barbro",
 		"age": 43,
 		"gender": "F",
@@ -779,8 +794,9 @@ let women = [
 			},
 		}
 	},
-/* 12 */
+	/* 12 */
 	{
+		"password": "password",
 		"name": "Helga",
 		"age": 28,
 		"gender": "F",
@@ -830,7 +846,8 @@ let women = [
 	},
 
 	{
-		"name": "Ylva",
+		"password": "password",
+		"name": "Berit",
 		"age": 23,
 		"gender": "F",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
@@ -878,6 +895,7 @@ let women = [
 		}
 	},
 	{
+		"password": "password",
 		"name": "Helena",
 		"age": 52,
 		"gender": "F",
@@ -925,7 +943,8 @@ let women = [
 			},
 		}
 	},
-    	{
+	{
+		"password": "password",
 		"name": "Sanna",
 		"age": 34,
 		"gender": "F",

@@ -1,44 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>SPEED DEJTING</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <script type="text/javascript" src="js/indexVue.js" defer ></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://vuejs.org/js/vue.js"></script>
-    <script>
-      function openLogin() {
-          if (email.value == "admin") {//&& password.value == "hej") {
-          location.href = "/admin";
-        }
 
-        else {
-          location.href = "/loggedIn";
+<html lang="en">
+
+<head>
+  <title>SPEED DEJTING</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script type="text/javascript" src="js/indexVue.js" defer></script>
+  <script type="text/javascript" src="js/dummy_users.js" defer></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://vuejs.org/js/vue.js"></script>
+
+  <script>
+    function openLogin() {
+      if (username.value == "admin") {//&& password.value == "hej") {
+        location.href = "/admin";
+      }
+
+      else {
+
+        for (var i = 0; i < 10; ++i) {
+          let currentName = men[i].name;
+          let currentPassword = men[i].password;
+
+          if (username.value == currentName && password.value == currentPassword) {
+            currentProfile = men[i];
+            window.sessionStorage.setItem("currentProfile", JSON.stringify(currentProfile));
+            window.location.href = "/loggedIn";
+          }
+        }
+        for (var i = 0; i < 10; ++i) {
+          currentName = women[i].name;
+          currentPassword = women[i].password;
+
+          if (username.value == currentName && password.value == currentPassword) {
+            currentProfile = women[i];
+            window.sessionStorage.setItem("currentProfile", JSON.stringify(currentProfile));
+            window.location.href = "/loggedIn";
+          }
         }
       }
-    </script>
-  </head>
-  <body id="work_space">
-    <div id="msgTest">
+    }
+  </script>
+</head>
+
+<body id="work_space">
+  <div id="msgTest">
     <div>
-    <h1>Logga in</h1>
-    <form>
-      <p>
-	<label for="email"></label><br>
-	<input type ="text" class = "input" id = "email" name = "email" required= "required" placeholder = "email"/>
-      </p>
-      <p>
-	<label for="password"></label><br>
-	<input type ="text" id = "password" class= "input" name = "password" required= "required" placeholder = "lösen" />
-      </p>
-      <button onclick="openLogin()" id="loginKnapp" type = "button" class ="input">LOGGA IN</button>
+      <h1>Logga in</h1>
       <form>
-	<p>
-          <a href="reg">Registrera</a>
-	</p>
-      </form>
-     </div> 
-  </body>
+        <p>
+          <label for="username"></label><br>
+          <input type="text" class="input" id="username" name="username" required="required" placeholder="användarnamn" />
+        </p>
+        <p>
+          <label for="password"></label><br>
+          <input type="password" id="password" class="input" name="password" required="required" placeholder="lösenord" />
+        </p>
+        <button onclick="openLogin()" id="loginKnapp" type="button" class="input">LOGGA IN</button>
+        <form>
+          <p>
+            <a href="reg">Registrera</a>
+          </p>
+        </form>
+    </div>
+
+</body>
+
 </html>

@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
 
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/ryd.css">
-  <script type="text/javascript" src="js/ryd.js" defer></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="https://vuejs.org/js/vue.js"></script>	
-  
-  <script>
-    function rateYourDate(){
-        location.href = "/wait"; 
-    }
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/ryd.css">
+    <script type="text/javascript" src="js/ryd.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://vuejs.org/js/vue.js"></script>	
+    
+    <script>
+      function rateYourDate(){
+      location.href = "/wait"; 
+      }
 
-    function report() {
-        location.href="/report";
-    }
-	</script>
+      function report() {
+      location.href="/report";
+      }
+    </script>
 
-	<title>Betygsätt Din Dejt</title>
-	<meta charset="utf-8" />
+    <title>Betygsätt Din Dejt</title>
+    <meta charset="utf-8" />
 
 
-</head>
+  </head>
 
-<body id="work_space">
-	<h1> Feedback Om Din Dejt </h1>
-	<section id="profile">
-		<div id="match_pic"> <!--TODO: Hämta profilbild från profilen.-->
-			<img id ="imgHere" src="https://image.shutterstock.com/image-photo/handsome-man-vivid-poncho-holding-600w-273427037.jpg" height="700px">
-		</div>
-		<div id="profile_name"> <!--TODO: Hämta namnet från profilen.-->
-			<p>henrik</p>
-		</div>
-	</section>
-	<div id = "vuePlace">			
-	<section id="rating">
-		<div class="slider">
-			Konversation<br>
-			<input id="conversationRange" type="range" min="1" max="10" value="5" class="slider" v-model="conv">
-			{{conv}}
-		</div>
-		<div class="slider">
-			Intressen<br>
-			<input id="interestRange" type="range" min="1" max="10" value="5" class="slider" v-model="intr">
-			{{intr}}
-		</div>
-		<div class="slider">
-			Hur var matchningen?<br>
-			<input id="matchRange" type="range" min="1" max="10" value="5" class="slider" v-model="match">
-			{{match}}
-			<span id="matchRangeValue" class="sliderValue"></span>
-		</div>
-	</section>
+  <body id="work_space">
+    <h1> Feedback Om Din Dejt </h1>
+    <div id = "vuePlace">
+      <section id="profile">
+	<div id="match_pic"> <!--TODO: Hämta profilbild från profilen.-->
+	  <img id ="imgHere" :src="dateImg" height="700px">
+	</div>
+	<div id="profile_name"> <!--TODO: Hämta namnet från profilen.-->
+	  <p>{{dateName}}</p>
+	</div>
+      </section>
+      <section id="rating">
+	<div class="slider">
+	  Konversation<br>
+	  <input id="conversationRange" type="range" min="1" max="10" value="5" class="slider" v-model="conv">
+	  {{conv}}
+	</div>
+	<div class="slider">
+	  Intressen<br>
+	  <input id="interestRange" type="range" min="1" max="10" value="5" class="slider" v-model="intr">
+	  {{intr}}
+	</div>
+	<div class="slider">
+	  Hur var matchningen?<br>
+	  <input id="matchRange" type="range" min="1" max="10" value="5" class="slider" v-model="match">
+	  {{match}}
+	  <span id="matchRangeValue" class="sliderValue"></span>
+	</div>
+      </section>
 
-	<button v-on:click="sendRating" onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
-	<br>
-	<button type="submit" id="report" onclick="report()">
+      <button v-on:click="sendRating" onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
+      <br>
+      <button type="submit" id="report" onclick="report()">
 	<img src="img/report.png" width="50"/> Rapportera
-	</button>
-	</div>  
-</body>
+      </button>
+    </div>  
+  </body>
 </html>
