@@ -1,5 +1,7 @@
 'use strict';
 const socket = io();
+let ratings = [];
+let connectedUsers = 0;
 
 //INIT MEN LEFT
 for (var i = 0; i < 10; i++) {
@@ -410,34 +412,35 @@ function getTimerTime() {
     return minute;
 }
 
+
 function roundFinished() {
     
-        //Skicka profilen som matchats med Maj-Britt
-        //getMajBrittsMatch();
-        var matchedMale = [];
-        var matchedFemale = [];
+    //Skicka profilen som matchats med Maj-Britt
+    //getMajBrittsMatch();
+    var matchedMale = [];
+    var matchedFemale = [];
 
-        //Lägg tillbaka alla sections
-        var maleLeft = document.getElementById("maleLeft");
-        var femaleLeft = document.getElementById("femaleLeft");
-        var maleRight = document.getElementById("maleRight");
-        var femaleRight = document.getElementById("femaleRight");
-        var i = maleRight.children[0];
+    //Lägg tillbaka alla sections
+    var maleLeft = document.getElementById("maleLeft");
+    var femaleLeft = document.getElementById("femaleLeft");
+    var maleRight = document.getElementById("maleRight");
+    var femaleRight = document.getElementById("femaleRight");
+    var i = maleRight.children[0];
 
-        //Flytta tillbaka män
-        for (; i != undefined;) {
-            var maleToMove = maleRight.children[0];
-            maleLeft.appendChild(maleToMove);
-            i = maleRight.children[0];
-        }
-        var a = femaleRight.children[0];
-        //Flytta tillbaka kvinnor
-        for (; a != undefined;) {
-            var femaleToMove = femaleRight.children[0];
-            femaleLeft.appendChild(femaleToMove);
-            a = femaleRight.children[0];
-        }
-        tableRed();
+    //Flytta tillbaka män
+    for (; i != undefined;) {
+        var maleToMove = maleRight.children[0];
+        maleLeft.appendChild(maleToMove);
+        i = maleRight.children[0];
+    }
+    var a = femaleRight.children[0];
+    //Flytta tillbaka kvinnor
+    for (; a != undefined;) {
+        var femaleToMove = femaleRight.children[0];
+        femaleLeft.appendChild(femaleToMove);
+        a = femaleRight.children[0];
+    }
+    tableRed();
 }
 
 function startRound() {
@@ -539,8 +542,7 @@ function endEarly() {
     clearInterval(timerInterval);
     timePassed = 0;
     timeLeft = TIME_LIMIT;
-    vm.msgEndTimer();
-    
+    vm.msgEndTimer();    
 }
 
 function startTimer() {
@@ -604,6 +606,39 @@ function setCircleDasharray() {
     .setAttribute("stroke-dasharray", circleDasharray);
 }
 
+
+function printRatings() {
+    console.log("hallåhallåhallå!!!!");
+    var maleLeft = document.getElementById("maleLeft");
+    var femaleLeft = document.getElementById("femaleLeft");
+    
+    for(var i = 0; i < 10; i++) {
+	var pm = document.createElement('p');
+	var pf = document.createElement('p');
+	pm.setAttribute("class", "rating");
+	pf.setAttribute("class", "rating");	
+	var currentMale = maleLeft.children[i];
+	var currentFemale = femaleLeft.children[i];
+	let test = document.createTextNode("2 2 2");
+	for(var k = 0; k < connectedUsers; k++) {
+	    var str1 = currentMale.children[1].textContent;
+	    console.log(str1);
+	    var str2 = ratings[k].myName;
+	    console.log(str2);
+	    if(str1.localeCompare(str2) == 0){
+		console.log("hejsan");
+		test = document.createTextNode("1 2 3");
+	    }
+	    	    
+	}
+	pm.appendChild(test);
+	currentMale.appendChild(pm);
+    }
+    connectedUsers = 0;
+    ratings = [];
+    
+}
+
 const vm = new Vue({
     el: '#page',
     data: {
@@ -619,40 +654,43 @@ const vm = new Vue({
         reports: "",
 
     },
-    created: function () {		
-	socket.on('redirectRating', function(data){
-	    this.testArray = data.ratings;
-	    console.log("Rating recieved" + this.testArray[0].conv + this.testArray[0].intr + this.testArray[0].match);
-
-	    this.showRatings = true; 
-	    this.a = Math.floor(Math.random()*(10)+1); 
-	    this.b = Math.floor(Math.random()*(10)+1);
-	    this.c = Math.floor(Math.random()*(10)+1);
+    created: function () {	
+	socket.on('sendRatingsToAdmin', function(data){
+	    ratings = data.ratings
+	    console.log(ratings);
+	    if(ratings.length == connectedUsers && connectedUsers != 0) {
+		console.log(ratings.length);
+		printRatings();
+	    }
 	}.bind(this));
-	      
+	
         socket.on('report', function(data){
             this.reports = data.report;
         });
+	socket.on('newUser', function() {
+	    connectedUsers++;
+	    console.log(connectedUsers);
+	}.bind(this));
     },	
     methods: {
-	      msgUser: function() {
-		        socket.emit("sendConsole", {
-			          testArray: this.testArray,
-			          round: roundNumber,
-			          allowed: allowed,
+	msgUser: function() {
+	    socket.emit("sendConsole", {
+		testArray: this.testArray,
+		round: roundNumber,
+		allowed: allowed,
                 timer: TIME_LIMIT,
-		        }),
-		        this.showRatings = false; 
-		        console.log("Roundnumber is : " + roundNumber);
-           
-		        allowed = false;
-		    },
+	    }),
+	    this.showRatings = false; 
+	    console.log("Roundnumber is : " + roundNumber);
+            
+	    allowed = false;
+	},
         msgEndTimer: function() {
             socket.emit("endRound", {
                 timer: 0
             });
         }
-	  }
+    }
 
 });
 

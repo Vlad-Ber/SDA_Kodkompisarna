@@ -4,8 +4,11 @@
     <title>Logged In</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/loggedIn.css">
-  <script>
+    <link rel="stylesheet" type="text/css" href="css/loggedIn.css">
+    <script type="text/javascript" src="js/loggedIn.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script>
       function userPage() {
       location.href = "/profile";
       }
@@ -17,23 +20,26 @@
       }
       
       function logOut() {
-           
-          location.href = "/";
-       }
+      
+      location.href = "/";
+      }
     </script>
   </head>
   <body id = "work_space">
     <button id="user_button" class="closing" onclick="userPage()"><img id ="User_Pic" src="img\user.png"/></button>  
-	<button id="message_button" class="closing" onclick="messagePage()"><img id ="Message_Pic" src="img\message.png"/></button>
-	<br>
-	<br>
-	<br>
-	<h1> Börja Dejta! </h1>	
-	<input type="text" id="Traff_ID" name="ID" required="required" placeholder="Träff-ID"/>
-	<button id="heart_button" class="closing" onclick="match()"><img id = "Heart_Pic" src = "img\heart.png"/></button> 
+    <button id="message_button" class="closing" onclick="messagePage()"><img id ="Message_Pic" src="img\message.png"/></button>
+    <br>
+    <br>
+    <br>
+    <h1> Börja Dejta! </h1>	
+    <input type="text" id="Traff_ID" name="ID" required="required" placeholder="Träff-ID"/>
+    <div id="log">
+      <button v-on:click="newUser" id="heart_button" class="closing" onclick="match()"><img id = "Heart_Pic" src = "img\heart.png"/>
+      </button>
+    </div>
   </body>
   <footer>
-     <button id="signOut" class="button" onclick="logOut()">Logga ut</button>
+    <button id="signOut" class="button" onclick="logOut()">Logga ut</button>
   </footer>
 </html>
 <main>
