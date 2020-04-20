@@ -120,19 +120,20 @@ function Data() {
     this.timer = 0;
     this.reports = {};
     this.counter = 0;
-    this.no_of_ratings = 0; 
     this.orders = {};
     this.femma = 5;
-    this.ratings = {};
     this.users={};
     this.match = [ // this.match används för currentDate. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem? (Om det finns tid)
         this.profile = {},
         this.table = 0,
 
     ],
-        this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
-  this.timer = 0;
-  this.adminInfo = [];
+    this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
+    this.timer = 0;
+    this.adminInfo = [];
+    this.ratings = [];
+    this.ratingsCounter = 0; 
+    
 };
 
 
@@ -141,7 +142,7 @@ Data.prototype.getReports = function () {
     return this.reports;
 };
 /*TypeError: CanTypeError: Cannot set property 'getReports' of undefined
-not set property 'getReports' of undefined
+  not set property 'getReports' of undefined
 
   Adds an order to to the queue
 */
@@ -159,11 +160,11 @@ Data.prototype.getAllOrders = function () {
 };
 
 Data.prototype.setRatings = function(newRatings) {    
-    this.ratings[this.no_of_ratings] = newRatings;
-    //this.no_of_ratings++;
+    this.ratings[data.ratingsCounter] = newRatings;
+    data.ratingsCounter++; 
 };
 
-Data.prototype.sendRatings = function() {
+Data.prototype.getRatings = function() {
     return this.ratings;
 }; 
 
@@ -265,7 +266,15 @@ io.on('connection', function (socket) {
     socket.on('sendRating', function (rate) {
         console.log("recieved" + rate.conv + rate.intr + rate.match);
         data.setRatings(rate);
-        io.emit('redirectRating', { ratings: data.sendRatings(), });
+	io.emit('sendRatingsToAdmin', { ratings: data.getRatings(), });
+    });
+
+    socket.on('getRatings', function () {
+	io.emit('sendRatingsToAdmin', { ratings: data.getRatings(), });
+    });
+
+    socket.on('newUser', function() {
+	io.emit('newUser');
     });
 
     socket.on('getMessage', function () {
@@ -295,7 +304,9 @@ io.on('connection', function (socket) {
             ++joinedEvent;
             name = data.adminInfo[i].female.name;   
             io.emit(name, { adminInfo: data.adminInfo[i] });
-        } 
+        }
+	data.ratings = [];
+	data.ratingsCounter = 0; 
     });
     //Add logged in users
 

@@ -27,11 +27,11 @@ let vo = new Vue({
     methods: {
 	sendRating: function() {
 	    socket.emit("sendRating", {
-		conv: this.conv,
-		intr: this.intr,
-		match: this.match,
-		dateName: this.dateName,
-		myName: this.myName
+		conv: vo.conv,
+		intr: vo.intr,
+		match: vo.match,
+		dateName: vo.dateName,
+		myName: vo.currentProfile.name, 
 	    }),
 	    console.log("Rating sent");
 	    console.log("sent: " + this.conv + " " + this.intr + " " + this.match + " " + this.dateName + " " + this.myName);
