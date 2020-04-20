@@ -23,5 +23,6 @@ To login as an admin:
 **Pelle, Peter, Henrik, Janne, Berra, Mange, Sigmund, James, Karsten, Olof**
 - Profiles available for women :
 **Maj-Britt, Ylva, Anna, Inger, Benita, Barbro, Helga, Berit, Helena, Sanna**
+- The password for all users is **password**
 - Join the date by pressing the Heart Symbol
 - Enjoy dating!
