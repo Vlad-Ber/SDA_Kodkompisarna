@@ -3,8 +3,8 @@
 const socket = io();
 
 function setTable(tableToSet) {
-	var table = document.getElementById("table" + tableToSet);
-	table.style.backgroundColor = "green";
+    var table = document.getElementById("table" + tableToSet);
+    table.style.backgroundColor = "green";
 }
 
 let matchVue = new Vue({
@@ -61,9 +61,14 @@ let matchVue = new Vue({
 		matchVue.p1.gender = date.adminInfo.female.gender;
 		matchVue.p1.desc = date.adminInfo.female.desc;
 		matchVue.p1.pic = date.adminInfo.female.pic;
-		matchVue.p1.table = date.adminInfo.table;
+
 		window.sessionStorage.setItem(matchVue.roundNumber, JSON.stringify(matchVue.p1.name));
 		
+
+		matchVue.p1.table = date.adminInfo.table;
+                console.log(matchVue.p1.table);
+		setTable(matchVue.p1.table);
+
             }
 
             // If the current user is female, get the data of the male user.
@@ -73,17 +78,23 @@ let matchVue = new Vue({
 		matchVue.p1.gender = date.male.gender;
 		matchVue.p1.desc = date.male.desc;
 		matchVue.p1.pic = date.male.pic;
-		matchVue.p1.table = date.table;
+
 		window.sessionStorage.setItem(matchVue.roundNumber, JSON.stringify(matchVue.p1.name));
+
+		matchVue.p1.table = date.table;
+                console.log(matchVue.p1.table);
+	        setTable(matchVue.p1.table);
+
 	    }
             else {
 		console.log("Error: Could not identify user.")
             }
 	})
     },
-    mounted: function () {
-	setTable(2);
-    },
+    /*mounted: function () {
+      console.log(p1.table);
+      setTable(p1.table);
+      },*/
 
 });
 
