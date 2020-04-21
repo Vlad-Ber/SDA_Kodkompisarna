@@ -73,15 +73,15 @@ let matchVue = new Vue({
 
             // If the current user is female, get the data of the male user.
             else if (matchVue.currentProfile.gender == "F") {
-		matchVue.p1.name = date.male.name;
-		matchVue.p1.age = date.male.age;
-		matchVue.p1.gender = date.male.gender;
-		matchVue.p1.desc = date.male.desc;
-		matchVue.p1.pic = date.male.pic;
+		matchVue.p1.name = date.adminInfo.male.name;
+		matchVue.p1.age = date.adminInfo.male.age;
+		matchVue.p1.gender = date.adminInfo.male.gender;
+		matchVue.p1.desc = date.adminInfo.male.desc;
+		matchVue.p1.pic = date.adminInfo.male.pic;
 
 		window.sessionStorage.setItem(matchVue.roundNumber, JSON.stringify(matchVue.p1.name));
 
-		matchVue.p1.table = date.table;
+		matchVue.p1.table = date.adminInfo.table;
                 console.log(matchVue.p1.table);
 	        setTable(matchVue.p1.table);
 

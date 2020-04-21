@@ -620,7 +620,8 @@ function printRatings() {
 	pf.setAttribute("class", "rating");	
 	var currentMale = maleLeft.children[i];
 	var currentFemale = femaleLeft.children[i];
-	let test = document.createTextNode("2 2 2");
+	//The men 
+	let test = document.createTextNode("2 2 2");	
 	for(var k = 0; k < connectedUsers; k++) {
 	    var str1 = currentMale.children[1].textContent;
 	    console.log(str1);
@@ -630,10 +631,26 @@ function printRatings() {
 		console.log("hejsan");
 		test = document.createTextNode(ratings[k].conv + " " + ratings[k].intr + " " + ratings[k].match);
 	    }
-	    	    
-	}
+	    
+	}	
 	pm.appendChild(test);
 	currentMale.appendChild(pm);
+
+	//The women
+	let test2 = document.createTextNode("2 2 2");	
+	for(var j = 0; j < connectedUsers; j++) {
+	    var str1 = currentFemale.children[1].textContent;
+	    console.log(str1);
+	    var str2 = ratings[j].myName;
+	    console.log(str2);
+	    if(str1.localeCompare(str2) == 0){
+		console.log("hejsan");
+		test = document.createTextNode(ratings[j].conv + " " + ratings[j].intr + " " + ratings[j].match);
+	    }
+	    
+	}	
+	pf.appendChild(test2);
+	currentFemale.appendChild(pf);
     }
     ratings = [];
     

@@ -19,8 +19,14 @@ let vo = new Vue({
 	console.log("i am " + this.name);
 	socket.on(this.name, function (data){
 	    console.log(data);
-		this.dateName = data.adminInfo.female.name;
-		this.dateImg = data.adminInfo.female.pic;
+	    if(this.currentProfile.gender == "M") {
+		vo.dateName = data.adminInfo.female.name;
+		vo.dateImg = data.adminInfo.female.pic;
+	    }
+	    if (this.currentProfile.gender == "F") {
+		vo.dateName = data.adminInfo.male.name;
+		vo.dateImg = data.adminInfo.male.pic; 
+	    }
 	    console.log("i am dating " + this.dateName);
 	}.bind(this));
     },
