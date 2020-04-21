@@ -11,6 +11,7 @@ let matchVue = new Vue({
     el: "#current_date",
     data: {
 	timer: 0,
+	roundNumber: -1,
 	currentProfile: JSON.parse(window.sessionStorage.getItem("currentProfile")),
 	profileName: "",
 	p1: {
@@ -34,9 +35,19 @@ let matchVue = new Vue({
             console.log("in currentDate.js");
             onTimesUp();
         }.bind(this));
-
-
 	
+
+	socket.emit("getRoundNumber", {});
+	socket.on("sendRoundNumber", function(data) {
+	    if(data.roundNumber == 1) {
+		matchVue.roundNumber = "fromRound1";
+	    } else if (data.roundNumber == 2) {
+		matchVue.roundNumber = "fromRound2"; 
+	    } else if (data.roundNumber == 3) {
+		matchVue.roundNumber = "fromRound3";
+	    }
+	    console.log(this.roundNumber);
+	});
 	socket.emit("getProfiles", {}),
 	console.log(this.currentProfile);
 	socket.on(this.currentProfile.name, function (date) {
@@ -50,7 +61,9 @@ let matchVue = new Vue({
 		matchVue.p1.gender = date.adminInfo.female.gender;
 		matchVue.p1.desc = date.adminInfo.female.desc;
 		matchVue.p1.pic = date.adminInfo.female.pic;
-		matchVue.p1.table = date.adminInfo.table;		
+		matchVue.p1.table = date.adminInfo.table;
+		window.sessionStorage.setItem(matchVue.roundNumber, JSON.stringify(matchVue.p1.name));
+		
             }
 
             // If the current user is female, get the data of the male user.
@@ -60,7 +73,8 @@ let matchVue = new Vue({
 		matchVue.p1.gender = date.male.gender;
 		matchVue.p1.desc = date.male.desc;
 		matchVue.p1.pic = date.male.pic;
-		matchVue.p1.table = date.table;		
+		matchVue.p1.table = date.table;
+		window.sessionStorage.setItem(matchVue.roundNumber, JSON.stringify(matchVue.p1.name));
 	    }
             else {
 		console.log("Error: Could not identify user.")

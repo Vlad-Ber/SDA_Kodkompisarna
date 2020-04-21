@@ -256,6 +256,11 @@ io.on('connection', function (socket) {
             });
         });
     });
+    socket.on('getRoundNumber', function() {
+	io.emit('sendRoundNumber', {
+	    roundNumber: data.roundnumber,
+	});
+    });
     socket.on('endRound', function (foo) {
         console.log("In server, timer should be 0: " + foo.timer);
         io.emit("endUserRound", {
@@ -274,7 +279,11 @@ io.on('connection', function (socket) {
     });
 
     socket.on('newUser', function() {
+	console.log("new user"); 
 	io.emit('newUser');
+    });
+    socket.on('sendToMessage', function(data) {
+	io.emit('sendingToMessage', { yesNo: data });
     });
 
     socket.on('getMessage', function () {
@@ -328,16 +337,20 @@ io.on('connection', function (socket) {
         } 
 	
     });
+    socket.on("getAllProfiles", function() {
+	console.log("i am here");
+	io.emit("sendingAllProfiles", { profiles: data.adminInfo});
+    });
 
-socket.on('loggedIn', function(user){
-    data.addLoggedIn(user);
+    socket.on('loggedIn', function(user){
+	data.addLoggedIn(user);
         var users=[];
 
         var dict = data.getLoggedInUsers();
         for(var key in dict)
             users.push(dict[key]);
-    console.log(users);
-    console.log(dict);
+	console.log(users);
+	console.log(dict);
         io.emit('currentLoggedIn', {loggedIn: users});
     });
 });
