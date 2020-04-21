@@ -23,7 +23,7 @@
 		<h1 id="date1"> Första Dejten</h1>
 		<section id="profile">
 			<div id="match_pic">
-				<img id="pic" :src="p1.pic" height="350px">
+				<img id="pic" :src="p1.pic" width="240px" height="150px">
 			</div>
 			<div id="profile_name">
 				<p> {{ p1.name }} </p>
@@ -34,6 +34,8 @@
 			<div id="profile_desc">
 				<p> {{ p1.desc }} <br /></p>
 			</div>
+			
+			<button onclick="rateYourDate()" id="finishEarly" type="button" class="button">Avsluta dejten tidigt</button>
 			<div id="table">
 				<p>Ni ska sitta vid bord:</p>
 				<div id="tableSec">
@@ -50,11 +52,10 @@
 				</div>
 			</div>
 			<br>
-			<div id="app"></div>
+		
 		</section>
 
-		<button onclick="rateYourDate()" id="finishEarly" type="button" class="button">Avsluta dejten tidigt</button>
-		<button onclick="help()" id="dateHelp" type="button" class="button1">Frågehjälp :)</button>
+		<div id="app"></div>
 	</div>
 </body>
 

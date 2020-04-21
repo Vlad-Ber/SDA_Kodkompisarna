@@ -30,7 +30,7 @@
     <div id = "vuePlace">
       <section id="profile">
 	<div id="match_pic"> <!--TODO: Hämta profilbild från profilen.-->
-	  <img id ="imgHere" :src="dateImg" height="700px">
+	  <img id ="imgHere" :src="dateImg" width="220px" height="150px">
 	</div>
 	<div id="profile_name"> <!--TODO: Hämta namnet från profilen.-->
 	  <p>{{dateName}}</p>
@@ -57,9 +57,6 @@
 
       <button v-on:click="sendRating" onclick="rateYourDate()" id="rateYourDateKnapp" type="button" class="button">Skicka</button>
       <br>
-      <button type="submit" id="report" onclick="report()">
-	<img src="img/report.png" width="50"/> Rapportera
-      </button>
     </div>  
   </body>
 </html>
