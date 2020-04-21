@@ -120,19 +120,20 @@ function Data() {
     this.timer = 0;
     this.reports = {};
     this.counter = 0;
-    this.no_of_ratings = 0; 
     this.orders = {};
     this.femma = 5;
-    this.ratings = {};
     this.users={};
     this.match = [ // this.match används för currentDate. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem? (Om det finns tid)
         this.profile = {},
         this.table = 0,
 
     ],
-        this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
-  this.timer = 0;
-  this.adminInfo = [];
+    this.matches = {};// this.matches används för meetAgain. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
+    this.timer = 0;
+    this.adminInfo = [];
+    this.ratings = [];
+    this.ratingsCounter = 0; 
+    
 };
 
 
@@ -141,7 +142,7 @@ Data.prototype.getReports = function () {
     return this.reports;
 };
 /*TypeError: CanTypeError: Cannot set property 'getReports' of undefined
-not set property 'getReports' of undefined
+  not set property 'getReports' of undefined
 
   Adds an order to to the queue
 */
@@ -159,11 +160,11 @@ Data.prototype.getAllOrders = function () {
 };
 
 Data.prototype.setRatings = function(newRatings) {    
-    this.ratings[this.no_of_ratings] = newRatings;
-    //this.no_of_ratings++;
+    this.ratings[data.ratingsCounter] = newRatings;
+    data.ratingsCounter++; 
 };
 
-Data.prototype.sendRatings = function() {
+Data.prototype.getRatings = function() {
     return this.ratings;
 }; 
 
@@ -209,7 +210,6 @@ Data.prototype.setAdminInfo = function (adminInfo) {
     this.adminInfo[7] = adminInfo.date8;
     this.adminInfo[8] = adminInfo.date9;
     this.adminInfo[9] = adminInfo.date10;
-    console.log(this.adminInfo);
 }
 
 const data = new Data();
@@ -256,6 +256,11 @@ io.on('connection', function (socket) {
             });
         });
     });
+    socket.on('getRoundNumber', function() {
+	io.emit('sendRoundNumber', {
+	    roundNumber: data.roundnumber,
+	});
+    });
     socket.on('endRound', function (foo) {
         console.log("In server, timer should be 0: " + foo.timer);
         io.emit("endUserRound", {
@@ -266,14 +271,19 @@ io.on('connection', function (socket) {
     socket.on('sendRating', function (rate) {
         console.log("recieved" + rate.conv + rate.intr + rate.match);
         data.setRatings(rate);
-        io.emit('redirectRating', { ratings: data.sendRatings(), });
+	io.emit('sendRatingsToAdmin', { ratings: data.getRatings(), });
     });
 
-    socket.on('sendMatches', function (matches) {
-        console.log("recieved matches for Maj-Britt, Sending to her messages");
-        data.setMatches(matches);
-        io.emit('sendMessage', { match: data.getMatches(), });
+    socket.on('getRatings', function () {
+	io.emit('sendRatingsToAdmin', { ratings: data.getRatings(), });
+    });
 
+    socket.on('newUser', function() {
+	console.log("new user"); 
+	io.emit('newUser');
+    });
+    socket.on('sendToMessage', function(data) {
+	io.emit('sendingToMessage', { yesNo: data });
     });
 
     socket.on('getMessage', function () {
@@ -296,16 +306,16 @@ io.on('connection', function (socket) {
         for (i = 0; i < 10; i++) {
             ++joinedEvent;
             name = data.adminInfo[i].male.name;
-            console.log(name);
             io.emit(name, { adminInfo: data.adminInfo[i]});
         } 
         //Send date info to women
         for (i = 0; i < 10; i++) {
             ++joinedEvent;
-            name = data.adminInfo[i].female.name;
-            console.log(name);	    
+            name = data.adminInfo[i].female.name;   
             io.emit(name, { adminInfo: data.adminInfo[i] });
-        } 
+        }
+	data.ratings = [];
+	data.ratingsCounter = 0; 
     });
     //Add logged in users
 
@@ -317,28 +327,30 @@ io.on('connection', function (socket) {
 	for (i = 0; i < 10; i++) {
             ++joinedEvent;
             name = data.adminInfo[i].male.name;
-            console.log(name);
             io.emit(name, { adminInfo: data.adminInfo[i]});
         } 
         //Send date info to women
         for (i = 0; i < 10; i++) {
             ++joinedEvent;
             name = data.adminInfo[i].female.name;
-            console.log(name);	    
             io.emit(name, { adminInfo: data.adminInfo[i] });
         } 
 	
     });
+    socket.on("getAllProfiles", function() {
+	console.log("i am here");
+	io.emit("sendingAllProfiles", { profiles: data.adminInfo});
+    });
 
-socket.on('loggedIn', function(user){
-    data.addLoggedIn(user);
+    socket.on('loggedIn', function(user){
+	data.addLoggedIn(user);
         var users=[];
 
         var dict = data.getLoggedInUsers();
         for(var key in dict)
             users.push(dict[key]);
-    console.log(users);
-    console.log(dict);
+	console.log(users);
+	console.log(dict);
         io.emit('currentLoggedIn', {loggedIn: users});
     });
 });

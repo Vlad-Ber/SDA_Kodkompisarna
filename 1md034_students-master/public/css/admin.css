@@ -151,26 +151,26 @@ p {
 }
 
 .rating{
-	font-size: 2vh;
-	position:absolute;
-	margin-left:12%;	
-	margin-top: 1.3%;
-	font-weight:bold;
-	background-color: powderblue;
+    font-size: 1.5vh;
+    position: absolute;
+    margin-left:12%;
+    margin-top:-1.5%;
+    font-weight:bold;
+    background-color: powderblue;
 }
 
 .rate{
-	font-size: 1.8vh;
-	position: absolute;
-	margin-left:12%;
-	margin-top: -2.5%;
-	font-weight: bold;
-	background-color: powderblue;
-	width:7%;
+    font-size: 1.5vh;
+    position: absolute;
+    margin-left:12%;
+    margin-top: -2.5%;
+    font-weight: bold;
+    background-color: powderblue;
+    width:8%;
 }
-     HTML CSS JS 
+HTML CSS JS 
 
-    Result 
+Result 
 
 EDIT ON
 

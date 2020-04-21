@@ -5,7 +5,7 @@ let vo = new Vue({
     el: "#vuePlace", 
     data:{
 	dateName: "",
-	dateImg: "https://image.shutterstock.com/image-photo/handsome-man-vivid-poncho-holding-600w-273427037.jpg",
+	dateImg: "",
 	currentProfile: JSON.parse(window.sessionStorage.getItem("currentProfile")),
 	name: "",
 	conv: 5,
@@ -19,18 +19,25 @@ let vo = new Vue({
 	console.log("i am " + this.name);
 	socket.on(this.name, function (data){
 	    console.log(data);
-	    this.dateName = data.adminInfo.female.name;
+	    if(this.currentProfile.gender == "M") {
+		vo.dateName = data.adminInfo.female.name;
+		vo.dateImg = data.adminInfo.female.pic;
+	    }
+	    if (this.currentProfile.gender == "F") {
+		vo.dateName = data.adminInfo.male.name;
+		vo.dateImg = data.adminInfo.male.pic; 
+	    }
 	    console.log("i am dating " + this.dateName);
 	}.bind(this));
     },
     methods: {
 	sendRating: function() {
 	    socket.emit("sendRating", {
-		conv: this.conv,
-		intr: this.intr,
-		match: this.match,
-		dateName: this.dateName,
-		myName: this.myName
+		conv: vo.conv,
+		intr: vo.intr,
+		match: vo.match,
+		dateName: vo.dateName,
+		myName: vo.currentProfile.name, 
 	    }),
 	    console.log("Rating sent");
 	    console.log("sent: " + this.conv + " " + this.intr + " " + this.match + " " + this.dateName + " " + this.myName);
