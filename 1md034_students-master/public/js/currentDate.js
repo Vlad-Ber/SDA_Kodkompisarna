@@ -3,7 +3,8 @@
 const socket = io();
 
 function setTable(tableToSet) {
-    var table = document.getElementById("table" + tableToSet);
+    var tableToSet1 = tableToSet - 1;
+    var table = document.getElementById("table" + tableToSet1);
     table.style.backgroundColor = "green";
 }
 
