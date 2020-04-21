@@ -403,7 +403,7 @@ let men = [
 		"age": 59,
 		"gender": "M",
 		"desc": "Gillar långa promenader på stranden i solnedgången.",
-		"pic": "https://image.shutterstock.com/image-photo/portrait-young-man-squinting-his-260nw-412177746.jpg",
+		"pic": "https://image.shutterstock.com/image-photo/businessman-angry-copying-machine-jamming-600w-1517167682.jpg",
 		"history": {
 			"firstDate": {
 				"name": "", /* Namnet på personen de dejtade */
