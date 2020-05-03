@@ -73,46 +73,7 @@
 	</p>
 </div>
 <div id="yourMatches" class="matches" v-if="seen">
-      <h1>Här Är Dina Matchningar!</h1>
-
-      <div class="wrapper">
-
-	<section class="matchOneImg" v-if="p1.match">
-	  <img :src="p1.img" width="400" height="400" id = "p_pic">
-	</section>
-
-	<section class="matchOneDesc" v-if="p1.match">
-		  {{p1.name}}<br>
-		  {{p1.age}} gammal<br>
-		  bor i {{p1.loc}}<br>
-		  tel {{p1.tel}}
-	</section>
-
-
-
-
-	<section class="matchTwoImg" v-if="p2.match">
-	  <img :src="p2.img" width="400" height="400" id = "p_pic" >
-	  
-	</section>
-	<section class="matchTwoDesc" v-if="p2.match">
-		  {{p2.name}}<br>
-		  {{p2.age}} gammal<br>
-		  bor i {{p2.loc}}<br>
-		  tel {{p2.tel}}
-	</section>
-
-
-	<section class="matchThreeImg" v-if="p3.match">
-	  <img :src="p3.img" width="400" height="400" id = "p_pic">
-	</section>
-	<section class="matchThreeDesc" v-if="p3.match">
-		  {{p3.name}}<br>
-		  {{p3.age}} gammal<br>
-		  bor i {{p3.loc}}<br>
-		  tel {{p3.tel}}
-	</section>
-      </div>
+      <h1>Tack för att du deltog! Dina matchningar finns i dina meddelanden</h1>
     <main>
       <button id="homeButton" class="button" onclick="exit()">Tillbaka till startsidan</button>
       <br>

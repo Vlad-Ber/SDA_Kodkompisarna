@@ -123,6 +123,9 @@ function Data() {
     this.orders = {};
     this.femma = 5;
     this.users={};
+    this.meetAgain = [];
+    this.meetAgainCounter = 0; 
+    this.connectedUsers = 0; 
     this.match = [ // this.match används för currentDate. TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem? (Om det finns tid)
         this.profile = {},
         this.table = 0,
@@ -136,7 +139,13 @@ function Data() {
     
 };
 
+Data.prototype.addUser = function () {
+    this.connectedUsers++; 
+};
 
+Data.prototype.getConnected = function () {
+    return this.connectedUsers; 
+};
 
 Data.prototype.getReports = function () {
     return this.reports;
@@ -181,6 +190,16 @@ Data.prototype.sendMatch = function () {
 
 // Funktioner för meetAgain
 // TODO: uppdatera namnen så att de inte är så lika, alternativt koppla ihop dem ? (Om det finns tid)
+Data.prototype.addMeetAgain = function (newMeetAgain) {
+    this.meetAgain[this.meetAgainCounter] = newMeetAgain;
+    this.meetAgainCounter++;
+};
+
+Data.prototype.getMeetAgain = function () {
+    return this.meetAgain;
+};
+
+
 
 Data.prototype.setMatches = function (matches) {
     this.matches[0] = matches.p1;
@@ -210,7 +229,8 @@ Data.prototype.setAdminInfo = function (adminInfo) {
     this.adminInfo[7] = adminInfo.date8;
     this.adminInfo[8] = adminInfo.date9;
     this.adminInfo[9] = adminInfo.date10;
-}
+};
+
 
 const data = new Data();
 
@@ -279,7 +299,8 @@ io.on('connection', function (socket) {
     });
 
     socket.on('newUser', function() {
-	console.log("new user"); 
+	console.log("new user");
+	data.addUser(); 
 	io.emit('newUser');
     });
     socket.on('sendToMessage', function(data) {
@@ -342,6 +363,10 @@ io.on('connection', function (socket) {
 	io.emit("sendingAllProfiles", { profiles: data.adminInfo});
     });
 
+    socket.on("getNoOfUsers", function() {
+	io.emit("sendNoOfUsers", { connectedUsers: data.getConnected() });
+    });
+
     socket.on('loggedIn', function(user){
 	data.addLoggedIn(user);
         var users=[];
@@ -352,6 +377,14 @@ io.on('connection', function (socket) {
 	console.log(users);
 	console.log(dict);
         io.emit('currentLoggedIn', {loggedIn: users});
+    });
+
+    socket.on('sendMeetAgain', function(meetAgain){
+	data.addMeetAgain(meetAgain);
+    });
+    socket.on('getMeetAgain', function(){
+	console.log(data.getMeetAgain());
+	io.emit('gettingMeetAgain', { meetAgain: data.getMeetAgain()});
     });
 });
 

@@ -92,6 +92,24 @@ const vm = new Vue({
 		window.sessionStorage.removeItem("fromRound3");
 	    }
 	    console.log("sendToMessage");
+	    socket.emit('sendMeetAgain', {
+		meetAgain: {		    
+		    p1: {
+			name: vm.p1.name,
+			match: vm.p1.match,
+
+		    },
+		    p2: {
+			name: vm.p2.name,
+			match: vm.p2.match,			
+		    },
+		    p3: {
+			name: vm.p3.name,
+			match: vm.p3.match,
+		    },
+		},
+		myName: vm.myName,
+	    });
 	}
     },
 
