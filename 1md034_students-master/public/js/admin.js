@@ -543,7 +543,7 @@ function endEarly() {
     clearInterval(timerInterval);
     timePassed = 0;
     timeLeft = TIME_LIMIT;
-    vm.msgEndTimer();    
+    vm.msgEndTimer();
 }
 
 function startTimer() {
@@ -644,8 +644,8 @@ function printRatings() {
 	    var str2 = ratings[j].myName;
 	    console.log(str2);
 	    if(str1.localeCompare(str2) == 0){
-		console.log("hejsan");
-		test = document.createTextNode(ratings[j].conv + " " + ratings[j].intr + " " + ratings[j].match);
+		console.log("\n \n \n \n \n hejsan kvinna \n \n \n \n");
+		test2 = document.createTextNode(ratings[j].conv + " " + ratings[j].intr + " " + ratings[j].match);
 	    }
 	    
 	}	
@@ -677,7 +677,7 @@ const vm = new Vue({
 	    console.log(ratings);
 	    if(ratings.length == connectedUsers && connectedUsers != 0) {
 		console.log(ratings.length);
-		printRatings();
+		printRatings();		
 	    }
 	}.bind(this));
 	
